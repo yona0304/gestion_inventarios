@@ -17,7 +17,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nombres',
+        'identificacion',
+        'cargo',
+        'ubicacion',
+        'cargo',
+        'ods',
+        'rol',
+        'estado',
         'email',
         'password',
     ];
@@ -43,5 +50,40 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function cargos()
+    {
+        return $this->belongsTo(Cargos::class);
+    }
+
+    // Relación con asignación de equipo
+    public function asignaciones()
+    {
+        return $this->hasMany(AsignacionEquipo::class);
+    }
+
+    // Relación con novedades
+    public function novedades()
+    {
+        return $this->hasMany(Novedad::class);
+    }
+
+    // Relación con historial de productos
+    public function historialProductos()
+    {
+        return $this->hasMany(HistorialProducto::class);
+    }
+
+    // Relación con paz y salvo
+    public function pazSalvo()
+    {
+        return $this->hasMany(PazSalvo::class);
+    }
+
+    // Relación con alquiler de equipo
+    public function alquileres()
+    {
+        return $this->hasMany(AlquilerEquipo::class);
     }
 }

@@ -21,17 +21,21 @@
                 <button id="toggle-registros" type="button"
                     class="flex items-center w-full p-2 text-base text-white transition duration-75 rounded-lg group hover:bg-red-700 hover:text-white"
                     aria-controls="dropdown-example">
-                    <span class="flex-1 ms-3 text-left whitespace-nowrap">Registros</span>
+                    <span class="flex-1 ms-3 text-left whitespace-nowrap">Registrar</span>
                     <i class="fa-solid fa-angle-down text-xl text-white group-hover:text-white"></i>
                 </button>
                 <ul id="dropdown-example" class="hidden py-2 space-y-2">
                     <li>
-                        <a href=""
-                            class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Productos</a>
+                        <a href="{{ route('producto') }}"
+                            class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Producto</a>
                     </li>
                     <li>
                         <a href=""
-                            class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Usuarios</a>
+                            class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Vehiculo</a>
+                    </li>
+                    <li>
+                        <a href=""
+                            class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Usuario</a>
                     </li>
                 </ul>
             </li>
