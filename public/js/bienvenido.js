@@ -2,17 +2,23 @@
 const modal = document.getElementById('authentication-modal');
 const showModalButton = document.getElementById('mostrar');
 const closeButton = document.querySelector('[data-modal-hide]');
+const content = document.getElementById('content');
+const overlay = document.getElementById('overlay');
 
 // Función para mostrar el modal
 function showModal() {
     modal.classList.remove('hidden');
     modal.classList.add('flex');
+    content.classList.add('blur-background');
+    overlay.style.display = 'block';
 }
 
 // Función para cerrar el modal
 function closeModal() {
     modal.classList.remove('flex');
     modal.classList.add('hidden');
+    content.classList.remove('blur-background');
+    overlay.style.display = 'none';
 }
 
 // Mostrar el modal al hacer clic en el botón de "Registrar"

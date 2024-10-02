@@ -8,10 +8,28 @@
     <link rel="icon" href="{{ asset('images/ingicat.png') }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Bienvenido</title>
+    <style>
+        /* Estilo para el fondo borroso */
+        .blur-background {
+            filter: blur(5px);
+            transition: filter 0.3s ease;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Oscuro con opacidad */
+            z-index: 40; /* Debajo del modal pero sobre el contenido */
+            display: none; /* Oculto por defecto */
+        }
+    </style>
 </head>
 
 <body class="h-screen flex items-center justify-center bg-red-900">
-    <div class="grid gap-4 mb-6 md:grid-cols-2">
+    <div class="grid gap-4 mb-6 md:grid-cols-2" id="content">
 
         <button id="mostrar"
             class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.6)]">
@@ -29,6 +47,7 @@
 
     </div>
 
+    <div id="overlay" class="overlay"></div>
     <!-- Main modal -->
     <div id="authentication-modal" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -53,7 +72,8 @@
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5">
-                    <form class="space-y-4" action="#">
+                    <form class="space-y-4" action="#" method="POST">
+                        @csrf
                         <div>
                             <label for="correo" class="block mb-2 text-sm font-medium text-gray-900">Ingresar correo
                                 electrónico</label>
