@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('codigo_interno')->unique();
             $table->string('descripcion_equipo');
             $table->string('codigo_equipo_referencia')->unique()->nullable();
+            $table->string('ubicacion');
             $table->text('observaciones')->nullable();
             $table->string('estado');
             $table->timestamps();

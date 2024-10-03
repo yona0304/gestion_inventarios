@@ -37,3 +37,11 @@ modal.addEventListener('click', function (e) {
         closeModal();
     }
 });
+
+
+document.getElementById('ver_contraseña').addEventListener('change', function (e) {
+    const passwordFields = document.querySelectorAll('input[type="password"], input[type="text"]');
+    passwordFields.forEach(field => {
+        field.type = e.target.checked ? 'text' : 'password';
+    });
+});

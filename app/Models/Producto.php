@@ -16,6 +16,7 @@ class Producto extends Model
         'codigo_interno',
         'descripcion_equipo',
         'codigo_equipo_referencia',
+        'ubicacion',
         'observaciones',
         'estado'
     ];
@@ -48,5 +49,24 @@ class Producto extends Model
     public function pazSalvo()
     {
         return $this->hasMany(PazSalvo::class);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($producto) {
+            // Asegurarse de que ya tiene un código interno asignado
+            if (empty($producto->codigo_interno) && $producto->categoria_id) {
+                $categoria = $producto->categoria;
+                $prefijo = $categoria->prefijo;
+
+                // Obtener el contador actual de la tabla de productos que coinciden con el prefijo
+                $contador = Producto::where('codigo_interno', 'like', "$prefijo-%")->count() + 1;
+
+                // Crear el código interno único
+                $producto->codigo_interno = sprintf('%s-%03d', $prefijo, $contador);
+            }
+        });
     }
 }
