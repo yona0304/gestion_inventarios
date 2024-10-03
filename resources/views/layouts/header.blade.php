@@ -34,7 +34,7 @@
                             class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Vehiculo</a>
                     </li>
                     <li>
-                        <a href=""
+                        <a href="{{ route('usuario') }}"
                             class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Usuario</a>
                     </li>
                 </ul>
@@ -59,6 +59,13 @@
                             Asignación</a>
                     </li>
                 </ul>
+            </li>
+
+            <li>
+                <a href="{{ route('cargo') }}"
+                    class="flex items-center p-2 text-white rounded-lg hover:bg-red-700 hover:text-white group">
+                    <span class="flex-1 ms-3 whitespace-nowrap">Cargos</span>
+                </a>
             </li>
 
             <li>
