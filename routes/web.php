@@ -4,6 +4,7 @@ use App\Http\Controllers\InicioController;
 use App\Http\Controllers\RegistrarCategoriaController;
 use App\Http\Controllers\RegistrarProducto;
 use App\Http\Controllers\RegistrarUsuarioController;
+use App\Http\Controllers\VehiculoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,3 +27,5 @@ Route::post('/registrar-usuario/registro', [RegistrarUsuarioController::class, '
 //categoria
 Route::get('/registrar-categoria', [RegistrarCategoriaController::class, 'index'])->name('categoria');
 Route::post('/registrar-categoria/registrado', [RegistrarCategoriaController::class, 'store'])->name('categoria.store');
+
+Route::get('/registrar-vehiculo', [VehiculoController::class, 'index'])->name('vehiculo');

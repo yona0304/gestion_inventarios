@@ -30,7 +30,7 @@
                             class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Producto</a>
                     </li>
                     <li>
-                        <a href=""
+                        <a href="{{ route('vehiculo') }}"
                             class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Vehiculo</a>
                     </li>
                     <li>
