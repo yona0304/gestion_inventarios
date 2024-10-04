@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="p-4 sm:ml-64">
-        <form class="mx-auto" method="POST" action="{{ route('registrar.store') }}">
+        <form id="ProductoEnvio" class="mx-auto" method="POST" action="{{ route('registrar.store') }}">
             @csrf
             <div class="max-w-sm mx-auto">
                 <label for="catgoria" class="block mb-2 text-sm font-medium text-gray-900">Seleccionar categoria</label>

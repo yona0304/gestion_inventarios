@@ -8,6 +8,8 @@
     <link rel="icon" href="{{ asset('images/ingicat.png') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- @vite('resources/css/app.css') --}}
     <title>@yield('title')</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,7 +21,9 @@
     @yield('content')
 
     <!--script necesarios-->
+    <script src="{{ asset('js/cargo.js') }}"></script>
     <script src="{{ asset('js/header.js') }}"></script>
+    <script src="{{ asset('js/usuario.js') }}"></script>
 </body>
 
 </html>

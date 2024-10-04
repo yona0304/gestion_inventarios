@@ -6,7 +6,7 @@
     <div class="p-4 sm:ml-64">
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-3 md:grid-cols-2">
             <div>
-                <form action="{{ route('cargo.store') }}" method="post" enctype="multipart/form-data">
+                <form id="CargoEnvio" action="{{ route('cargo.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <h2 class="text-center font-semibold leading-7 text-gray-900">Registrar cargo de perfil</h2>
                     <label for="cargo" class="block text-sm font-medium leading-6 text-gray-900">Cargo</label>
