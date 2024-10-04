@@ -62,9 +62,9 @@
             </li>
 
             <li>
-                <a href="{{ route('cargo') }}"
+                <a href="{{ route('categoria') }}"
                     class="flex items-center p-2 text-white rounded-lg hover:bg-red-700 hover:text-white group">
-                    <span class="flex-1 ms-3 whitespace-nowrap">Cargos</span>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Categoria</span>
                 </a>
             </li>
 

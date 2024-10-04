@@ -21,7 +21,7 @@
     @yield('content')
 
     <!--script necesarios-->
-    <script src="{{ asset('js/cargo.js') }}"></script>
+    <script src="{{ asset('js/categoria.js') }}"></script>
     <script src="{{ asset('js/header.js') }}"></script>
     <script src="{{ asset('js/usuario.js') }}"></script>
 </body>

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\InicioController;
-use App\Http\Controllers\RegistrarCargoController;
+use App\Http\Controllers\RegistrarCategoriaController;
 use App\Http\Controllers\RegistrarProducto;
 use App\Http\Controllers\RegistrarUsuarioController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +23,6 @@ Route::get('/obtener-codigo-interno/{categoriaId}', [RegistrarProducto::class, '
 Route::get('/registrar-usuario', [RegistrarUsuarioController::class, 'index'])->name('usuario');
 Route::post('/registrar-usuario/registro', [RegistrarUsuarioController::class, 'store'])->name('usuario.store');
 
-//cargo
-Route::get('/registrar-cargo', [RegistrarCargoController::class, 'index'])->name('cargo');
-Route::post('/registrar-cargo/registrado', [RegistrarCargoController::class, 'store'])->name('cargo.store');
+//categoria
+Route::get('/registrar-categoria', [RegistrarCategoriaController::class, 'index'])->name('categoria');
+Route::post('/registrar-categoria/registrado', [RegistrarCategoriaController::class, 'store'])->name('categoria.store');

@@ -23,4 +23,14 @@ class Categoria extends Model
     {
         return $this->hasMany(Producto::class);
     }
+
+    public function scopeCatego($query, $BusCategoria = '')
+    {
+        // return $query->where('id_producto', 'like', "%{$BusCategoria}%");
+
+        return $query->where(function ($query) use ($BusCategoria) {
+            $query->where('nombre_categoria', 'like', "%$BusCategoria%")
+            ->orWhere('prefijo', 'like', "%$BusCategoria%");
+        });
+    }
 }
