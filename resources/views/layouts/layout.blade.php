@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     {{-- @vite('resources/css/app.css') --}}
     <title>@yield('title')</title>
     <script src="https://cdn.tailwindcss.com"></script>

@@ -5,10 +5,10 @@
                 Categoria
             </th>
             <th scope="col" class="px-6 py-3">
-                Cantidad
+                Prefijo
             </th>
             <th scope="col" class="px-6 py-3">
-                Prefijo
+                Cantidad
             </th>
         </tr>
     </thead>
@@ -19,10 +19,10 @@
                     {{ $category->nombre_categoria }}
                 </th>
                 <td class="px-6 py-4">
-                    {{ $category->contador }}
+                    {{ $category->prefijo }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ $category->prefijo }}
+                    {{ $category->contador }}
                 </td>
             </tr>
         @endforeach

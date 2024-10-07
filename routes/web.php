@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AsignarController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\RegistrarCategoriaController;
 use App\Http\Controllers\RegistrarProducto;
@@ -30,3 +31,6 @@ Route::post('/registrar-categoria/registrado', [RegistrarCategoriaController::cl
 
 Route::get('/registrar-vehiculo', [VehiculoController::class, 'index'])->name('vehiculo');
 Route::post('/registrar-vehiculo/registro', [VehiculoController::class, 'store'])->name('vehiculo.store');
+
+Route::get('/registrar-asignacion', [AsignarController::class, 'index'])->name('asignar');
+Route::post('/registrar-asignacion/registrado', [AsignarController::class, 'store'])->name('asignar.store');

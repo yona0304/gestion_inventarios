@@ -49,7 +49,7 @@
                 </button>
                 <ul id="dropdown-asignacion" class="hidden py-2 space-y-2">
                     <li>
-                        <a href=""
+                        <a href="{{ route('asignar') }}"
                             class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Asignar
                             Equipo</a>
                     </li>
