@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('asignacion_equipo', function (Blueprint $table) {
             $table->id();
             $table->foreignId('producto_id')->constrained('productos');
+            $table->foreignId('vehiculo_id')->nullable()->constrained('vehiculos');
             $table->foreignId('usuario_id')->constrained('users');
             $table->date('fecha_asignacion');
             $table->text('observaciones')->nullable();

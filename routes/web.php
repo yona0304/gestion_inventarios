@@ -29,3 +29,4 @@ Route::get('/registrar-categoria', [RegistrarCategoriaController::class, 'index'
 Route::post('/registrar-categoria/registrado', [RegistrarCategoriaController::class, 'store'])->name('categoria.store');
 
 Route::get('/registrar-vehiculo', [VehiculoController::class, 'index'])->name('vehiculo');
+Route::post('/registrar-vehiculo/registro', [VehiculoController::class, 'store'])->name('vehiculo.store');
