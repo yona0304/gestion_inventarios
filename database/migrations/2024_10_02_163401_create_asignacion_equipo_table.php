@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('vehiculo_id')->nullable()->constrained('vehiculos');
             $table->foreignId('usuario_id')->constrained('users');
             $table->date('fecha_asignacion');
+            $table->date('fecha_devolucion')->nullable();
             $table->text('observaciones')->nullable();
             $table->string('estado');
             $table->string('ubicacion');

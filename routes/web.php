@@ -5,6 +5,7 @@ use App\Http\Controllers\InicioController;
 use App\Http\Controllers\RegistrarCategoriaController;
 use App\Http\Controllers\RegistrarProducto;
 use App\Http\Controllers\RegistrarUsuarioController;
+use App\Http\Controllers\RetirarController;
 use App\Http\Controllers\VehiculoController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,3 +35,6 @@ Route::post('/registrar-vehiculo/registro', [VehiculoController::class, 'store']
 
 Route::get('/registrar-asignacion', [AsignarController::class, 'index'])->name('asignar');
 Route::post('/registrar-asignacion/registrado', [AsignarController::class, 'store'])->name('asignar.store');
+
+Route::get('/retirar-asignacion', [RetirarController::class, 'index'])->name('retirar');
+Route::get('/retirar-asignacion/{id_producto}/{identificacion}', [RetirarController::class, 'show']);

@@ -54,7 +54,7 @@
                             Equipo</a>
                     </li>
                     <li>
-                        <a href=""
+                        <a href="{{ route('retirar') }}"
                             class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Retirar
                             Asignación</a>
                     </li>
