@@ -63,6 +63,7 @@
         $(function() {
             //obtenemos los valores de una columna especifica en la cual solo es profesional, ya que el de los productos, lo realizamos en el controlador.
             var profesionales = @json($asignacion->pluck('identificacion'));
+            var vehiculo = @json($vehiculos->pluck('placa'));
             var codigoInternos = @json($codigosInternos);
             var referencias = @json($referencias);
 
@@ -72,7 +73,7 @@
             });
 
             //concatenamos los dos array, para volverlos uno solo
-            var todoJunto = codigoInternos.concat(referencias);
+            var todoJunto = codigoInternos.concat(referencias, vehiculo);
 
             // Autocompletado con jQuery UI
             $("#codigo_interno").autocomplete({

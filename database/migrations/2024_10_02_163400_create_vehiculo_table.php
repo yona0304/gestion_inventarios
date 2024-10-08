@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('color', 50);
             $table->string('llave', 100);
             $table->string('terpel');
-            $table->string('placa', 60);
+            $table->string('placa', 60)->unique();
             $table->string('descripcion_vehiculo', 300);
             $table->string('traccion', 80);
             $table->string('modelo', 80);

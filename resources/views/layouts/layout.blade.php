@@ -23,10 +23,11 @@
     @yield('content')
 
     <!--script necesarios-->
-    <script src="{{ asset('js/categoria.js') }}"></script>
     <script src="{{ asset('js/header.js') }}"></script>
-    <script src="{{ asset('js/vehiculo.js') }}"></script>
     <script src="{{ asset('js/usuario.js') }}"></script>
+    <script src="{{ asset('js/asignar.js') }}"></script>
+    <script src="{{ asset('js/vehiculo.js') }}"></script>
+    <script src="{{ asset('js/categoria.js') }}"></script>
 </body>
 
 </html>
