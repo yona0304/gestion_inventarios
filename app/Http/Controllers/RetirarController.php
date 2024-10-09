@@ -39,7 +39,7 @@ class RetirarController extends Controller
                 return response()->json(['error' => 'Usuario no encontrado.'], 404);
             }
 
-            $asignaciones = AsignacionEquipo::where('producto_id', $informacionProducto->id)
+            $asignaciones = AsignacionEquipo::where('producto_id', $productos->id)
                 ->where('usuario_id', $usuarios->id)
                 ->where('estado', 'Asignado')
                 ->firstOrFail(['fecha_asignacion']);
@@ -74,7 +74,7 @@ class RetirarController extends Controller
                 return response()->json(['error' => 'Usuario no encontrado.'], 404);
             }
 
-            $asignaciones = AsignacionEquipo::where('vehiculo_id', $informacionVehiculo->id)
+            $asignaciones = AsignacionEquipo::where('vehiculo_id', $vehiculo->id)
                 ->where('usuario_id', $usuarios->id)
                 ->where('estado', 'Asignado')
                 ->firstOrFail(['fecha_asignacion']);
@@ -88,5 +88,69 @@ class RetirarController extends Controller
             }
         }
         return response()->json(['error' => 'Producto o vehículo no encontrado.'], 404);
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'id_producto' => 'required|string',
+            'identificacion' => 'required|numeric',
+            'fecha_devolucion' => 'required|date',
+            'novedad' => 'nullable|string',
+        ]);
+
+        // $modiFecha = Carbon::parse($request->fecha_devolucion)->format('Y-m-d');
+
+        $productos = Producto::where('codigo_interno', $request->id_producto)
+            ->orWhere('codigo_equipo_referencia', $request->id_producto)
+            ->first();
+
+        if ($productos) {
+            $usuarios = User::where('identificacion', $request->identificacion)->first();
+
+            $asignaciones = AsignacionEquipo::where('producto_id', $productos->id)
+                ->where('usuario_id', $usuarios->id)
+                ->where('estado', 'Asignado')
+                ->first();
+
+            if ($asignaciones) {
+                $asignaciones->update([
+                    'estado' => 'Devolución',
+                    'fecha_devolucion' => $request->fecha_devolucion,
+                    'observaciones' => $request->novedad
+                ]);
+
+                Producto::where('codigo_interno', $request->id_producto)
+                    ->orWhere('codigo_equipo_referencia', $request->id_producto)
+                    ->update(['estado' => 'Disponible']);
+
+                return response()->json(['success' => 'Equipo devuelto correctamente']);
+            }
+        }
+        $vehiculo = Vehiculo::where('placa', $request->id_producto)->first();
+
+        if ($vehiculo) {
+            $usuarios = User::where('identificacion', $request->identificacion)->first();
+
+            $asignaciones = AsignacionEquipo::where('vehiculo_id', $vehiculo->id)
+                ->where('usuario_id', $usuarios->id)
+                ->where('estado', 'Asignado')
+                ->first();
+
+            if ($asignaciones) {
+                $asignaciones->update([
+                    'estado' => 'Devolución',
+                    'fecha_devolucion' => $request->fecha_devolucion,
+                    'observaciones' => $request->novedad
+                ]);
+
+                Vehiculo::where('id', $vehiculo->id)
+                    ->update(['estado' => 'Disponible']);
+
+                return response()->json(['success' => 'Vehículo devuelto correctamente']);
+            }
+        }
+        return response()->json(['success' => false, 'message' => 'No se encontró la asignación'], 404);
+        // return response()->json(['error' => 'No se encontró la asignación'], 404);
     }
 }

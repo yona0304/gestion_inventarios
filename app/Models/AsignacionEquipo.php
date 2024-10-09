@@ -16,6 +16,7 @@ class AsignacionEquipo extends Model
         'vehiculo_id',
         'usuario_id',
         'fecha_asignacion',
+        'fecha_devolucion',
         'observaciones',
         'estado',
         'ubicacion'

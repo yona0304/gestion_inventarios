@@ -5,8 +5,9 @@
 @section('content')
     <div class="p-4 sm:ml-64">
 
-        <form id="formDevo">
+        <form id="formDevo" action="{{ route('retirar.update') }}" method="POST">
             @csrf
+            @method('PUT')
             <div class="grid gap-4 mb-6 md:grid-cols-1">
                 <div>
                     <h1 class="text-center font-medium text-2xl text-gray-900">Devolución Equipo</h1>
@@ -49,9 +50,9 @@
                 </div>
 
                 <div>
-                    <label for="fecha_dev" class="block mb-2 text-base font-medium text-gray-900">Fecha
+                    <label for="fecha_devolucion" class="block mb-2 text-base font-medium text-gray-900">Fecha
                         Devolución</label>
-                    <input type="date" id="fecha_dev" name="fecha_dev"
+                    <input type="date" id="fecha_devolucion" name="fecha_devolucion"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                         placeholder="ej: 123456789" required />
                 </div>
@@ -61,7 +62,7 @@
                         Novedad</label>
                     <textarea id="novedad" rows="4" name="novedad"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
-                        placeholder="Escribe tu comentario aqui..."></textarea>
+                        placeholder="Escribe tu observacion de devolución..."></textarea>
                 </div>
             </div>
 
