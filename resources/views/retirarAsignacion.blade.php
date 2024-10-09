@@ -14,14 +14,14 @@
                 </div>
                 <div class="grid gap-6 mb-6 md:grid-cols-2">
                     <div>
-                        <label for="id_producto" class="block mb-2 text-base font-medium text-gray-900">Codigo Item</label>
+                        <label for="id_producto" class="block mb-2 text-base font-medium text-gray-900">Item de asignación</label>
                         <input type="text" id="id_producto" name="id_producto"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-                            placeholder="ej: ING-PC-000" required />
+                            placeholder="codigo interno / referencia / placa vehiculo" required />
                     </div>
                     <div>
                         <label for="identificacion"
-                            class="block mb-2 text-base font-medium text-gray-900">Identicación</label>
+                            class="block mb-2 text-base font-medium text-gray-900">Identificación</label>
                         <input type="text" id="identificacion" name="identificacion"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                             placeholder="ej: 123456789" required />

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlquilerEquipoController;
 use App\Http\Controllers\AsignarController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\RegistrarCategoriaController;
@@ -41,3 +42,7 @@ Route::post('/registrar-asignacion/registrado', [AsignarController::class, 'stor
 Route::get('/retirar-asignacion', [RetirarController::class, 'index'])->name('retirar');
 Route::get('/retirar-asignacion/{id_producto}/{identificacion}', [RetirarController::class, 'show']);
 Route::put('/retirar-asignacion/actualizar', [RetirarController::class, 'update'])->name('retirar.update');
+
+//alquiler equipo
+Route::get('/alquiler-equipo', [AlquilerEquipoController::class, 'index'])->name('alquiler');
+Route::post('/alquiler-equipo/registro', [AlquilerEquipoController::class, 'store'])->name('alquiler.store');

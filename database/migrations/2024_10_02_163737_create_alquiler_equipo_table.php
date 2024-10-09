@@ -16,7 +16,10 @@ return new class extends Migration
             $table->string('tipo_producto');
             $table->string('producto');
             $table->integer('valor_contratado');
+            $table->string('ubicacion');
             $table->foreignId('usuario_id')->constrained('users');
+            $table->date('fecha_inicio_alquiler');
+            $table->date('fecha_fin_alquiler')->nullable();
             $table->timestamps();
         });
     }

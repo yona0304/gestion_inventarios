@@ -24,6 +24,7 @@
 
     <!--script necesarios-->
     <script src="{{ asset('js/devolucion.js') }}"></script>
+    <script src="{{ asset('js/alquiler.js') }}"></script>
     <script src="{{ asset('js/header.js') }}"></script>
     <script src="{{ asset('js/usuario.js') }}"></script>
     <script src="{{ asset('js/asignar.js') }}"></script>

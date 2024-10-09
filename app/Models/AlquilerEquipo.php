@@ -15,7 +15,10 @@ class AlquilerEquipo extends Model
         'tipo_producto',
         'producto',
         'valor_contratado',
-        'usuario_id'
+        'ubicacion',
+        'usuario_id',
+        'fecha_inicio_alquiler',
+        'fecha_fin_alquiler'
     ];
 
     // Relación con usuario
