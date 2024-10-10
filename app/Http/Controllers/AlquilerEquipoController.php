@@ -47,4 +47,28 @@ class AlquilerEquipoController extends Controller
 
         return response()->json(['success' => false, 'message' => 'No se encontró pudo realizar la operación, intentalo mas tarde'], 404);
     }
+
+    public function list()
+    {
+        $alquilados = AlquilerEquipo::join('users', 'alquiler_equipo.usuario_id', '=', 'users.id')
+            ->select('alquiler_equipo.*', 'users.identificacion as identificacion')
+            ->get();
+
+        return view('equiposAlquilados', compact('alquilados'));
+    }
+
+    public function finalizar(Request $request, $id)
+    {
+        $request->validate([
+            'fecha_fin' => 'required|date'
+        ]);
+
+        $alquiler = AlquilerEquipo::findOrFail($id);
+
+        $alquiler->update([
+            'fecha_fin_alquiler' => $request->fecha_fin,
+        ]);
+
+        return response()->json(['success' => 'Finalización de alquiler']);
+    }
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('tipo_producto');
             $table->string('producto');
-            $table->integer('valor_contratado');
+            $table->float('valor_contratado',15,2);
             $table->string('ubicacion');
             $table->foreignId('usuario_id')->constrained('users');
             $table->date('fecha_inicio_alquiler');

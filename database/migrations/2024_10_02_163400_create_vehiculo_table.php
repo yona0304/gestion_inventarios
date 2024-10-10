@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('modelo', 80);
             $table->string('proveedor_contratante');
             $table->string('tipo_proveedor');
-            $table->decimal('valor_contratado', 40);
+            $table->float('valor_contratado', 15,2);
             $table->date('fecha_entregaProveedor');
             $table->date('fecha_devolucionProveedor')->nullable();
             $table->string('estado', 50);

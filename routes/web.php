@@ -46,3 +46,7 @@ Route::put('/retirar-asignacion/actualizar', [RetirarController::class, 'update'
 //alquiler equipo
 Route::get('/alquiler-equipo', [AlquilerEquipoController::class, 'index'])->name('alquiler');
 Route::post('/alquiler-equipo/registro', [AlquilerEquipoController::class, 'store'])->name('alquiler.store');
+Route::get('/equipos-alquilados', [AlquilerEquipoController::class, 'list'])->name('alquiler.list');
+
+
+Route::put('/equipos-alquilados/{id}/finalizar', [AlquilerEquipoController::class, 'finalizar'])->name('finalizar');

@@ -20,11 +20,11 @@
             <li>
                 <button id="toggle-registros" type="button"
                     class="flex items-center w-full p-2 text-base text-white transition duration-75 rounded-lg group hover:bg-red-700 hover:text-white"
-                    aria-controls="dropdown-example">
+                    aria-controls="dropdown-registros">
                     <span class="flex-1 ms-3 text-left whitespace-nowrap">Registrar</span>
                     <i class="fa-solid fa-angle-down text-xl text-white group-hover:text-white"></i>
                 </button>
-                <ul id="dropdown-example" class="hidden py-2 space-y-2">
+                <ul id="dropdown-registros" class="hidden py-2 space-y-2">
                     <li>
                         <a href="{{ route('producto') }}"
                             class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Producto</a>
@@ -43,7 +43,7 @@
             <li>
                 <button id="toggle-asignacion" type="button"
                     class="flex items-center w-full p-2 text-base text-white transition duration-75 rounded-lg group hover:bg-red-700 hover:text-white"
-                    aria-controls="dropdown-example">
+                    aria-controls="dropdown-asignacion">
                     <span class="flex-1 ms-3 text-left whitespace-nowrap">Asignaciones</span>
                     <i class="fa-solid fa-angle-down text-xl text-white group-hover:text-white"></i>
                 </button>
@@ -62,11 +62,31 @@
             </li>
 
             <li>
+                <button id="toggle-alquiler" type="button"
+                    class="flex items-center w-full p-2 text-base text-white transition duration-75 rounded-lg group hover:bg-red-700 hover:text-white"
+                    aria-controls="dropdown-alquiler">
+                    <span class="flex-1 ms-3 text-left whitespace-nowrap">Alquiler</span>
+                    <i class="fa-solid fa-angle-down text-xl text-white group-hover:text-white"></i>
+                </button>
+                <ul id="dropdown-alquiler" class="hidden py-2 space-y-2">
+                    <li>
+                        <a href="{{ route('alquiler') }}"
+                            class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Alquiler</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('alquiler.list') }}"
+                            class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Equipos
+                            Alquilados</a>
+                    </li>
+                </ul>
+            </li>
+
+            {{-- <li>
                 <a href="{{ route('alquiler') }}"
                     class="flex items-center p-2 text-white rounded-lg hover:bg-red-700 hover:text-white group">
                     <span class="flex-1 ms-3 whitespace-nowrap">Alquiler Equipo</span>
                 </a>
-            </li>
+            </li> --}}
 
             <li>
                 <a href="{{ route('categoria') }}"

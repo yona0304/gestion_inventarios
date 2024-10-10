@@ -43,3 +43,13 @@ $(document).ready(function () {
         });
     });
 });
+
+$(document).on('click', '.finalizar-btn', function () {
+    const url = $(this).data('url');  // Obtener la URL directamente desde el botón
+    $('#finalizarForm').attr('action', url);  // Asignar la URL al formulario
+    $('#finalizardiv').removeClass('hidden');  // Mostrar el modal
+});
+
+$(document).on('click', '[data-modal-hide]', function () {
+    $('#finalizardiv').addClass('hidden');
+})
