@@ -61,7 +61,8 @@ class DotacionController extends Controller
         $prodIds = $dotaAsignada->pluck('producto_id');
         $prodList = Producto::whereIn('id', $prodIds);
         $prodNoList = $prodList->pluck('categoria_id');
-        $dotaFaltantes = Categoria::whereNotIn('id', $prodNoList)->get();
+        $dotaFaltantes = Categoria::whereIn('id', $dotaRequerida->pluck('id_activo'))->get();
+        /* $dotaFaltantes = Categoria::whereNotIn('id', $prodNoList)->get(); */
 
         /* $dotaFaltantes = Dotaciones::where('id_activo',$prodList->pluck('categoria_id'))
         ->get(); */
