@@ -45,12 +45,12 @@ class DotacionController extends Controller
         $dotaAsignada = AsignacionEquipo::whereHas('producto', function ($query) use ($dotaRequerida) {
             $query->whereIn('categoria_id', $dotaRequerida->pluck('id_activo'));
         })
-        ->where('usuario_id', $usuarioId)
-        ->get();
+            ->where('usuario_id', $usuarioId)
+            ->get();
         $nombres = Producto::whereIn('id', $dotaAsignada->pluck('producto_id'))
             ->with('categoria') // Cargar la relación
             ->get()
-            ->map(function($producto) {
+            ->map(function ($producto) {
                 return [
                     'producto' => $producto->categoria_id, // Ajusta 'nombre' según tu modelo
                     'categoria' => $producto->categoria->nombre_categoria ?? 'Sin categoría', // Manejo de null
@@ -94,7 +94,6 @@ class DotacionController extends Controller
             ->whereNotIn('id_activo', $asignacionesCoincidentes->pluck('id_activo'))
             ->get(); */
 
-        return view('dotaciones', compact('user','nombres', 'dotaAsignada','dotaFaltantes'));
+        return view('dotaciones', compact('user', 'nombres', 'dotaAsignada', 'dotaFaltantes'));
     }
-
 }

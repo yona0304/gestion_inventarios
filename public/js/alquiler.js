@@ -143,3 +143,22 @@ $(document).on('click', '#modalmport', function () {
 $(document).on('click', '[data-modal-hide]', function () {
     $('#modalImportarCSV').addClass('hidden');
 });
+
+$('#formImportarCSV').on('submit', function (e) {
+    e.preventDefault();
+
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "Estas a punto de importar un archivo CSV.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, importar',
+        cancelButtonText: 'Cancelar'
+    }).then((resultado) => {
+        if (resultado.isConfirmed) {
+            this.submit();  // Enviar el formulario si se confirma
+        }
+    });
+});

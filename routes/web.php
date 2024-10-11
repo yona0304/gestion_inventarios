@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlquilerEquipoController;
 use App\Http\Controllers\AsignarController;
+use App\Http\Controllers\DotacionController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\RegistrarCategoriaController;
 use App\Http\Controllers\RegistrarProducto;
@@ -50,3 +51,6 @@ Route::get('/equipos-alquilados', [AlquilerEquipoController::class, 'list'])->na
 
 
 Route::put('/equipos-alquilados/{id}/finalizar', [AlquilerEquipoController::class, 'finalizar'])->name('finalizar');
+
+Route::get('/dotacion', [DotacionController::class, 'index'])->name('dotacion');
+Route::get('/dotacion/registrado', [DotacionController::class, 'dotacion'])->name('dotacion');
