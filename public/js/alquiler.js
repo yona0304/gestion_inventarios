@@ -53,3 +53,36 @@ $(document).on('click', '.finalizar-btn', function () {
 $(document).on('click', '[data-modal-hide]', function () {
     $('#finalizardiv').addClass('hidden');
 })
+
+
+
+$(document).ready(function () {
+    // Función para cargar datos con AJAX
+    function fetch_data(page, BuscarAlquiler) {
+        $.ajax({
+            url: "/equipos-alquilados?page=" + page + "&BuscarAlquiler=" + BuscarAlquiler, // Asegúrate de que esta ruta sea correcta
+            type: "GET",
+            dataType: "html",
+            success: function (data) {
+                $("#Tablalquilados").html(data);
+            },
+            error: function (xhr, status, error) {
+                console.error("Error en la solicitud AJAX:", error);
+            }
+        });
+    }
+
+    // Evento keyup para búsqueda en tiempo real
+    $(document).on("keyup", "#BuscarAlquiler", function () {
+        var BuscarAlquiler = $(this).val();
+        fetch_data(1, BuscarAlquiler); // Siempre empieza desde la página 1 al buscar
+    });
+
+    // Evento click para paginación
+    $(document).on("click", ".pagination a", function (e) {
+        e.preventDefault();
+        var page = $(this).attr("href").split("page=")[1];
+        var BuscarAlquiler = $("#BuscarAlquiler").val();
+        fetch_data(page, BuscarAlquiler);
+    });
+});

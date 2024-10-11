@@ -69,7 +69,9 @@
     </tbody>
 </table>
 <br>
-
+<div class="pagination">
+    {!! $alquilados->links() !!}
+</div>
 
 <div id="finalizardiv" class="fixed inset-0 hidden z-50 overflow-y-auto">
     <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>

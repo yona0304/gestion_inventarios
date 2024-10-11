@@ -26,4 +26,8 @@ class AlquilerEquipo extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeAlqui($query, $BuscarAlquiler = ''){
+        return $query->where('identificacion', 'like', "%{$BuscarAlquiler}%");
+    }
 }
