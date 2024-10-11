@@ -37,45 +37,36 @@
             </div>
         </div>
         <!-- Main modal -->
-        <div id="crud-modal" tabindex="-1" aria-hidden="true"
-            class="hidden fixed inset-0 z-50 justify-center items-center w-full h-full">
-            <div class="modal-content relative bg-white rounded-lg shadow">
-                <!-- Modal content -->
-                <div class="relative p-4 w-full max-w-md max-h-full">
-                    <!-- Modal header -->
-                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-                        <h3 class="text-lg font-semibold text-gray-900">
-                            Importar lista de equipos alquilados
-                        </h3>
-                        <button type="button"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                            data-modal-toggle="crud-modal">
-                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 14 14">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path>
-                            </svg>
-                            <span class="sr-only">Cerrar modal</span>
-                        </button>
-                    </div>
-                    <h6>Recordar que el archivo tiene que ser en utf8(limitado por comas)</h6>
-                    <!-- Modal body -->
-                    <form id="ImportProducto" class="p-4 md:p-5" action="" method="POST"
-                        enctype="multipart/form-data">
+    </div>
+    <div id="modalImportarCSV" class="fixed inset-0 hidden z-50 overflow-y-auto">
+        <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+        <div class="flex items-center justify-center min-h-screen">
+            <div class="relative w-full max-w-lg rounded-lg shadow bg-white">
+                <div class="flex items-start justify-between p-4 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-black">
+                        Importar lista de equipos alquilados
+                    </h3>
+                    <button type="button"
+                        class="text-black bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                        data-modal-hide="modalImportarCSV">
+                        <i class="fa-solid fa-x"></i>
+                    </button>
+                </div>
+                <div class="p-6 space-y-6">
+                    <form method="POST" id="AlquilerForm" action="">
                         @csrf
-                        <div class="grid gap-4 mb-4 grid-cols-2">
-                            <div class="col-span-2">
-                                <label for="document_csv" class="block text-sm font-medium text-gray-700">Subir Archivo
-                                    CSV </label>
-                                <input type="file" name="document_csv" id="document_csv"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2"
-                                    required="">
+                        <div>
+                            <label for="archivo_csv" class="block text-sm font-medium leading-6 text-gray-900">Archivo
+                                CSV</label>
+                            <div class="mt-2">
+                                <input type="file" name="archivo_csv" id="archivo_csv" required
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6">
                             </div>
                         </div>
-                        <button type="submit"
-                            class="text-white inline-flex items-center bg-red-900 hover:bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2 text-center">
-                            Registrar productos
-                        </button>
+                        <div class="w-full flex justify-between mt-4">
+                            <button type="submit"
+                                class="w-1/3 bg-red-800 text-white py-2 rounded-md shadow-sm hover:bg-red-600">Importar</button>
+                        </div>
                     </form>
                 </div>
             </div>
