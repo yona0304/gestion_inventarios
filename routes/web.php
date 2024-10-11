@@ -55,4 +55,4 @@ Route::put('/equipos-alquilados/{id}/finalizar', [AlquilerEquipoController::clas
 
 //asignar
 Route::get('/dotacion', [DotacionController::class, 'index'])->name('dotacion');
-Route::get('/dotacion/registrado', [DotacionController::class, 'dotacion'])->name('dotacion');
+Route::post('/dotacion/registrado', [DotacionController::class, 'dotacion'])->name('dotacion');
