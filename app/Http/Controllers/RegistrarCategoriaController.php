@@ -23,7 +23,7 @@ class RegistrarCategoriaController extends Controller
         $request->validate([
             'categoria' => 'required|string',
             'prefijo' => 'required|string',
-            'cantidad' => 'required|numeric'
+            // 'cantidad' => 'required|numeric'
         ]);
 
         $categorias = strtoupper($request->categoria);
@@ -31,7 +31,7 @@ class RegistrarCategoriaController extends Controller
 
         Categoria::create([
             'nombre_categoria' => $categorias,
-            'contador' => $request->cantidad,
+            // 'contador' => $request->cantidad,
             'prefijo' => $prefijos
         ]);
 

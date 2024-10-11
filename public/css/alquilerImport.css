@@ -1,0 +1,22 @@
+#crud-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo borroso */
+    justify-content: center;
+    align-items: center;
+}
+
+#crud-modal.flex {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    max-width: 500px;
+    width: 100%;
+}

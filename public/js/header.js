@@ -1,11 +1,17 @@
 document.getElementById('toggle-registros').addEventListener('click', function () {
-    const dropdown = document.getElementById('dropdown-example');
+    const dropdown = document.getElementById('dropdown-registros');
     dropdown.classList.toggle('hidden');
 });
 
 //para desplegar lo de asignaciones
 document.getElementById('toggle-asignacion').addEventListener('click', function () {
     const dropdown = document.getElementById('dropdown-asignacion');
+    dropdown.classList.toggle('hidden');
+});
+
+//para desplegar lo de alquiler
+document.getElementById('toggle-alquiler').addEventListener('click', function () {
+    const dropdown = document.getElementById('dropdown-alquiler');
     dropdown.classList.toggle('hidden');
 });
 

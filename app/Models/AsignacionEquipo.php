@@ -13,8 +13,10 @@ class AsignacionEquipo extends Model
 
     protected $fillable = [
         'producto_id',
+        'vehiculo_id',
         'usuario_id',
         'fecha_asignacion',
+        'fecha_devolucion',
         'observaciones',
         'estado',
         'ubicacion'
@@ -30,5 +32,10 @@ class AsignacionEquipo extends Model
     public function usuario()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function vehiculo()
+    {
+        return $this->belongsTo(Vehiculo::class);
     }
 }
