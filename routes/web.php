@@ -9,6 +9,7 @@ use App\Http\Controllers\RegistrarProducto;
 use App\Http\Controllers\RegistrarUsuarioController;
 use App\Http\Controllers\RetirarController;
 use App\Http\Controllers\VehiculoController;
+use App\Http\Controllers\DotacionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -52,5 +53,7 @@ Route::get('/equipos-alquilados', [AlquilerEquipoController::class, 'list'])->na
 
 Route::put('/equipos-alquilados/{id}/finalizar', [AlquilerEquipoController::class, 'finalizar'])->name('finalizar');
 
+
+//asignar
 Route::get('/dotacion', [DotacionController::class, 'index'])->name('dotacion');
 Route::get('/dotacion/registrado', [DotacionController::class, 'dotacion'])->name('dotacion');
