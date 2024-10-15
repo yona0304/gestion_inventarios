@@ -49,9 +49,11 @@ Route::get('/alquiler-equipo', [AlquilerEquipoController::class, 'index'])->name
 Route::post('/alquiler-equipo/registro', [AlquilerEquipoController::class, 'store'])->name('alquiler.store');
 Route::get('/equipos-alquilados', [AlquilerEquipoController::class, 'list'])->name('alquiler.list');
 
-
+//finalizar alquiler de equipo
 Route::put('/equipos-alquilados/{id}/finalizar', [AlquilerEquipoController::class, 'finalizar'])->name('finalizar');
 
+//importación maxiva de equipos alquilados
+Route::post('/equipos-alquilados/importacion', [AlquilerEquipoController::class, 'import'])->name('alquiler.import');
 
 //asignar
 Route::get('/dotacion', [DotacionController::class, 'index'])->name('dotacion');

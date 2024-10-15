@@ -158,7 +158,38 @@ $('#formImportarCSV').on('submit', function (e) {
         cancelButtonText: 'Cancelar'
     }).then((resultado) => {
         if (resultado.isConfirmed) {
-            this.submit();  // Enviar el formulario si se confirma
+
+            var formData = new FormData(this);
+            
+            $.ajax({
+                url: '/equipos-alquilados/importacion',
+                type: 'POST',
+                data: formData,
+                contentType: false, // No especificar el tipo de contenido
+                processData: false, // No procesar los datos
+                success: function (response) {
+                    Swal.fire({
+                        title: '¡Éxito!',
+                        text: response.success,
+                        icon: 'success',
+                        timer: 3000, //tiempo de espera del mensaje.
+                        showConfirmButton: false
+                    });
+
+                    setTimeout(function () {
+                        location.reload();
+                    }, 3000);
+                },
+                error: function (xhr) {
+                    let message = xhr.responseJSON.message || 'Ocurrió un error.';
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: message,
+                    });
+                }
+            });
+            // this.submit();  // Enviar el formulario si se confirma
         }
     });
 });

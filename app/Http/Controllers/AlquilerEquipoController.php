@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\AlquiladosImport;
 use App\Models\AlquilerEquipo;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AlquilerEquipoController extends Controller
 {
@@ -74,5 +76,12 @@ class AlquilerEquipoController extends Controller
         ]);
 
         return response()->json(['success' => 'Finalización de alquiler']);
+    }
+
+    public function import(Request $request)
+    {
+        $file = $request->file('archivo_csv');
+        Excel::import(new AlquiladosImport, $file);
+        return response()->json(['success' => 'Importación realizada con exíto']);
     }
 }

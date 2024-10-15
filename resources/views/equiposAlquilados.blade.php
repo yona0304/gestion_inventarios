@@ -53,7 +53,8 @@
                     </button>
                 </div>
                 <div class="p-6 space-y-6">
-                    <form method="POST" id="formImportarCSV" action="">
+                    <form method="POST" id="formImportarCSV" action="{{ route('alquiler.import') }}"
+                        enctype="multipart/form-data">
                         @csrf
                         <div>
                             <label for="archivo_csv" class="block text-sm font-medium leading-6 text-gray-900">Archivo
