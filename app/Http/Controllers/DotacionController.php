@@ -47,6 +47,7 @@ class DotacionController extends Controller
             $query->whereIn('categoria_id', $dotaRequerida->pluck('id_activo'));
         })
             ->where('usuario_id', $usuarioId)
+            ->where('estado', 'asignado')
             ->get();
         //El sistema busca los datos relacionados con el nombre de los praductos para imprimirlos en la vista
         $nombres = Producto::whereIn('id', $dotaAsignada->pluck('producto_id'))
