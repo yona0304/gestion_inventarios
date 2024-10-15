@@ -20,7 +20,8 @@
                                     Equipo</label>
                                 <select name="tipo_equipo" id="tipo_equipo" required
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                                    <option value="MONITOR">MONITOR</option>
+                                    <option value="">Seleccionar</option>
+                                    <option value="GPS">GPS</option>
                                     <option value="CELULAR">CELULAR</option>
                                     <option value="PORTATIL">PORTÁTIL</option>
                                 </select>
