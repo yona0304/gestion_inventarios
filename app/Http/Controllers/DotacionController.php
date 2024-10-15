@@ -20,19 +20,21 @@ class DotacionController extends Controller
 
     public function dotacion(Request $request)
     {
-        /* $request->validate([
-            'user' => 'required|int',
-        ]); */
+        //Validacion del formulario.
+        $request->validate([
+            'user' => 'required|integer',
+        ]);
+
         //El sistema busca el documento de user utilizando un request del input "user"
         $usuario = $request->input('user');
         $user = User::where('identificacion', $usuario)->first();
 
-        //si no existe un usuario con esa identificacion no se ejecutara el codigo
+        //Si no existe un usuario con esa identificacion no se ejecutara el codigo
         if (!$user) {
             return redirect()->back()->withErrors('Usuario no encontrado.');
         }
 
-        //El sistema busca el sargo del ususario
+        //El sistema busca el cargo del ususario
         $cargoUser = $user->cargo_id;
         //el sistema busca el ID del usuario
         $usuarioId = $user->id;
@@ -40,13 +42,13 @@ class DotacionController extends Controller
         //El sistema busca en la tabla de dotaciones aquellas dotaciones que tengan relacionado el cargo del usuario
         $dotaRequerida = Dotaciones::where('id_cargo', $cargoUser);
 
-        //El sistema identifica en las dotaciones si estas coinciden con las que el usuario requiere
-        /* $dotaAsignada = AsignacionEquipo::whereIn('producto_id', $dotaRequerida->pluck('id_activo')) */
+        //El sistema identifica las asignaciones y verifica que coincidan con las dotaciones requeridas para el cargo
         $dotaAsignada = AsignacionEquipo::whereHas('producto', function ($query) use ($dotaRequerida) {
             $query->whereIn('categoria_id', $dotaRequerida->pluck('id_activo'));
         })
             ->where('usuario_id', $usuarioId)
             ->get();
+        //El sistema busca los datos relacionados con el nombre de los praductos para imprimirlos en la vista
         $nombres = Producto::whereIn('id', $dotaAsignada->pluck('producto_id'))
             ->with('categoria') // Cargar la relación
             ->get()
@@ -58,42 +60,20 @@ class DotacionController extends Controller
                 ];
             });
 
+        //el sistema busca el id de los productos asignados
         $prodIds = $dotaAsignada->pluck('producto_id');
+        //el sistema busca los productos asignados en la tabla de productos
         $prodList = Producto::whereIn('id', $prodIds);
+        //el sistma usa los datos obtenidos de la trabla de productos para obtener la catogoria de cada producto
         $prodNoList = $prodList->pluck('categoria_id');
-        $dotaFaltantes = Categoria::whereIn('id', $dotaRequerida->pluck('id_activo'))->get();
-        /* $dotaFaltantes = Categoria::whereNotIn('id', $prodNoList)->get(); */
-
-        /* $dotaFaltantes = Dotaciones::where('id_activo',$prodList->pluck('categoria_id'))
-        ->get(); */
-
-
-
-        /* $dotaFaltantes = AsignacionEquipo::whereHas('producto', function ($query) use ($dotaAsignada) {
-            $query->whereNotIn('categoria_id', $dotaAsignada->pluck('id_activo'));
-        })
-        ->get(); */
-
-        /* Dotaciones::where('id_cargo', $cargoUser )
-        ->whereNotIn('id_activo', $dotaAsignada->pluck('producto_id'))
-        ->get(); */
-
-
-        /*$asignado = $dotaRequerida->pluck('id_activo');
-        $listo = AsignacionEquipo::where('producto_id', $asignado)->get();*/
-        /* $nombre = Producto::where('id', $dotaAsignada->producto_id)->firts();
-        $nombre1 = Catgoria::where('id', $nombre->categoria_id); */
-        /* $dotaListas = AsignacionEquipo::whereIn('producto_id', $dotaRequerida)
-        ->where('usuario_id', $usuarioId) // Filtra por los productos requeridos
-        ->get();*/
-        /*// Obtén los activos asignados al usuario que coinciden con las dotaciones requeridas
-        $asignacionesCoincidentes = Asignaciones::whereIn('id_activo', $dotacionesRequeridas)
-            ->where('id_user', $userID)
-            ->get();
-        // Obtén las dotaciones que faltan al usuario
-        $dotacionesFaltantes = Dotacion::where('id_cargo', $cargoUser)
-            ->whereNotIn('id_activo', $asignacionesCoincidentes->pluck('id_activo'))
-            ->get(); */
+        //el sistema  los datos de categoria que coincidan con la lista de los productos asignados
+        $catList = Categoria::whereIn('id', $prodNoList)->pluck('id');
+        //el sistema busca el dato de id_activo de la tabla de dotaciones requeridas
+        $dotaReq= $dotaRequerida->pluck('id_activo');
+        //el sistema compara las dotaciones requeridas(dotaReq) y las asignadas(catList)
+        $dotacionesNoCoinciden = $dotaReq->diff($catList);
+        //el sistema busca los dotaciones faltante buscando el id de las "dotaNoCoinciden" en la tabla de categoria
+        $dotaFaltantes = Categoria::whereIn('id', $dotacionesNoCoinciden->toArray())->get();
 
         return view('dotaciones', compact('user', 'nombres', 'dotaAsignada', 'dotaFaltantes'));
     }
