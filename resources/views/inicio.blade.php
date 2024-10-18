@@ -65,6 +65,7 @@
         </figure>
     </div>
 
+
     <div class="p-4 sm:ml-64">
         <figure class="highcharts-figure grid grid-cols-1 md:grid-cols-2 gap-4">
             <div id="container3" class="h-96"></div>
@@ -73,6 +74,12 @@
     </div>
 
     <script>
+
+        var ciudades = @json($ciudades);
+        var series = @json($series);
+
+    console.log(ciudades)
+
     Highcharts.chart('container', {
         chart: {
             type: 'column'
@@ -82,7 +89,7 @@
             align: 'left'
         },
         xAxis: {
-            categories: ['Yopal', 'Barrancabermeja', 'Villavicencio', 'Bogota']
+            categories: ciudades/*['Yopal', 'Barrancabermeja', 'Villavicencio', 'Bogota'] */
         },
         yAxis: {
             min: 0,
@@ -117,7 +124,7 @@
                 }
             }
         },
-        series: [{
+        series: series /* [{
             name: 'Laptops',
             data: [15, 11, 13, 53]
         }, {
@@ -126,7 +133,7 @@
         }, {
             name: 'Vehiculos',
             data: [2, 6, 3,10]
-        }]
+        }] */
     });
     </script>
     <script>
