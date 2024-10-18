@@ -15,7 +15,9 @@ Route::get('/', function () {
     return view('auth/bienvenido');
 });
 
+//Inicio
 Route::get('/inicio', [InicioController::class, 'index'])->name('inicio');
+Route::get('/inicio/{id}',[InicioController::class,'asignacion']);
 
 //mostrar index de la pagina y controlador de formulario de enviar el registro
 Route::get('/registrar-producto', [RegistrarProducto::class, 'index'])->name('producto');
@@ -58,3 +60,4 @@ Route::post('/equipos-alquilados/importacion', [AlquilerEquipoController::class,
 //asignar
 Route::get('/dotacion', [DotacionController::class, 'index'])->name('dotacion');
 Route::post('/dotacion/registrado', [DotacionController::class, 'dotacion'])->name('dotacion');
+

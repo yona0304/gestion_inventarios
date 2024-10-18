@@ -74,9 +74,10 @@
     </div>
 
     <script>
-
-        var ciudades = @json($ciudades);
-        var series = @json($series);
+    var ciudades = @json($ciudades);
+    var series = @json($series);
+    var data = @json($data);
+    var dato2 = @json($dato2);
 
     console.log(ciudades)
 
@@ -89,7 +90,7 @@
             align: 'left'
         },
         xAxis: {
-            categories: ciudades/*['Yopal', 'Barrancabermeja', 'Villavicencio', 'Bogota'] */
+            categories: ciudades
         },
         yAxis: {
             min: 0,
@@ -102,9 +103,9 @@
         },
         legend: {
             align: 'left',
-            x: 70,
+            x: 40,
             verticalAlign: 'top',
-            y: 70,
+            y: 25,
             floating: true,
             backgroundColor:
                 Highcharts.defaultOptions.legend.backgroundColor || 'white',
@@ -124,16 +125,7 @@
                 }
             }
         },
-        series: series /* [{
-            name: 'Laptops',
-            data: [15, 11, 13, 53]
-        }, {
-            name: 'GPS',
-            data: [18, 18, 22, 54]
-        }, {
-            name: 'Vehiculos',
-            data: [2, 6, 3,10]
-        }] */
+        series: series
     });
     </script>
     <script>
@@ -251,23 +243,8 @@
             {
                 name: 'Percentage',
                 colorByPoint: true,
-                data: [
-                    {
-                        name: 'Asignado',
-                        y: 55
-                    },
-                    {
-                        name: 'Mantenimiento',
-                        sliced: true,
-                        selected: true,
-                        y: 32
-                    },
-                    {
-                        name: 'No asignado',
-                        y: 18
-                    },
+                data: data
 
-                ]
             }
         ]
     });
@@ -316,7 +293,7 @@
             {
                 name: 'Percentage',
                 colorByPoint: true,
-                data: [
+                data: dato2/*  [
                     {
                         name: 'Correctivo',
                         y: 55
@@ -329,7 +306,7 @@
                     },
 
 
-                ]
+                ]*/
             }
         ]
     });
