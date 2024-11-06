@@ -4,6 +4,7 @@ use App\Http\Controllers\AlquilerEquipoController;
 use App\Http\Controllers\AsignarController;
 use App\Http\Controllers\DotacionController;
 use App\Http\Controllers\InicioController;
+use App\Http\Controllers\ListaProductosController;
 use App\Http\Controllers\RegistrarCategoriaController;
 use App\Http\Controllers\RegistrarProducto;
 use App\Http\Controllers\RegistrarUsuarioController;
@@ -61,3 +62,5 @@ Route::post('/equipos-alquilados/importacion', [AlquilerEquipoController::class,
 Route::get('/dotacion', [DotacionController::class, 'index'])->name('dotacion');
 Route::post('/dotacion/registrado', [DotacionController::class, 'dotacion'])->name('dotacion');
 
+//listas de productos y de asignaciones
+Route::get('/lista-productos', [ListaProductosController::class, 'index'])->name('lis.produc');

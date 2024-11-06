@@ -69,4 +69,42 @@ class Producto extends Model
             }
         });
     }
+
+    public function scopeProduct($query, $BuProducto = '', $BuCategoria = '', $BuInterno = '', $BuEquipo = '', $BuUbicacion = '', $BuReferencia = '', $BuEstado = '')
+    {
+
+        return $query->where(function ($query) use ($BuProducto, $BuCategoria, $BuInterno, $BuEquipo, $BuUbicacion, $BuReferencia, $BuEstado) {
+            if (!empty($BuProducto)) {
+                $query->where('codigo_interno', 'like', "%$BuProducto%")
+                ->orWhere('codigo_equipo_referencia', 'like', "%$BuProducto%")
+                ->orWhere('descripcion_equipo', 'like', "%$BuProducto%");
+            }
+
+            if (!empty($BuCategoria)) {
+                $query->whereHas('categoria', function ($query) use ($BuCategoria) {
+                    $query->where('nombre_categoria', 'like', "%$BuCategoria%");
+                });
+            }
+
+            if (!empty($BuInterno)) {
+                $query->where('codigo_interno', 'like', "%$BuInterno%");
+            }
+
+            if (!empty($BuEquipo)) {
+                $query->where('descripcion_equipo', 'like', "%$BuEquipo%");
+            }
+
+            if (!empty($BuUbicacion)) {
+                $query->where('ubicacion', 'like', "%$BuUbicacion%");
+            }
+
+            if (!empty($BuReferencia)) {
+                $query->where('codigo_equipo_referencia', 'like', "%$BuReferencia%");
+            }
+
+            if (!empty($BuEstado)) {
+                $query->where('estado', 'like', "%$BuEstado%");
+            }
+        });
+    }
 }

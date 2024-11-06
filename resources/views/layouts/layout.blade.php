@@ -16,6 +16,31 @@
     {{-- @vite('resources/css/app.css') --}}
     <title>@yield('title')</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .disponible {
+            color: green;
+        }
+
+        .asignado {
+            color: orange;
+        }
+
+        .devolucion {
+            color: rgb(212, 35, 35)
+        }
+
+        .retirado {
+            color: rgb(212, 35, 35)
+        }
+
+        .inactivo {
+            color: orange;
+        }
+
+        .mantenimiento {
+            color: orange;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,6 +56,7 @@
     <script src="{{ asset('js/asignar.js') }}"></script>
     <script src="{{ asset('js/vehiculo.js') }}"></script>
     <script src="{{ asset('js/categoria.js') }}"></script>
+    <script src="{{ asset('js/lisProducto.js') }}"></script>
 </body>
 
 </html>

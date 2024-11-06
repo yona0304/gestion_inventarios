@@ -115,7 +115,7 @@
                             class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Asignados</a>
                     </li>
                     <li>
-                        <a href=""
+                        <a href="{{ route('lis.produc') }}"
                             class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Productos</a>
                     </li>
                 </ul>
