@@ -111,7 +111,7 @@
                 </button>
                 <ul id="dropdown-lista" class="hidden py-2 space-y-2">
                     <li>
-                        <a href=""
+                        <a href="{{ route('lis.asignados') }}"
                             class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Asignados</a>
                     </li>
                     <li>

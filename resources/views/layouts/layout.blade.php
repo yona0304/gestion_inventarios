@@ -57,6 +57,7 @@
     <script src="{{ asset('js/vehiculo.js') }}"></script>
     <script src="{{ asset('js/categoria.js') }}"></script>
     <script src="{{ asset('js/lisProducto.js') }}"></script>
+    <script src="{{ asset('js/lisAsignacion.js') }}"></script>
 </body>
 
 </html>

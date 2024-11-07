@@ -19,7 +19,7 @@ class ListaProductosController extends Controller
                 $request->BuReferencia,
                 $request->BuEstado
                 )
-            ->paginate(10);
+            ->paginate(1);
 
         if ($request->ajax()) {
             return view('partials.productos', compact('productos'))->render();

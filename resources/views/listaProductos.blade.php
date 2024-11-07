@@ -28,7 +28,7 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
                             <th scope="col" class=" py-3">
-                                <input type="text" id="BuCategoria" placeholder="Buscar pcategoria"
+                                <input type="text" id="BuCategoria" placeholder="Buscar categoria"
                                     class=" p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs">
                             </th>
                             <th scope="col" class=" py-3">
