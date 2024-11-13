@@ -24,7 +24,7 @@
                     </div>
                 </div> --}}
 
-                <table class="w-full text-sm text-left rtl:text-right text-gray-500" style="max-width: 1200px">
+                {{-- <table class="w-full text-sm text-left rtl:text-right text-gray-500" style="max-width: 1200px">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
                             <th scope="col" class=" py-3">
@@ -53,8 +53,35 @@
                             </th>
                         </tr>
                     </thead>
-                </table>
+                </table> --}}
 
+                <div class="grid grid-cols-6 gap-4 p-2 border  border-gray-300 w-full text-sm text-left rtl:text-right text-gray-500"
+                    style="overflow: auto; max-width:3000px;min-width:710px;">
+                    <!-- Filtro Producto -->
+                    <div class="p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50">
+                        <input type="text" id="BuCategoria" placeholder="Buscar categoria" class="w-full text-xs">
+                    </div>
+                    <!-- Filtro Profesional -->
+                    <div class="p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50">
+                        <input type="text" id="BuInterno" placeholder="Buscar interno" class="w-full text-xs">
+                    </div>
+                    <!-- Filtro Fecha -->
+                    <div class="p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50">
+                        <input type="text" id="BuEquipo" placeholder="Buscar equipo" class="w-full text-xs">
+                    </div>
+                    <!-- Filtro Descripción (ocupa dos columnas) -->
+                    <div class="p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50">
+                        <input type="text" id="BuUbicacion" placeholder="Buscar ubicacion" class="w-full text-xs">
+                    </div>
+                    <!-- Filtro Ubicación -->
+                    <div class="p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50">
+                        <input type="text" id="BuReferencia" placeholder="Buscar referencia" class="w-full text-xs">
+                    </div>
+                    <!-- Filtro Estado -->
+                    <div class="p-1 text-gray-900 border border-gray-300 rounded-lg bg-gray-50">
+                        <input type="text" id="BuEstado" placeholder="Buscar estado" class="w-full text-xs">
+                    </div>
+                </div>
 
                 <div id="TablaProduct">
                     @include('partials.productos')
