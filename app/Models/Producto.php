@@ -42,7 +42,7 @@ class Producto extends Model
     // Relación con historial de productos
     public function historial()
     {
-        return $this->hasMany(HistorialProducto::class);
+        return $this->hasMany(HistorialComputo::class);
     }
 
     // Relación con paz y salvo
