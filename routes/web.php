@@ -70,3 +70,4 @@ Route::get('/lista-asignaciones', [ListaAsignadosController::class, 'index'])->n
 
 //historial computo
 Route::get('/historial-computo', [HistorialComputoController::class, 'index'])->name('historial');
+Route::post('/historial-computo/registro', [HistorialComputoController::class, 'store'])->name('historial.store');

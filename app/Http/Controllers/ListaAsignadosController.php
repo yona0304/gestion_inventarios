@@ -19,7 +19,7 @@ class ListaAsignadosController extends Controller
                 $request->BusDevolucion,
             )
             ->orderBy('created_at', 'desc')
-            ->paginate(2);
+            ->paginate(10);
 
         if ($request->ajax()) {
             return view('partials.asignaciones', compact('asignaciones'))->render();

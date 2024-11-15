@@ -28,7 +28,8 @@ class HistorialComputo extends Model
         'antivirus',
         'version_licencia',
         'observaciones',
-        'fecha_registro'
+        'fecha_registro',
+        'estado'
     ];
 
     // Relación con usuario

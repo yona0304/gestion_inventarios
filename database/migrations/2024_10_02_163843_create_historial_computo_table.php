@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('version_licencia')->nullable();
             $table->text('observaciones')->nullable();
             $table->date('fecha_registro')->nullable();
-            // $table->string('estado');
+            $table->string('estado', 140)->nullable();
             $table->timestamps();
         });
     }

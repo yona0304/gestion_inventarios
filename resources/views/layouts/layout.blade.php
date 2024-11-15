@@ -58,6 +58,7 @@
     <script src="{{ asset('js/categoria.js') }}"></script>
     <script src="{{ asset('js/lisProducto.js') }}"></script>
     <script src="{{ asset('js/lisAsignacion.js') }}"></script>
+    <script src="{{ asset('js/historial.js') }}"></script>
 </body>
 
 </html>
