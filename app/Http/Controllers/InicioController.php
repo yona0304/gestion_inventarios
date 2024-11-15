@@ -30,8 +30,9 @@ class InicioController extends Controller
             // Recorremos las ciudades y asignamos el número de productos para cada una
             foreach ($ciudades as $ciudad) {
                 $cantidad = $productosCiudad->where('ubicacion', $ciudad)->first();
-                $data[] = $cantidad ? $cantidad->total : null; // Si no hay productos en esa ciudad, ponemos 0
+                $data[] = $cantidad ? $cantidad->total : null; // Si no hay productos en esa ciudad se almacena como nulo
             }
+            //El sistema busca el nombre de la categoria ordenandola por el tipo de producto
             $name = Categoria::where('id', $nombre)
             ->pluck('nombre_categoria')
             ->first();
@@ -52,15 +53,19 @@ class InicioController extends Controller
             ['name' => 'Disponible', 'y' => $disponible]
         ];
 
+        // Contar todos los productos.
         $totalProductos = Producto::count();
-        // Contar todos los alquileres
+        // Contar todos los alquileres.
         $totalAlquileres = AlquilerEquipo::count();
+        //Almmacena los datos de los totales de producto.
         $dato2 = [
             ['name' => 'Alquilados', 'y' => $totalAlquileres],
             ['name' => 'Asignados', 'y' => $totalProductos]
         ];
 
 
+
+        //retorna los datos relacionados con la logica del sistema
         return view('inicio', [
             'ciudades' => $ciudades,
             'series' => $series,
@@ -69,18 +74,4 @@ class InicioController extends Controller
         ]);
     }
 
-   /*  public function prods() {
-    // Contar todos los productos
-    $totalProductos = Producto::count();
-    // Contar todos los alquileres
-    $totalAlquileres = AlquilerEquipo::count();
-    $dato2 = [
-        ['name' => 'Propios', 'y' => $totalAlquileres],
-        ['name' => 'Alquilados', 'y' => $totalProductos]
-    ];
-    return view('inicio',
-    ['prods' => $dato2]
-    );
-
-    } */
 }
