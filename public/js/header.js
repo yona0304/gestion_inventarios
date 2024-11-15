@@ -21,6 +21,12 @@ document.getElementById('toggle-lista').addEventListener('click', function () {
     dropdown.classList.toggle('hidden');
 });
 
+
+document.getElementById('toggle-dotacion').addEventListener('click', function(){
+    const dropdown = document.getElementById('dropdown-dotacion');
+    dropdown.classList.toggle('hidden');
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     const toggleButton = document.querySelector("[data-drawer-toggle='logo-sidebar']");
     const sidebar = document.getElementById("logo-sidebar");

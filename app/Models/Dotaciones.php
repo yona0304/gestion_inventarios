@@ -24,4 +24,12 @@ class Dotaciones extends Model
     {
         return $this->hasMany(Cargos::class);
     }
+
+    public function scopeDota($query, $BusDota = '')
+    {
+        // return $query->where('id_producto', 'like', "%{$BusCategoria}%");
+        return $query->where(function ($query) use ($BusDota) {
+            $query->where('id_cargo', 'like', "%$BusDota%");
+        });
+    }
 }
