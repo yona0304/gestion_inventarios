@@ -54,3 +54,35 @@ $(document).ready(function () {
         });
     });
 });
+
+
+$(document).ready(function () {
+    // Función para cargar datos con AJAX
+    function fetch_data(page, Equipo) {
+        $.ajax({
+            url: "/historial-computo?page=" + page + "&Equipo=" + Equipo, // Asegúrate de que esta ruta sea correcta
+            type: "GET",
+            dataType: "html",
+            success: function (data) {
+                $("#HistorialComputador").html(data);
+            },
+            error: function (xhr, status, error) {
+                console.error("Error en la solicitud AJAX:", error);
+            }
+        });
+    }
+
+    // Evento keyup para búsqueda en tiempo real
+    $(document).on("change keyup", "#Equipo", function () {
+        var Equipo = $(this).val();
+        fetch_data(1, Equipo); // Siempre empieza desde la página 1 al buscar
+    });
+
+    // Evento click para paginación
+    $(document).on("click", ".pagination a", function (e) {
+        e.preventDefault();
+        var page = $(this).attr("href").split("page=")[1];
+        var Equipo = $("#Equipo").val();
+        fetch_data(page, Equipo);
+    });
+});

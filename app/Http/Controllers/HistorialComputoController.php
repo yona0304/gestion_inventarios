@@ -17,9 +17,9 @@ class HistorialComputoController extends Controller
 
         $codigosInternos = $productos->pluck('codigo_interno')->toArray();
 
-        $historiales = HistorialComputo::with('producto')
+        $historiales = HistorialComputo::with('producto')->Equipo($request->Equipo)
             ->orderBy('created_at', 'desc')
-            ->paginate(15);
+            ->paginate(10);
 
         if ($request->ajax()) {
             return view('partials.historial', compact('historiales'))->render();

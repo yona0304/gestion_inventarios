@@ -43,4 +43,14 @@ class HistorialComputo extends Model
     {
         return $this->belongsTo(Producto::class);
     }
+
+    public function scopeEquipo($query, $Equipo = '')
+    {
+        return $query->where(function ($query) use ($Equipo) {
+
+            $query->whereHas('producto', function ($query) use ($Equipo) {
+                $query->where('codigo_interno', 'like', "%$Equipo%");
+            });
+        });
+    }
 }

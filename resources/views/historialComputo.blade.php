@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="Tablalquilados">
+                <div id="HistorialComputador">
                     @include('partials.historial')
                 </div>
             </div>

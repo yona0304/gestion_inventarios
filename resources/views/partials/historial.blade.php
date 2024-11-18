@@ -120,4 +120,8 @@
             @endforeach
         </tbody>
     </table>
+    <br>
+    <div class="pagination">
+        {!! $historiales->links() !!}
+    </div>
 </div>
