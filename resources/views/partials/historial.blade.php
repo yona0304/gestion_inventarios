@@ -1,5 +1,5 @@
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg" >
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400" style="width: 2500px">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
@@ -47,9 +47,10 @@
                 <th scope="col" class="px-6 py-3">
                     V & Licencia
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th colspan="2" scope="col" class="px-6 py-3">
                     Observaciones
                 </th>
+
                 <th scope="col" class="px-6 py-3">
                     F. Registro
                 </th>
@@ -107,7 +108,7 @@
                     <td class="px-6 py-4">
                         {{ $historial->version_licencia }}
                     </td>
-                    <td class="px-6 py-4">
+                    <td colspan="2" class="px-6 py-4">
                         {{ $historial->observaciones }}
                     </td>
                     <td class="px-6 py-4">
