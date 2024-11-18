@@ -32,4 +32,13 @@ class Vehiculo extends Model
     {
         return $this->hasMany(AsignacionEquipo::class);
     }
+
+    public function scopeVehicu($query, $vehiculo = '')
+    {
+        // return $query->where('id_producto', 'like', "%{$vehiculo}%");
+
+        return $query->where(function ($query) use ($vehiculo) {
+            $query->where('placa', 'like', "%$vehiculo%");
+        });
+    }
 }

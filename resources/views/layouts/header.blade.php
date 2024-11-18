@@ -143,6 +143,10 @@
                         <a href="{{ route('lis.produc') }}"
                             class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Productos</a>
                     </li>
+                    <li>
+                        <a href="{{ route('lis.vehiculos') }}"
+                            class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Vehiculos</a>
+                    </li>
                 </ul>
             </li>
             {{-- boton de finalizar la sesión --}}

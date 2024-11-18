@@ -18,7 +18,8 @@ class ListaProductosController extends Controller
                 $request->BuUbicacion,
                 $request->BuReferencia,
                 $request->BuEstado
-                )
+            )
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
 
         if ($request->ajax()) {

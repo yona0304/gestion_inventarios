@@ -13,6 +13,7 @@ use App\Http\Controllers\RegistrarUsuarioController;
 use App\Http\Controllers\RetirarController;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\DotaRegistroController;
+use App\Http\Controllers\ListaVehiculosController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -71,6 +72,7 @@ Route::post('/Dotacion-Registro/regitrado',[DotaRegistroController::class,'store
 //listas de productos y de asignaciones
 Route::get('/lista-productos', [ListaProductosController::class, 'index'])->name('lis.produc');
 Route::get('/lista-asignaciones', [ListaAsignadosController::class, 'index'])->name('lis.asignados');
+Route::get('/lista-vehiculos', [ListaVehiculosController::class, 'index'])->name('lis.vehiculos');
 
 //historial computo
 Route::get('/historial-computo', [HistorialComputoController::class, 'index'])->name('historial');
