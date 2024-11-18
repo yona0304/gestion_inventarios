@@ -60,6 +60,24 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <button id="toggle-dotacion" type="button"
+                    class="flex items-center w-full p-2 text-base text-white transition duration-75 rounded-lg group hover:bg-red-700 hover:text-white"
+                    aria-controls="dropdown-dotacion">
+                    <span class="flex-1 ms-3 text-left whitespace-nowrap">Dotaciones</span>
+                    <i class="fa-solid fa-angle-down text-xl text-white group-hover:text-white"></i>
+                </button>
+                <ul id="dropdown-dotacion" class="hidden py-2 space-y-2">
+                    <li>
+                        <a href="{{ route('Dotacion-Registro') }}"
+                            class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Definir dotaciones</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('Dotacion') }}"
+                            class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Dotaciones asignadas</a>
+                    </li>
+                </ul>
+            </li>
 
             <li>
                 <button id="toggle-alquiler" type="button"

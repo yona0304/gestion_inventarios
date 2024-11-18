@@ -64,7 +64,7 @@ Route::post('/equipos-alquilados/importacion', [AlquilerEquipoController::class,
 //asignar
 Route::get('/Dotacion', [DotacionController::class, 'index'])->name('Dotacion');
 //Route::post('/dotacion/registrado', [DotacionController::class, 'dotacion'])->name('dotacion');
-Route::post('/Dotacion/Registrado', [DotacionController::class, 'dotacion'])->name('Dotacion');
+Route::post('/Dotacion/Registrado', [DotacionController::class, 'dotacion'])->name('Dotacion.Reg');
 Route::get('/Dotacion-Registro',[DotaRegistroController::class,'index'])->name('Dotacion-Registro');
 Route::post('/Dotacion-Registro/regitrado',[DotaRegistroController::class,'store'])->name('dotacion.store');
 
