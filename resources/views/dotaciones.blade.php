@@ -5,12 +5,12 @@
 @section('content')
 <div class="p-4 sm:ml-64">
 <div class="max-w-sm mx-auto">
-    <form action="{{ route('dotacion') }}" id="dotaForm" method="POST">
-    @csrf
-    <label for="user" class="block mb-2 text-xl font-medium text-gray-900">Identificacion</label>
-    <input type="user" id="user" name="user" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
-    focus:border-blue-500 block w-full p-2.5">
-    <button type="submit" class="mt-4 w-full bg-red-700 text-white font-semibold rounded-lg p-2 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-blue-400">Enviar</button>
+    <form action="{{ route('Dotacion') }}" id="dotaForm" method="POST">
+        @csrf
+            <label for="user" class="block mb-2 text-xl font-medium text-gray-900">Identificacion</label>
+            <input type="user" id="user" name="user" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+            focus:border-blue-500 block w-full p-2.5">
+            <button type="submit" class="mt-4 w-full bg-red-700 text-white font-semibold rounded-lg p-2 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-blue-400">Enviar</button>
     </form>
 </div>
 @if(isset($user))

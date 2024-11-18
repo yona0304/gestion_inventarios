@@ -12,6 +12,7 @@ use App\Http\Controllers\RegistrarProducto;
 use App\Http\Controllers\RegistrarUsuarioController;
 use App\Http\Controllers\RetirarController;
 use App\Http\Controllers\VehiculoController;
+use App\Http\Controllers\DotaRegistroController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -61,8 +62,11 @@ Route::put('/equipos-alquilados/{id}/finalizar', [AlquilerEquipoController::clas
 Route::post('/equipos-alquilados/importacion', [AlquilerEquipoController::class, 'import'])->name('alquiler.import');
 
 //asignar
-Route::get('/dotacion', [DotacionController::class, 'index'])->name('dotacion');
-Route::post('/dotacion/registrado', [DotacionController::class, 'dotacion'])->name('dotacion');
+Route::get('/Dotacion', [DotacionController::class, 'index'])->name('Dotacion');
+//Route::post('/dotacion/registrado', [DotacionController::class, 'dotacion'])->name('dotacion');
+Route::post('/Dotacion/Registrado', [DotacionController::class, 'dotacion'])->name('Dotacion');
+Route::get('/Dotacion-Registro',[DotaRegistroController::class,'index'])->name('Dotacion-Registro');
+Route::post('/Dotacion-Registro/regitrado',[DotaRegistroController::class,'store'])->name('dotacion.store');
 
 //listas de productos y de asignaciones
 Route::get('/lista-productos', [ListaProductosController::class, 'index'])->name('lis.produc');
