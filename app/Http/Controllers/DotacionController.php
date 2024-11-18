@@ -27,7 +27,7 @@ class DotacionController extends Controller
 
         //El sistema busca el documento de user utilizando un request del input "user"
         $usuario = $request->input('user');
-        $user = User::where('identificacion', $usuario)->first();
+        $user = User::with('cargos')->where('identificacion', $usuario)->first();
 
         //Si no existe un usuario con esa identificacion no se ejecutara el codigo
         if (!$user) {
@@ -70,7 +70,7 @@ class DotacionController extends Controller
         //el sistema  los datos de categoria que coincidan con la lista de los productos asignados
         $catList = Categoria::whereIn('id', $prodNoList)->pluck('id');
         //el sistema busca el dato de id_activo de la tabla de dotaciones requeridas
-        $dotaReq= $dotaRequerida->pluck('id_activo');
+        $dotaReq = $dotaRequerida->pluck('id_activo');
         //el sistema compara las dotaciones requeridas(dotaReq) y las asignadas(catList)
         $dotacionesNoCoinciden = $dotaReq->diff($catList);
         //el sistema busca los dotaciones faltante buscando el id de las "dotaNoCoinciden" en la tabla de categoria

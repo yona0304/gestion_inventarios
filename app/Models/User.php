@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function cargos()
     {
-        return $this->belongsTo(Cargos::class);
+        return $this->belongsTo(Cargos::class, 'cargo_id');
     }
 
     // Relación con asignación de equipo
@@ -71,7 +71,7 @@ class User extends Authenticatable
     // Relación con historial de productos
     public function historialProductos()
     {
-        return $this->hasMany(HistorialProducto::class);
+        return $this->hasMany(HistorialComputo::class);
     }
 
     // Relación con paz y salvo
