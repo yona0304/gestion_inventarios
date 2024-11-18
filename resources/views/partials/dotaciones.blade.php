@@ -19,10 +19,10 @@
                     {{ $dotaciones->id }}
                 </th>
                 <td class="px-6 py-4">
-                    {{ $dotaciones->id_cargo }}
+                    {{ $dotaciones->cargos->cargo }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ $dotaciones->id_activo }}
+                    {{ $dotaciones->categoria->nombre_categoria }}
                 </td>
             </tr>
         @endforeach

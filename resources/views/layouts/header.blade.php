@@ -58,6 +58,11 @@
                             class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Retirar
                             Asignación</a>
                     </li>
+                    <li>
+                        <a href="{{ route('historial') }}"
+                            class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Historial
+                            Computo</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -70,11 +75,13 @@
                 <ul id="dropdown-dotacion" class="hidden py-2 space-y-2">
                     <li>
                         <a href="{{ route('Dotacion-Registro') }}"
-                            class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Definir dotaciones</a>
+                            class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Definir
+                            dotaciones</a>
                     </li>
                     <li>
                         <a href="{{ route('Dotacion') }}"
-                            class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Dotaciones asignadas</a>
+                            class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Dotaciones
+                            asignadas</a>
                     </li>
                 </ul>
             </li>

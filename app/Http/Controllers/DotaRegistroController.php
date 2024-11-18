@@ -14,13 +14,14 @@ class DotaRegistroController extends Controller
 
         $categoria = Categoria::all();
         $cargo = Cargos::all();
-        $BusDota = Dotaciones::Dota($request->BusDota)->paginate(6);
+        $BusDota = Dotaciones::with('cargos')->with('categoria')->Dota($request->BusDota)
+            ->paginate(6);
         if ($request->ajax()) {
             return view('partials.dotaciones', compact('dotacion'))->render();
         }
 
         $dotacion = Dotaciones::all();
-        return view('registrarDotacion', compact('categoria','cargo','dotacion','BusDota'));
+        return view('registrarDotacion', compact('categoria', 'cargo', 'dotacion', 'BusDota'));
     }
     public function store(Request $request)
     {

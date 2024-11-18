@@ -186,8 +186,8 @@
                             <select name="estado" id="estado" class="mt-1 block rounded-md border-2 border-gray-300 shadow-sm">
                                 <option value="">Seleccionar</option>
                                 <option value="Mantenimiento">Mantenimiento</option>
+                                <option value="Activado">Activo</option>
                                 {{-- <option value="Retiro">Retiro</option> --}}
-                                {{-- <option value="Activado">Activar</option> --}}
                             </select>
                         </div>
 

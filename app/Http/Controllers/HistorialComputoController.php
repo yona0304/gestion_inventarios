@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\HistorialComputo;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class HistorialComputoController extends Controller
 {
@@ -71,9 +72,9 @@ class HistorialComputoController extends Controller
             case 'Mantenimiento':
                 $estado = 'Mantenimiento';
                 break;
-            // case 'Activado':
-            //     $estado = 'Disponible';
-                // break;
+            case 'Activado':
+                $estado = 'Activo';
+                break;
             // case 'Retiro':
             //     $estado = 'Retirado';
             //     break;

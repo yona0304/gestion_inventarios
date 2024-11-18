@@ -18,11 +18,11 @@ class Dotaciones extends Model
 
     public function categoria()
     {
-        return $this->hasMany(Categoria::class);
+        return $this->belongsTo(Categoria::class, 'id_activo');
     }
     public function cargos()
     {
-        return $this->hasMany(Cargos::class);
+        return $this->belongsTo(Cargos::class, 'id_cargo');
     }
 
     public function scopeDota($query, $BusDota = '')

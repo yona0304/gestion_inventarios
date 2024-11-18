@@ -19,4 +19,9 @@ class Cargos extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function dotaciones()
+    {
+        return $this->hasMany(Dotaciones::class);
+    }
 }
