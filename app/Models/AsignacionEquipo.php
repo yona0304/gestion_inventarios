@@ -41,14 +41,16 @@ class AsignacionEquipo extends Model
 
     public function scopeAsignar($query, $BusProducto = '', $BusProfesional = '', $BusFecha = '', $BusUbicacion = '', $BusEstado = '', $BusDevolucion = '')
     {
-
         return $query->where(function ($query) use ($BusProducto, $BusProfesional, $BusFecha, $BusUbicacion, $BusEstado, $BusDevolucion) {
+            // Filtro por producto o vehiculo
             if (!empty($BusProducto)) {
-                $query->whereHas('producto', function ($query) use ($BusProducto) {
-                    $query->where('codigo_interno', 'like', "%$BusProducto%");
-                })
-                ->orWhereHas('vehiculo', function ($query) use ($BusProducto) {
-                    $query->where('placa', 'like', "%$BusProducto%");
+                $query->where(function ($query) use ($BusProducto) {
+                    $query->whereHas('producto', function ($query) use ($BusProducto) {
+                        $query->where('codigo_interno', 'like', "%$BusProducto%");
+                    })
+                        ->orWhereHas('vehiculo', function ($query) use ($BusProducto) {
+                            $query->where('placa', 'like', "%$BusProducto%");
+                        });
                 });
             }
 
