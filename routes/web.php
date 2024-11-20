@@ -72,6 +72,10 @@ Route::post('/Dotacion-Registro/regitrado',[DotaRegistroController::class,'store
 //listas de productos y de asignaciones
 Route::get('/lista-productos', [ListaProductosController::class, 'index'])->name('lis.produc');
 Route::get('/lista-asignaciones', [ListaAsignadosController::class, 'index'])->name('lis.asignados');
+
+//mostrar datos en la lista de asignación
+Route::get('/datos/{id}', [ListaAsignadosController::class, 'datos']);
+
 Route::get('/lista-vehiculos', [ListaVehiculosController::class, 'index'])->name('lis.vehiculos');
 
 //historial computo

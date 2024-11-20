@@ -25,18 +25,18 @@ class AsignacionEquipo extends Model
     // Relación con producto
     public function producto()
     {
-        return $this->belongsTo(Producto::class);
+        return $this->belongsTo(Producto::class, 'producto_id');
     }
 
     // Relación con usuario
     public function usuario()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'usuario_id');
     }
 
     public function vehiculo()
     {
-        return $this->belongsTo(Vehiculo::class);
+        return $this->belongsTo(Vehiculo::class, 'vehiculo_id');
     }
 
     public function scopeAsignar($query, $BusProducto = '', $BusProfesional = '', $BusFecha = '', $BusUbicacion = '', $BusEstado = '', $BusDevolucion = '')
