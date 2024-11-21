@@ -47,3 +47,30 @@ $(document).ready(function () {
         fetch_data(page, filters);
     });
 });
+
+$(document).on('click', '.asignado-producto-btn', function () {
+
+    const id = $(this).data('id');
+    const url = `/datos-producto/${id}`;
+
+    $.get(url, function (asign) {
+        console.log(asign); //verificamos que se esten tomando los datos por medio de la consola del navegador
+
+        $('#NombreAsignacion').text(asign.usuario.nombres);
+        $('#IdentificacionAsignacion').text(asign.usuario.identificacion);
+        $('#AsignacionUbicacion').text(asign.usuario.ubicacion);
+        $('#AsignacionCorreo').text(asign.usuario.email);
+        $('#AsignacionCargo').text(asign.cargo);
+
+
+        $('#AsinacionLugar').text(asign.asignacion.ubicacion);
+        $('#AsignacionFechaAsignacion').text(asign.asignacion.fecha_asignacion);
+
+        //abrir modal
+        $('#detalleProductoModal').removeClass('hidden');
+    });
+});
+
+$(document).on('click', '.close-producto-btn', function () {
+    $('#detalleProductoModal').addClass('hidden');
+})

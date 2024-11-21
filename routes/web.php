@@ -69,14 +69,16 @@ Route::post('/Dotacion/Registrado', [DotacionController::class, 'dotacion'])->na
 Route::get('/Dotacion-Registro',[DotaRegistroController::class,'index'])->name('Dotacion-Registro');
 Route::post('/Dotacion-Registro/regitrado',[DotaRegistroController::class,'store'])->name('dotacion.store');
 
-//listas de productos y de asignaciones
+//listas de productos, vehiculos y asignaciones
 Route::get('/lista-productos', [ListaProductosController::class, 'index'])->name('lis.produc');
 Route::get('/lista-asignaciones', [ListaAsignadosController::class, 'index'])->name('lis.asignados');
-
-//mostrar datos en la lista de asignación
-Route::get('/datos/{id}', [ListaAsignadosController::class, 'datos']);
-
 Route::get('/lista-vehiculos', [ListaVehiculosController::class, 'index'])->name('lis.vehiculos');
+
+//mostrar datos en la lista de asignación, productos y vehiculos
+Route::get('/datos/{id}', [ListaAsignadosController::class, 'datos']);
+Route::get('/datos-producto/{id}', [ListaProductosController::class, 'datosAsignacion']);
+Route::get('/data-vehiculo/{id}', [ListaVehiculosController::class, 'datosVehiculo']);
+
 
 //historial computo
 Route::get('/historial-computo', [HistorialComputoController::class, 'index'])->name('historial');

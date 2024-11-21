@@ -82,10 +82,22 @@
                     <td class="px-6 py-4">
                         {{ $vehiculo->fecha_devolucionProveedor }}
                     </td>
-                    <td
+                    {{-- <td
                         class="px-6 py-4 {{ $vehiculo->estado === 'Disponible' ? 'disponible' : ($vehiculo->estado === 'Asignado' ? 'asignado' : ($vehiculo->estado === 'Retirado' ? 'retirado' : ($vehiculo->estado === 'Mantenimiento' ? 'mantenimiento' : ''))) }}">
                         {{ $vehiculo->estado }}
-                    </td>
+                    </td> --}}
+                    <td class="px-6 py-4">
+                    @if ($vehiculo->estado == 'Asignado')
+                        <button
+                            class="asignado-producto-btn {{ $vehiculo->estado === 'Disponible' ? 'disponible' : ($vehiculo->estado === 'Asignado' ? 'asignado' : ($vehiculo->estado === 'Retirado' ? 'retirado' : ($vehiculo->estado === 'Devolución' ? 'devolucion' : ''))) }}"
+                            data-id="{{ $vehiculo->id }}">
+                            {{ $vehiculo->estado }}
+                        </button>
+                    @else
+                        <span
+                            class="{{ $vehiculo->estado === 'Disponible' ? 'disponible' : ($vehiculo->estado === 'Retirado' ? 'retirado' : ($vehiculo->estado === 'Devolución' ? 'devolucion' : '')) }}">{{ $vehiculo->estado }}</span>
+                    @endif
+                </td>
                 </tr>
             @endforeach
         </tbody>
