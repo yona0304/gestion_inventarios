@@ -39,7 +39,7 @@ class ListaProductosController extends Controller
             ->first();
 
         return response()->json([
-            'usuario' => $asignacion->usuario,
+            'usuarios' => $asignacion->usuario,
             'cargo' => $asignacion->usuario->cargos->cargo ?? 'Sin cargo',
             'asignacion' => $asignacion,
         ]);

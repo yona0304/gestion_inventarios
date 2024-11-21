@@ -77,10 +77,10 @@ $(document).ready(function () {
 });
 
 
-$(document).on('click', '.asignado-producto-btn', function () {
+$(document).on('click', '.asignado-vehiculo-btn', function () {
 
     const id = $(this).data('id');
-    const url = `/data-vehiculo/${id}`;
+    const url = `/datos-vehiculo/${id}`;
 
     $.get(url, function (vehi) {
 

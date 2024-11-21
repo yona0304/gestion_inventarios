@@ -54,12 +54,11 @@ $(document).on('click', '.asignado-producto-btn', function () {
     const url = `/datos-producto/${id}`;
 
     $.get(url, function (asign) {
-        console.log(asign); //verificamos que se esten tomando los datos por medio de la consola del navegador
 
-        $('#NombreAsignacion').text(asign.usuario.nombres);
-        $('#IdentificacionAsignacion').text(asign.usuario.identificacion);
-        $('#AsignacionUbicacion').text(asign.usuario.ubicacion);
-        $('#AsignacionCorreo').text(asign.usuario.email);
+        $('#NombreAsignacion').text(asign.usuarios.nombres);
+        $('#IdentificacionAsignacion').text(asign.usuarios.identificacion);
+        $('#AsignacionUbicacion').text(asign.usuarios.ubicacion);
+        $('#AsignacionCorreo').text(asign.usuarios.email);
         $('#AsignacionCargo').text(asign.cargo);
 
 

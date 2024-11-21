@@ -89,7 +89,7 @@
                     <td class="px-6 py-4">
                     @if ($vehiculo->estado == 'Asignado')
                         <button
-                            class="asignado-producto-btn {{ $vehiculo->estado === 'Disponible' ? 'disponible' : ($vehiculo->estado === 'Asignado' ? 'asignado' : ($vehiculo->estado === 'Retirado' ? 'retirado' : ($vehiculo->estado === 'Devolución' ? 'devolucion' : ''))) }}"
+                            class="asignado-vehiculo-btn {{ $vehiculo->estado === 'Disponible' ? 'disponible' : ($vehiculo->estado === 'Asignado' ? 'asignado' : ($vehiculo->estado === 'Retirado' ? 'retirado' : ($vehiculo->estado === 'Devolución' ? 'devolucion' : ''))) }}"
                             data-id="{{ $vehiculo->id }}">
                             {{ $vehiculo->estado }}
                         </button>

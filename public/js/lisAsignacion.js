@@ -52,7 +52,6 @@ $(document).on('click', '.asignado-btn', function () {
     const url = `/datos/${id}`;
 
     $.get(url, function (data) {
-        console.log(data); //verificamos que se esten tomando los datos por medio de la consola del navegador
 
         if (data.producto) {
             $('#DeProducto').text(data.producto.descripcion_equipo);

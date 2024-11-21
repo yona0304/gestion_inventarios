@@ -24,15 +24,15 @@ class ListaVehiculosController extends Controller
     public function datosVehiculo($id)
     {
 
-        $asignacion = AsignacionEquipo::with(['usuario.cargos'])
-        ->where('vehiculo_id', $id)
+        $vehiculo = AsignacionEquipo::with(['usuario.cargos'])
+            ->where('vehiculo_id', $id)
             ->where('estado', 'Asignado')
             ->first();
 
         return response()->json([
-            'usuario' => $asignacion->usuario,
-            'cargo' => $asignacion->usuario->cargos->cargo ?? 'Sin cargo',
-            'asignacion' => $asignacion,
+            'usuario' => $vehiculo->usuario,
+            'cargo' => $vehiculo->usuario->cargos->cargo ?? 'Sin cargo',
+            'asignacion' => $vehiculo,
         ]);
     }
 }

@@ -77,7 +77,7 @@ Route::get('/lista-vehiculos', [ListaVehiculosController::class, 'index'])->name
 //mostrar datos en la lista de asignación, productos y vehiculos
 Route::get('/datos/{id}', [ListaAsignadosController::class, 'datos']);
 Route::get('/datos-producto/{id}', [ListaProductosController::class, 'datosAsignacion']);
-Route::get('/data-vehiculo/{id}', [ListaVehiculosController::class, 'datosVehiculo']);
+Route::get('/datos-vehiculo/{id}', [ListaVehiculosController::class, 'datosVehiculo']);
 
 
 //historial computo
