@@ -47,3 +47,29 @@ $(document).ready(function () {
         fetch_data(page, filters);
     });
 });
+
+$(document).on('click', '.asignado-producto-btn', function () {
+
+    const id = $(this).data('id');
+    const url = `/datos-producto/${id}`;
+
+    $.get(url, function (asign) {
+
+        $('#NombreAsignacion').text(asign.usuarios.nombres);
+        $('#IdentificacionAsignacion').text(asign.usuarios.identificacion);
+        $('#AsignacionUbicacion').text(asign.usuarios.ubicacion);
+        $('#AsignacionCorreo').text(asign.usuarios.email);
+        $('#AsignacionCargo').text(asign.cargo);
+
+
+        $('#AsinacionLugar').text(asign.asignacion.ubicacion);
+        $('#AsignacionFechaAsignacion').text(asign.asignacion.fecha_asignacion);
+
+        //abrir modal
+        $('#detalleProductoModal').removeClass('hidden');
+    });
+});
+
+$(document).on('click', '.close-producto-btn', function () {
+    $('#detalleProductoModal').addClass('hidden');
+})

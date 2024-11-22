@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AsignacionEquipo;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
@@ -27,5 +28,20 @@ class ListaProductosController extends Controller
         }
 
         return view('listaProductos', compact('productos'));
+    }
+
+    public function datosAsignacion($id)
+    {
+
+        $asignacion = AsignacionEquipo::with(['usuario.cargos'])
+            ->where('producto_id', $id)
+            ->where('estado', 'Asignado')
+            ->first();
+
+        return response()->json([
+            'usuarios' => $asignacion->usuario,
+            'cargo' => $asignacion->usuario->cargos->cargo ?? 'Sin cargo',
+            'asignacion' => $asignacion,
+        ]);
     }
 }

@@ -32,25 +32,24 @@ class HistorialComputo extends Model
         'estado'
     ];
 
-    // Relación con usuario
-    // public function usuario()
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
-
     // Relación con producto
     public function producto()
     {
         return $this->belongsTo(Producto::class);
     }
 
-    public function scopeEquipo($query, $Equipo = '')
+    public function scopeEquipo($query, $Equipo = '', $FechaHistorial = '')
     {
-        return $query->where(function ($query) use ($Equipo) {
+        return $query->where(function ($query) use ($Equipo, $FechaHistorial) {
+            if (!empty($Equipo)) {
+                $query->whereHas('producto', function ($query) use ($Equipo) {
+                    $query->where('codigo_interno', 'like', "%$Equipo%");
+                });
+            }
 
-            $query->whereHas('producto', function ($query) use ($Equipo) {
-                $query->where('codigo_interno', 'like', "%$Equipo%");
-            });
+            if (!empty($FechaHistorial)) {
+                $query->whereDate('fecha_registro', '=', $FechaHistorial);
+            }
         });
     }
 }

@@ -42,9 +42,12 @@
                 <td class="px-6 py-4">
                     {{ $asignacion->ubicacion }}
                 </td>
-                <td
-                    class="px-6 py-4 {{ $asignacion->estado === 'Disponible' ? 'disponible' : ($asignacion->estado === 'Asignado' ? 'asignado' : ($asignacion->estado === 'Retirado' ? 'retirado' : ($asignacion->estado === 'Devolución' ? 'devolucion' : ''))) }}">
-                    {{ $asignacion->estado }}
+                <td class="px-6 py-4">
+                    <button
+                        class="asignado-btn {{ $asignacion->estado === 'Disponible' ? 'disponible' : ($asignacion->estado === 'Asignado' ? 'asignado' : ($asignacion->estado === 'Retirado' ? 'retirado' : ($asignacion->estado === 'Devolución' ? 'devolucion' : ''))) }}"
+                        data-id="{{ $asignacion->id }}">
+                        {{ $asignacion->estado }}
+                    </button>
                 </td>
                 <td class="px-6 py-4">
                     {{ $asignacion->fecha_devolucion }}

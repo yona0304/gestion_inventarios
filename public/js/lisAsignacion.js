@@ -45,3 +45,43 @@ $(document).ready(function () {
         fetch_data(page, filters);
     });
 });
+
+$(document).on('click', '.asignado-btn', function () {
+
+    const id = $(this).data('id');
+    const url = `/datos/${id}`;
+
+    $.get(url, function (data) {
+
+        if (data.producto) {
+            $('#DeProducto').text(data.producto.descripcion_equipo);
+            $('#DeCodigo').text(data.producto.codigo_interno);
+            $('#DeSede').text(data.producto.ubicacion);
+            $('#DeEstado').text(data.asignacion.estado)
+        } else if (data.vehiculo) {
+            $('#DeProducto').text(data.vehiculo.descripcion_vehiculo + ' - Vehículo');
+            $('#DeCodigo').text(data.vehiculo.placa);
+            $('#DeSede').text('');
+            $('#DeEstado').text(data.asignacion.estado)
+        }
+
+        $('#DeNombre').text(data.usuario.nombres);
+        $('#DeIdentificacion').text(data.usuario.identificacion);
+        $('#DeUbicacion').text(data.usuario.ubicacion);
+        $('#DeCorreo').text(data.usuario.email);
+        $('#DeCargo').text(data.cargo);
+
+
+        $('#DeLugar').text(data.asignacion.ubicacion);
+        $('#DeFechaAsignacion').text(data.asignacion.fecha_asignacion);
+        $('#DeFechaDevolucion').text(data.asignacion.fecha_devolucion);
+
+        //abrir modal
+        $('#detalleModal').removeClass('hidden');
+    });
+});
+
+$(document).on('click', '.close-modal-btn', function () {
+    $('#detalleModal').addClass('hidden');
+})
+

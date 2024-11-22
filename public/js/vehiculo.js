@@ -75,3 +75,30 @@ $(document).ready(function () {
         fetch_data(page, vehiculo);
     });
 });
+
+
+$(document).on('click', '.asignado-vehiculo-btn', function () {
+
+    const id = $(this).data('id');
+    const url = `/datos-vehiculo/${id}`;
+
+    $.get(url, function (vehi) {
+
+        $('#NombreVehiculo').text(vehi.usuario.nombres);
+        $('#IdentificacionVehiculo').text(vehi.usuario.identificacion);
+        $('#VehiculoUbicacion').text(vehi.usuario.ubicacion);
+        $('#VehiculoCorreo').text(vehi.usuario.email);
+        $('#VehiculoCargo').text(vehi.cargo);
+
+
+        $('#VehiculoLugar').text(vehi.asignacion.ubicacion);
+        $('#VehiculoFechaAsignacion').text(vehi.asignacion.fecha_asignacion);
+
+        //abrir modal
+        $('#detalleVehiculoModal').removeClass('hidden');
+    });
+});
+
+$(document).on('click', '.close-vehiculo-btn', function () {
+    $('#detalleVehiculoModal').addClass('hidden');
+})

@@ -39,9 +39,17 @@
                 <td class="px-6 py-4">
                     {{ $producto->codigo_equipo_referencia }}
                 </td>
-                <td
-                    class="px-6 py-4 {{ $producto->estado === 'Disponible' ? 'disponible' : ($producto->estado === 'Asignado' ? 'asignado' : ($producto->estado === 'Retirado' ? 'retirado' : ($producto->estado === 'Mantenimiento' ? 'mantenimiento' : ''))) }}">
-                    {{ $producto->estado }}
+                <td class="px-6 py-4">
+                    @if ($producto->estado == 'Asignado')
+                        <button
+                            class="asignado-producto-btn {{ $producto->estado === 'Disponible' ? 'disponible' : ($producto->estado === 'Asignado' ? 'asignado' : ($producto->estado === 'Retirado' ? 'retirado' : ($producto->estado === 'Devolución' ? 'devolucion' : ''))) }}"
+                            data-id="{{ $producto->id }}">
+                            {{ $producto->estado }}
+                        </button>
+                    @else
+                        <span
+                            class="{{ $producto->estado === 'Disponible' ? 'disponible' : ($producto->estado === 'Retirado' ? 'retirado' : ($producto->estado === 'Devolución' ? 'devolucion' : '')) }}">{{ $producto->estado }}</span>
+                    @endif
                 </td>
             </tr>
         @endforeach

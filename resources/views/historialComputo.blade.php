@@ -9,18 +9,30 @@
                 <div class="pb-4 bg-white">
                     <label for="Equipo" class="sr-only">Search</label>
                     <div class="flex items-center justify-between ">
-                        <div class="relative mt-1">
-                            <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
-                                <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 20 20">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                                </svg>
+                        <div class="flex flex-wrap gap-2 sm:gap-4 items-center">
+
+                            <div class="relative mt-1 w-full sm:w-auto">
+                                <div
+                                    class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
+                                    <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 20 20">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                    </svg>
+                                </div>
+                                <input type="text" id="Equipo"
+                                    class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-full sm:w-80 bg-gray-50"
+                                    placeholder="Buscar producto">
                             </div>
-                            <input type="text" id="Equipo"
-                                class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50"
-                                placeholder="Buscar producto">
+                            <div class="mt-1 w-full sm:w-auto">
+                                <input type="date" id="FechaHistorial"
+                                    class="block pt-2 ps-10 text-sm text-gray-400 border border-gray-300 rounded-lg bg-gray-50"
+                                    oninput="this.classList.toggle('text-black', this.value !== ''); this.classList.toggle('text-gray-400', this.value === '');">
+                            </div>
+
                         </div>
+
+                        {{-- boton en el lado derecho, para modal de historial comuto --}}
                         <div class="mt-1">
                             <button id="mostrarModal"
                                 class="text-white bg-red-900 hover:bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
@@ -181,9 +193,9 @@
                         </div>
 
                         <div class="mb-4">
-                            <label for="estado"
-                                class="block text-sm font-medium text-gray-700">Estado</label>
-                            <select name="estado" id="estado" class="mt-1 block rounded-md border-2 border-gray-300 shadow-sm">
+                            <label for="estado" class="block text-sm font-medium text-gray-700">Estado</label>
+                            <select name="estado" id="estado"
+                                class="mt-1 block rounded-md border-2 border-gray-300 shadow-sm">
                                 <option value="">Seleccionar</option>
                                 <option value="Mantenimiento">Mantenimiento</option>
                                 <option value="Activado">Activo</option>

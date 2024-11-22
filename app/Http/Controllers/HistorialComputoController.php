@@ -17,7 +17,11 @@ class HistorialComputoController extends Controller
 
         $codigosInternos = $productos->pluck('codigo_interno')->toArray();
 
-        $historiales = HistorialComputo::with('producto')->Equipo($request->Equipo)
+        $historiales = HistorialComputo::with('producto')
+            ->Equipo(
+                $request->input('Equipo'),
+                $request->input('FechaHistorial')
+            )
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
@@ -75,12 +79,12 @@ class HistorialComputoController extends Controller
             case 'Activado':
                 $estado = 'Activo';
                 break;
-            // case 'Retiro':
-            //     $estado = 'Retirado';
-            //     break;
-            // default:
-            //     $estado = 'Pendiente'; // Por defecto, o cuando no coincide con las opciones
-            //     break;
+                // case 'Retiro':
+                //     $estado = 'Retirado';
+                //     break;
+                // default:
+                //     $estado = 'Pendiente'; // Por defecto, o cuando no coincide con las opciones
+                //     break;
         }
 
         //creamos el registro en el historial
