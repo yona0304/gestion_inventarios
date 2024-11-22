@@ -14,6 +14,7 @@ use App\Http\Controllers\RetirarController;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\DotaRegistroController;
 use App\Http\Controllers\ListaVehiculosController;
+use App\Http\Controllers\NovedadController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -77,3 +78,7 @@ Route::get('/lista-vehiculos', [ListaVehiculosController::class, 'index'])->name
 //historial computo
 Route::get('/historial-computo', [HistorialComputoController::class, 'index'])->name('historial');
 Route::post('/historial-computo/registro', [HistorialComputoController::class, 'store'])->name('historial.store');
+
+//Novedades
+Route::get('/novedades',[NovedadController::class,'index'])->name('novedad');
+Route::post('/novedad/registro', [NovedadController::class,'store'])->name('novedad.store');
