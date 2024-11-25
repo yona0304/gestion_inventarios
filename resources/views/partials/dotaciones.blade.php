@@ -30,5 +30,5 @@
 </table>
 <br>
 <div class="pagination">
-    {!! $BusDota->links() !!}
+    {!! $dotacion->links() !!}
 </div>

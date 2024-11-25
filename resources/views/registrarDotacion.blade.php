@@ -49,11 +49,11 @@
             <div>
                 <div class="mt-8 overflow-x-auto">
                     <div class="form-group col-md-5 col-md-offset-7">
-                        <input type="text" id="BusDota" name="BusDota"
+                        <input type="text" id="BusDota"
                         placeholder="buscar por categoria o prefijo"
                         class="mt-2 block w-full max-w-xs text-sm text-gray-900 bg-gray-50 rounded-md border border-gray-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600 p-2">
                     </div>
-                    <div id="divTable">
+                    <div id="tablaDonaciones">
                         @include('partials.dotaciones')
                     </div>
                 </div>

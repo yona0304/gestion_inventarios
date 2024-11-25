@@ -27,9 +27,10 @@ class Dotaciones extends Model
 
     public function scopeDota($query, $BusDota = '')
     {
-        // return $query->where('id_producto', 'like', "%{$BusCategoria}%");
         return $query->where(function ($query) use ($BusDota) {
-            $query->where('id_cargo', 'like', "%$BusDota%");
+            $query->whereHas('cargos', function ($query) use ($BusDota) {
+                $query->where('cargo', 'like', "%$BusDota%");
+            });
         });
     }
 }
