@@ -55,7 +55,7 @@
         <div class="flex items-center justify-center min-h-screen">
             <div class="relative w-full max-w-4xl rounded-lg shadow bg-white">
                 <div class="flex items-start justify-between p-4 border-b rounded-t">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-black">Registrar Historial de Cómputo</h3>
+                    <h3 class="text-xl font-semibold text-gray-900 ">Registrar Historial de Cómputo</h3>
                     <button type="button"
                         class="text-black bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
                         data-modal-hide="modalRegistar">
@@ -225,6 +225,141 @@
             </div>
         </div>
     </div>
+
+
+
+    <div data-dial-init class="fixed end-6 bottom-6 group">
+        <div id="speed-dial-menu-default" class="flex flex-col items-center hidden mb-4 space-y-2">
+
+            <button type="button" data-tooltip-target="tooltip-download" data-tooltip-placement="left"
+                id="modalHistorialExperto"
+                class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 shadow-sm hover:bg-gray-50">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path
+                        d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z" />
+                    <path
+                        d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Descargar</span>
+            </button>
+            <div id="tooltip-download" role="tooltip"
+                class="absolute z-10 invisible inline-block w-auto px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
+                Descargar
+                <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+            <button type="button" data-tooltip-target="tooltip-copy" data-tooltip-placement="left" id="modalHistori"
+                class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 shadow-sm hover:bg-gray-50">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M9 7V2.221a2 2 0 0 0-.5.365L4.586 6.5a2 2 0 0 0-.365.5H9Zm2 0V2h7a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-5h7.586l-.293.293a1 1 0 0 0 1.414 1.414l2-2a1 1 0 0 0 0-1.414l-2-2a1 1 0 0 0-1.414 1.414l.293.293H4V9h5a2 2 0 0 0 2-2Z"
+                        clip-rule="evenodd" />
+                </svg>
+
+                <span class="sr-only">Importar</span>
+            </button>
+            <div id="tooltip-copy" role="tooltip"
+                class="absolute z-10 invisible inline-block w-auto px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
+                Importar
+                <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+        </div>
+        <button type="button" data-dial-toggle="speed-dial-menu-default" aria-controls="speed-dial-menu-default"
+            aria-expanded="false"
+            class="flex items-center justify-center text-white bg-red-700 rounded-full w-14 h-14 hover:bg-red-800  focus:ring-4">
+            <svg class="w-5 h-5 transition-transform group-hover:rotate-45" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 1v16M1 9h16" />
+            </svg>
+            <span class="sr-only">Open actions menu</span>
+        </button>
+    </div>
+
+    <div id="importarHistorial" class="fixed inset-0 hidden z-50 overflow-y-auto">
+        <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+        <div class="flex items-center justify-center min-h-screen">
+            <div class="relative w-full max-w-lg rounded-lg shadow bg-white">
+                <div class="flex items-start justify-between p-4 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-black">
+                        Importar historial computo
+                    </h3>
+                    <button type="button"
+                        class="text-black bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                        data-modal-historial="importarHistorial">
+                        <i class="fa-solid fa-x"></i>
+                    </button>
+                </div>
+                <div class="p-6 space-y-6">
+                    <form method="POST" id="formImportarHistorial" action="{{ route('import.historial') }}"
+                        enctype="multipart/form-data">
+                        @csrf
+                        <div>
+                            <label for="archivo_csv" class="block text-sm font-medium leading-6 text-gray-900">Archivo
+                                CSV</label>
+                            <div class="mt-2">
+                                <input type="file" name="archivo_csv_historial" id="archivo_csv" required
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+                            </div>
+                            <br>
+                            <a href="#" target="_blank"
+                                class="text-blue-600 hover:underline dark:text-blue-500">Plantilla CSV - Historial
+                                computo</a>
+                        </div>
+                        <div class="w-full flex justify-between mt-4">
+                            <button type="submit"
+                                class="w-1/3 bg-red-800 text-white py-2 rounded-md shadow-sm hover:bg-red-600">Importar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ExportHistorial" class="fixed inset-0 hidden z-50 overflow-y-auto">
+        <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+        <div class="flex items-center justify-center min-h-screen">
+            <div class="relative w-full max-w-lg rounded-lg shadow bg-white">
+                <div class="flex items-start justify-between p-4 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-black">
+                        Exportar historial computo
+                    </h3>
+                    <button type="button"
+                        class="text-black bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                        data-modal-export="ExportHistorial">
+                        <i class="fa-solid fa-x"></i>
+                    </button>
+                </div>
+                <div class="p-6 space-y-6">
+                    <form method="POST" id="formExportHistorial" action="{{ route('historial.export') }}"
+                        enctype="multipart/form-data">
+                        @csrf
+                        <div>
+                            <label for="fecha_inicial" class="block text-sm font-medium leading-6 text-gray-900">Fecha
+                                inicial</label>
+                            <div class="mt-2">
+                                <input type="date" name="fecha_inicial" id="fecha_inicial" required
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+                            </div>
+                            <br>
+                            <label for="fecha_final" class="block text-sm font-medium leading-6 text-gray-900">Fecha
+                                final</label>
+                            <div class="mt-2">
+                                <input type="date" name="fecha_final" id="fecha_final" required
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+                        <div class="w-full flex justify-between mt-4">
+                            <button type="submit"
+                                class="w-1/3 bg-red-800 text-white py-2 rounded-md shadow-sm hover:bg-red-600">Importar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         $(function() {
             //seleccionamos los codigo internos de los pc, que se llaman atraves del controlador de historial

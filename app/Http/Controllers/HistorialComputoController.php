@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\HistorialExport;
+use App\Imports\HistorialImport;
 use App\Models\HistorialComputo;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Maatwebsite\Excel\Facades\Excel;
 
 class HistorialComputoController extends Controller
 {
@@ -113,5 +116,35 @@ class HistorialComputoController extends Controller
         //     ->update(['estado' => $estado]);
 
         return response()->json(['success' => 'Hisorial registrado.']);
+    }
+
+    public function import(Request $request)
+    {
+        // Realizar la importación
+        $file = $request->file('archivo_csv_historial');
+        $import = new HistorialImport;
+        Excel::import($import, $file);
+
+        // Obtener los productos no registrados
+        $registros = $import->getRegistros();
+
+        if (!empty($registros)) {
+            return response()->json([
+                'success' => 'Importación realizada con éxito, Nota: se encontraron productos no registrados en el sistema, favor de verificar',
+                // 'registros' => $registros,
+            ]);
+        } else {
+            return response()->json(['success' => 'Importación realizada con éxito.']);
+        }
+    }
+
+    public function export(Request $request)
+    {
+        // Obtiene la fecha seleccionada desde el formulario de la vista
+        $fecha_inicial = $request->input('fecha_inicial');
+        $fecha_final = $request->input('fecha_final');
+
+        // Utiliza la clase ProdExport para generar y descargar el archivo Excel con los reportes de la fecha seleccionada
+        return Excel::download(new HistorialExport($fecha_inicial, $fecha_final), 'Historial-Computo.xlsx');
     }
 }

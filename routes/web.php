@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 //Inicio
 Route::get('/inicio', [InicioController::class, 'index'])->name('inicio');
-Route::get('/inicio/{id}',[InicioController::class,'asignacion']);
+Route::get('/inicio/{id}', [InicioController::class, 'asignacion']);
 
 //mostrar index de la pagina y controlador de formulario de enviar el registro
 Route::get('/registrar-producto', [RegistrarProducto::class, 'index'])->name('producto');
@@ -66,8 +66,8 @@ Route::post('/equipos-alquilados/importacion', [AlquilerEquipoController::class,
 Route::get('/Dotacion', [DotacionController::class, 'index'])->name('Dotacion');
 //Route::post('/dotacion/registrado', [DotacionController::class, 'dotacion'])->name('dotacion');
 Route::post('/Dotacion/Registrado', [DotacionController::class, 'dotacion'])->name('Dotacion.Reg');
-Route::get('/Dotacion-Registro',[DotaRegistroController::class,'index'])->name('Dotacion-Registro');
-Route::post('/Dotacion-Registro/regitrado',[DotaRegistroController::class,'store'])->name('dotacion.store');
+Route::get('/Dotacion-Registro', [DotaRegistroController::class, 'index'])->name('Dotacion-Registro');
+Route::post('/Dotacion-Registro/regitrado', [DotaRegistroController::class, 'store'])->name('dotacion.store');
 
 //listas de productos, vehiculos y asignaciones
 Route::get('/lista-productos', [ListaProductosController::class, 'index'])->name('lis.produc');
@@ -80,6 +80,8 @@ Route::get('/datos-producto/{id}', [ListaProductosController::class, 'datosAsign
 Route::get('/datos-vehiculo/{id}', [ListaVehiculosController::class, 'datosVehiculo']);
 
 
-//historial computo
+//historial computo, registro, import
 Route::get('/historial-computo', [HistorialComputoController::class, 'index'])->name('historial');
 Route::post('/historial-computo/registro', [HistorialComputoController::class, 'store'])->name('historial.store');
+Route::post('/historial-computo/importacion', [HistorialComputoController::class, 'import'])->name('import.historial');
+Route::post('/historial-computo/export', [HistorialComputoController::class, 'export'])->name('historial.export');
