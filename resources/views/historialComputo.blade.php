@@ -305,7 +305,7 @@
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6">
                             </div>
                             <br>
-                            <a href="#" target="_blank"
+                            <a href="{{ asset('plantillas/HISTORIAL-COMPUTO-PLANTILLA.csv') }}" target="_blank"
                                 class="text-blue-600 hover:underline dark:text-blue-500">Plantilla CSV - Historial
                                 computo</a>
                         </div>
