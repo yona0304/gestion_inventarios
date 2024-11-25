@@ -22,12 +22,17 @@ class AlquilerEquipo extends Model
     ];
 
     // Relación con usuario
-    public function usuario()
+    public function usuarios()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'usuario_id');
     }
 
-    public function scopeAlqui($query, $BuscarAlquiler = ''){
-        return $query->where('identificacion', 'like', "%{$BuscarAlquiler}%");
+    public function scopeAlquile($query, $BusAlquiler = '')
+    {
+        return $query->where(function ($query) use ($BusAlquiler) {
+            $query->whereHas('usuarios', function ($query) use ($BusAlquiler) {
+                $query->where('identificacion', 'like', "%$BusAlquiler%");
+            });
+        });
     }
 }

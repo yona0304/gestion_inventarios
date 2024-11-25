@@ -99,7 +99,7 @@
                             class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Alquiler</a>
                     </li>
                     <li>
-                        <a href="{{ route('alquiler.list') }}"
+                        <a href="{{ route('alquiler.index') }}"
                             class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Equipos
                             Alquilados</a>
                     </li>

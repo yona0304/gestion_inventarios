@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\AlquiladosImport;
 use App\Models\AlquilerEquipo;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
 
 class AlquilerEquipoController extends Controller
 {
@@ -50,38 +48,4 @@ class AlquilerEquipoController extends Controller
         return response()->json(['success' => false, 'message' => 'No se encontró pudo realizar la operación, intentalo mas tarde'], 404);
     }
 
-    public function list(Request $request)
-    {
-        $alquilados = AlquilerEquipo::Alqui($request->BuscarAlquiler)->join('users', 'alquiler_equipo.usuario_id', '=', 'users.id')
-            ->select('alquiler_equipo.*', 'users.identificacion as identificacion')->orderBy('created_at', 'desc')
-            ->paginate(5);
-
-        if ($request->ajax()) {
-            return view('partials.alquilados', compact('alquilados'))->render();
-        }
-
-        return view('equiposAlquilados', compact('alquilados'));
-    }
-
-    public function finalizar(Request $request, $id)
-    {
-        $request->validate([
-            'fecha_fin' => 'required|date'
-        ]);
-
-        $alquiler = AlquilerEquipo::findOrFail($id);
-
-        $alquiler->update([
-            'fecha_fin_alquiler' => $request->fecha_fin,
-        ]);
-
-        return response()->json(['success' => 'Finalización de alquiler']);
-    }
-
-    public function import(Request $request)
-    {
-        $file = $request->file('archivo_csv');
-        Excel::import(new AlquiladosImport, $file);
-        return response()->json(['success' => 'Importación realizada con exíto']);
-    }
 }

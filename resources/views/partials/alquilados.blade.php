@@ -43,7 +43,7 @@
                     {{ $alquilado->ubicacion }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ $alquilado->identificacion }}
+                    {{ $alquilado->usuarios->identificacion }}
                 </td>
                 <td class="px-6 py-4">
                     {{ $alquilado->fecha_inicio_alquiler }}
@@ -54,7 +54,7 @@
                 <td class="px-6 py-4">
                     @if (!$alquilado->fecha_fin_alquiler)
                         <button class="finalizar-btn font-medium text-blue-600 hover:underline"
-                            data-id="{{ $alquilado->id }}" data-url="{{ route('finalizar', $alquilado->id) }}">
+                            data-id="{{ $alquilado->id }}" data-url="{{ route('alquiler.finalizar', $alquilado->id) }}">
                             Finalizar
                         </button>
                     @else

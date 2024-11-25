@@ -13,6 +13,7 @@ use App\Http\Controllers\RegistrarUsuarioController;
 use App\Http\Controllers\RetirarController;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\DotaRegistroController;
+use App\Http\Controllers\ListaEquiposAlquiladosController;
 use App\Http\Controllers\ListaVehiculosController;
 use App\Http\Controllers\NovedadController;
 use Illuminate\Support\Facades\Route;
@@ -55,13 +56,11 @@ Route::put('/retirar-asignacion/actualizar', [RetirarController::class, 'update'
 //alquiler equipo
 Route::get('/alquiler-equipo', [AlquilerEquipoController::class, 'index'])->name('alquiler');
 Route::post('/alquiler-equipo/registro', [AlquilerEquipoController::class, 'store'])->name('alquiler.store');
-Route::get('/equipos-alquilados', [AlquilerEquipoController::class, 'list'])->name('alquiler.list');
 
-//finalizar alquiler de equipo
-Route::put('/equipos-alquilados/{id}/finalizar', [AlquilerEquipoController::class, 'finalizar'])->name('finalizar');
-
-//importación maxiva de equipos alquilados
-Route::post('/equipos-alquilados/importacion', [AlquilerEquipoController::class, 'import'])->name('alquiler.import');
+//lista de quipos alquilados, finalizar e importar
+Route::get('/equipos-alquilados', [ListaEquiposAlquiladosController::class, 'index'])->name('alquiler.index');
+Route::put('/equipos-alquilados/{id}/finalizar', [ListaEquiposAlquiladosController::class, 'finalizar'])->name('alquiler.finalizar');
+Route::post('/equipos-alquilados/importacion', [ListaEquiposAlquiladosController::class, 'import'])->name('alquiler.import');
 
 //asignar
 Route::get('/Dotacion', [DotacionController::class, 'index'])->name('Dotacion');
@@ -88,5 +87,5 @@ Route::post('/historial-computo/importacion', [HistorialComputoController::class
 Route::post('/historial-computo/export', [HistorialComputoController::class, 'export'])->name('historial.export');
 
 //Novedades
-Route::get('/novedades',[NovedadController::class,'index'])->name('novedad');
-Route::post('/novedad/registro', [NovedadController::class,'store'])->name('novedad.store');
+Route::get('/novedades', [NovedadController::class, 'index'])->name('novedad');
+Route::post('/novedad/registro', [NovedadController::class, 'store'])->name('novedad.store');

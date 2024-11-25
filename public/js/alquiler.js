@@ -58,13 +58,13 @@ $(document).on('click', '[data-modal-hide]', function () {
 
 $(document).ready(function () {
     // Función para cargar datos con AJAX
-    function fetch_data(page, BuscarAlquiler) {
+    function fetch_data_1(page, BusAlquiler) {
         $.ajax({
-            url: "/equipos-alquilados?page=" + page + "&BuscarAlquiler=" + BuscarAlquiler, // Asegúrate de que esta ruta sea correcta
+            url: "/equipos-alquilados?page=" + page + "&BusAlquiler=" + BusAlquiler,
             type: "GET",
             dataType: "html",
             success: function (data) {
-                $("#Tablalquilados").html(data);
+                $("#TablaEquiposAlquilados").html(data);
             },
             error: function (xhr, status, error) {
                 console.error("Error en la solicitud AJAX:", error);
@@ -73,17 +73,17 @@ $(document).ready(function () {
     }
 
     // Evento keyup para búsqueda en tiempo real
-    $(document).on("keyup", "#BuscarAlquiler", function () {
-        var BuscarAlquiler = $(this).val();
-        fetch_data(1, BuscarAlquiler); // Siempre empieza desde la página 1 al buscar
+    $(document).on("keyup", "#BusAlquiler", function () {
+        var BusAlquiler = $(this).val();
+        fetch_data_1(1, BusAlquiler);
     });
 
     // Evento click para paginación
     $(document).on("click", ".pagination a", function (e) {
         e.preventDefault();
         var page = $(this).attr("href").split("page=")[1];
-        var BuscarAlquiler = $("#BuscarAlquiler").val();
-        fetch_data(page, BuscarAlquiler);
+        var BusAlquiler = $("#BusAlquiler").val();
+        fetch_data_1(page, BusAlquiler);
     });
 });
 
@@ -160,7 +160,7 @@ $('#formImportarCSV').on('submit', function (e) {
         if (resultado.isConfirmed) {
 
             var formData = new FormData(this);
-            
+
             $.ajax({
                 url: '/equipos-alquilados/importacion',
                 type: 'POST',
