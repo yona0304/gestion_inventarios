@@ -15,7 +15,8 @@ class DotacionController extends Controller
     //
     public function index()
     {
-        return view('dotaciones');
+        $faltas = User::where('dotacion', '0')->get();
+        return view('dotaciones', compact ('faltas'));
     }
 
     public function dotacion(Request $request)

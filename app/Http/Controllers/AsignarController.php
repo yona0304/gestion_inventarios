@@ -6,6 +6,7 @@ use App\Models\AsignacionEquipo;
 use App\Models\Producto;
 use App\Models\User;
 use App\Models\Vehiculo;
+use App\Models\Dotaciones;
 use Illuminate\Http\Request;
 
 class AsignarController extends Controller
@@ -59,7 +60,6 @@ class AsignarController extends Controller
             return response()->json(['success' => false, 'message' => 'La identificación del profesional no existe.'], 404);
         }
 
-
         if ($producto) {
             //registrar producto en la base de datos
             AsignacionEquipo::create([
@@ -74,27 +74,58 @@ class AsignarController extends Controller
             // Actualizar el estado del producto a 'Asignado'
             $producto->update(['estado' => $estado]);
 
-            // Retorno un mensaje de éxito
-            return response()->json(['success' => 'Equipo asignado correctamente.']);
-        } else if ($vehiculo) {
-            AsignacionEquipo::create([
-                'vehiculo_id' => $vehiculo->id,
-                'usuario_id' => $usuario->id,
-                'fecha_asignacion' => $request->fecha_asignacion,
-                'observaciones' => $request->observaciones,
-                'estado' => $estado,
-                'ubicacion' => $request->ubicacion
+            $usuario = User::where('identificacion', $request->profesional)->first();
+
+            $userCharge = $usuario->cargo_id;
+
+            $dotaReq = Dotaciones::where('id_cargo', $userCharge)
+            ->get();
+
+            $asigProd = AsignacionEquipo::where('usuario_id', $usuario->id)
+            ->get();
+
+            $idProductos = $asigProd->pluck('producto_id');
+
+            $productos = Producto::whereIn('id', $idProductos)
+            ->get();
+            // Obtener las IDs de productos requeridos en las dotaciones
+            $idProductosRequeridos = $dotaReq->pluck('id_activo');
+            // Obtener las IDs de productos asignados
+            $idProductosAsignados = $productos->pluck('categoria_id');
+            // Comparar si los productos asignados cumplen con los requeridos
+            $requerimientosCumplidos = $idProductosRequeridos->diff($idProductosAsignados)->isEmpty();
+
+            if ($requerimientosCumplidos) {
+                // Todos los requerimientos están asignados
+                User::where('id',  $usuario->id )->update([
+                    'dotacion' => '1',
+                ]);
+                return response()->json(['success' => 'Equipo asignado correctamente. <br> El usuario cuenta con la dotacion completa']);
+            }
+            User::where('id',  $usuario->id )->update([
+                'dotacion' => '0',
             ]);
-
-            // Actualizar el estado del producto a 'Asignado'
-            $vehiculo->update(['estado' => $estado]);
-
             // Retorno un mensaje de éxito
-            return response()->json(['success' => 'Vehiculo asignado correctamente.']);
-        } else {
+                return response()->json(['success' => 'Equipo asignado correctamente.']);
+            } else if ($vehiculo) {
+                AsignacionEquipo::create([
+                    'vehiculo_id' => $vehiculo->id,
+                    'usuario_id' => $usuario->id,
+                    'fecha_asignacion' => $request->fecha_asignacion,
+                    'observaciones' => $request->observaciones,
+                    'estado' => $estado,
+                    'ubicacion' => $request->ubicacion
+                ]);
+
+                // Actualizar el estado del producto a 'Asignado'
+                $vehiculo->update(['estado' => $estado]);
+
+                // Retorno un mensaje de éxito
+                return response()->json(['success' => 'Vehiculo asignado correctamente.']);
+            } else {
+                return response()->json(['success' => false, 'message' => 'El producto o vehículo no existe.'], 404);
+            }
+            // En caso de que no se cumpla ninguna de las condiciones
             return response()->json(['success' => false, 'message' => 'El producto o vehículo no existe.'], 404);
-        }
-        // En caso de que no se cumpla ninguna de las condiciones
-        return response()->json(['success' => false, 'message' => 'El producto o vehículo no existe.'], 404);
     }
 }
