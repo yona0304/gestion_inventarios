@@ -100,7 +100,7 @@ class AsignarController extends Controller
                 User::where('id',  $usuario->id )->update([
                     'dotacion' => '1',
                 ]);
-                return response()->json(['success' => 'Equipo asignado correctamente. <br> El usuario cuenta con la dotacion completa']);
+                return response()->json(['success' => 'Equipo asignado correctamente. El usuario cuenta con la dotacion completa']);
             }
             User::where('id',  $usuario->id )->update([
                 'dotacion' => '0',

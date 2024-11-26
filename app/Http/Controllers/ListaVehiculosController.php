@@ -12,7 +12,7 @@ class ListaVehiculosController extends Controller
     {
         $vehiculos = Vehiculo::Vehicu($request->vehiculo)
             ->orderBy('created_at', 'desc')
-            ->paginate(2);
+            ->paginate(10);
 
         if ($request->ajax()) {
             return view('partials.vehiculos', compact('vehiculos'))->render();

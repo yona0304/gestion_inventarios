@@ -40,6 +40,6 @@ class DotaRegistroController extends Controller
             'id_activo' => $categoria
         ]);
 
-        return response()->json(['success' => 'Categoria Registrado']);
+        return response()->json(['success' => 'Dotación Registrado']);
     }
 }
