@@ -7,9 +7,9 @@
             <th scope="col" class="px-6 py-3">
                 Prefijo
             </th>
-            <th scope="col" class="px-6 py-3">
+            {{-- <th scope="col" class="px-6 py-3">
                 Cantidad
-            </th>
+            </th> --}}
         </tr>
     </thead>
     <tbody>
@@ -21,9 +21,9 @@
                 <td class="px-6 py-4">
                     {{ $category->prefijo }}
                 </td>
-                <td class="px-6 py-4">
+                {{-- <td class="px-6 py-4">
                     {{ $category->contador }}
-                </td>
+                </td> --}}
             </tr>
         @endforeach
     </tbody>
