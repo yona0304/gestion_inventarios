@@ -10,6 +10,9 @@
             <th scope="col" class="px-6 py-3">
                 Dotacion
             </th>
+            <th scope="col" class="px-6 py-3">
+                Acción
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -23,6 +26,10 @@
                 </td>
                 <td class="px-6 py-4">
                     {{ $dotaciones->categoria->nombre_categoria }}
+                </td>
+                <td class="px-6 py-4">
+                    <button class="bg-red-500 text-white px-3 py-1 rounded-md"
+                        onclick="deleteDotacion('{{ $dotaciones->cargos->id }}', '{{ $dotaciones->categoria->id }}')">Eliminar</button>
                 </td>
             </tr>
         @endforeach

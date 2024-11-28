@@ -37,8 +37,8 @@ class DotaRegistroController extends Controller
         ]);
 
         $dotaActiva = Dotaciones::where('id_cargo', $cargo)
-                        ->where('id_activo', $categoria)
-                        ->exists();
+            ->where('id_activo', $categoria)
+            ->exists();
 
         if ($dotaActiva) {
 
@@ -51,5 +51,22 @@ class DotaRegistroController extends Controller
         ]);
 
         return response()->json(['success' => 'Dotación Registrado']);
+    }
+
+    public function destroy($cargo, $categoria)
+    {
+        // buscamos la categoria por la el id, atraves de un json y js
+        $DotacionSeleccionada = Dotaciones::where('id_cargo', $cargo)->where('id_activo', $categoria)
+            ->first();
+
+        // Si la dotacion existe, lo elimina de la base de datos
+        if ($DotacionSeleccionada) {
+            $DotacionSeleccionada->delete();
+            // Retorna una respuesta en JSON indicando el éxito de la operación
+            return response()->json(['success' => true, 'message' => 'Eliminación de dotacion exitosa.']);
+            // return response()->json(['success' => 'Eliminación de categoria exitoso']);
+        }
+
+        return response()->json(['success' => false, 'message' => 'Dotacion no encontrada.'], 404);
     }
 }

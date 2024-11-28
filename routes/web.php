@@ -36,9 +36,10 @@ Route::get('/obtener-codigo-interno/{categoriaId}', [RegistrarProducto::class, '
 Route::get('/registrar-usuario', [RegistrarUsuarioController::class, 'index'])->name('usuario');
 Route::post('/registrar-usuario/registro', [RegistrarUsuarioController::class, 'store'])->name('usuario.store');
 
-//categoria
+//categoria, visualizar, registrar y eliminar
 Route::get('/registrar-categoria', [RegistrarCategoriaController::class, 'index'])->name('categoria');
 Route::post('/registrar-categoria/registrado', [RegistrarCategoriaController::class, 'store'])->name('categoria.store');
+Route::delete('/registrar-categoria/{id}', [RegistrarCategoriaController::class, 'destroy']);
 
 //vehiculo
 Route::get('/registrar-vehiculo', [VehiculoController::class, 'index'])->name('vehiculo');
@@ -68,6 +69,8 @@ Route::get('/Dotacion', [DotacionController::class, 'index'])->name('Dotacion');
 Route::post('/Dotacion/Registrado', [DotacionController::class, 'dotacion'])->name('Dotacion.Reg');
 Route::get('/Dotacion-Registro', [DotaRegistroController::class, 'index'])->name('Dotacion-Registro');
 Route::post('/Dotacion-Registro/regitrado', [DotaRegistroController::class, 'store'])->name('dotacion.store');
+Route::delete('/Dotacion-Registro/{cargo}/{categoria}', [DotaRegistroController::class, 'destroy']);
+
 
 //listas de productos, vehiculos y asignaciones
 Route::get('/lista-productos', [ListaProductosController::class, 'index'])->name('lis.produc');

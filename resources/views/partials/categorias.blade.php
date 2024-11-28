@@ -7,9 +7,9 @@
             <th scope="col" class="px-6 py-3">
                 Prefijo
             </th>
-            {{-- <th scope="col" class="px-6 py-3">
-                Cantidad
-            </th> --}}
+            <th scope="col" class="px-6 py-3">
+                Acción
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -21,9 +21,10 @@
                 <td class="px-6 py-4">
                     {{ $category->prefijo }}
                 </td>
-                {{-- <td class="px-6 py-4">
-                    {{ $category->contador }}
-                </td> --}}
+                <td class="px-6 py-4">
+                    <button class="bg-red-500 text-white px-3 py-1 rounded-md"
+                        onclick="deleteCategoria('{{ $category->id }}')">Eliminar</button>
+                </td>
             </tr>
         @endforeach
     </tbody>
