@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('serial')->nullable();
             $table->string('procesador')->nullable();
             $table->string('disco', 150)->nullable();
+            $table->string('disco2', 150)->nullable();
             $table->string('ram', 150)->nullable();
             $table->string('s_instalado', 180)->nullable();
             $table->string('licencias')->nullable();

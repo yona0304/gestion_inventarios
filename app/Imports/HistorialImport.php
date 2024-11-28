@@ -34,6 +34,7 @@ class HistorialImport implements ToModel, WithHeadingRow
                 'serial'            => $row['serial'],
                 'procesador'        => $row['procesador'] ?? null,
                 'disco'             => $row['disco'] ?? null,
+                'disco2'            => $row['disco_2'] ?? null,
                 'ram'               => $row['ram'] ?? null,
                 's_instalado'       => $row['software_instalado'] ?? null,
                 'licencias'         => $row['licencias'] ?? null,

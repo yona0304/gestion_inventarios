@@ -44,9 +44,10 @@ class HistorialComputoController extends Controller
             'modelo'            => 'nullable|string|max:255',
             'hostname'          => 'nullable|string|max:255',
             't_equipo'          => 'nullable|string|max:255',
-            'serial'            => 'required|string|max:255',
+            'serial'            => 'nullable|string|max:255',
             'procesador'        => 'nullable|string|max:255',
             'disco'             => 'nullable|string|max:255',
+            'disco2'            => 'nullable|string|max:255',
             'ram'               => 'nullable|string|max:255',
             's_instalado'       => 'nullable|string|max:255',
             'licencias'         => 'nullable|string|max:255',
@@ -56,7 +57,7 @@ class HistorialComputoController extends Controller
             'version_licencia'  => 'nullable|string|max:255',
             'observaciones'     => 'nullable|string|max:1000',
             'fecha_registro'    => 'required|date',
-            'estado'            => 'required|string|max:150',
+            'estado'            => 'nullable|string|max:150',
         ]);
 
         //buscamos el producto por el codigo interno
@@ -100,6 +101,7 @@ class HistorialComputoController extends Controller
             'serial'            => $validated['serial'],
             'procesador'        => $validated['procesador'] ?? null,
             'disco'             => $validated['disco'] ?? null,
+            'disco2'            => $validated['disco2'] ?? null,
             'ram'               => $validated['ram'] ?? null,
             's_instalado'       => $validated['s_instalado'] ?? null,
             'licencias'         => $validated['licencias'] ?? null,
@@ -109,7 +111,7 @@ class HistorialComputoController extends Controller
             'version_licencia'  => $validated['version_licencia'] ?? null,
             'observaciones'     => $validated['observaciones'] ?? null,
             'fecha_registro'    => $validated['fecha_registro'],
-            'estado'    => $estado ?? null,
+            'estado'            => $estado ?? null,
         ]);
 
         // Producto::where('id', $idProducto->id)

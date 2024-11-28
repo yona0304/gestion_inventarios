@@ -54,6 +54,8 @@
                 </th>
                 <th style="border: 1px solid black;">Disco
                 </th>
+                <th style="border: 1px solid black;">Disco 2
+                </th>
                 <th style="border: 1px solid black;">RAM
                 </th>
                 <th style="border: 1px solid black;">Software Instalado
@@ -101,6 +103,7 @@
                         <td>{{ $historial->serial }}</td>
                         <td>{{ $historial->procesador }}</td>
                         <td>{{ $historial->disco }}</td>
+                        <td>{{ $historial->disco2 }}</td>
                         <td>{{ $historial->ram }}</td>
                         <td>{{ $historial->s_instalado }}</td>
                         <td>{{ $historial->licencias }}</td>

@@ -1,5 +1,2 @@
-﻿codigo_interno;marca;modelo;hostname;tipo_equipo;serial;procesador;disco;ram;software_instalado;licencias;sistema_operativo;licencia;antivirus;version_licencia;observaciones;fecha_registro;estado
-;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;
+﻿codigo_interno;marca;modelo;hostname;tipo_equipo;serial;procesador;disco;disco_2;ram;software_instalado;licencias;sistema_operativo;licencia;antivirus;version_licencia;observaciones;fecha_registro;estado
+;;;;;;;;;;;;;;;;;;

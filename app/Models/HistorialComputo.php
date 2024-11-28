@@ -20,6 +20,7 @@ class HistorialComputo extends Model
         'serial',
         'procesador',
         'disco',
+        'disco2',
         'ram',
         's_instalado',
         'licencias',

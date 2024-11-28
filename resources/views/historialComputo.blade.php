@@ -80,16 +80,14 @@
                             <div class="mb-4">
                                 <label for="marca" class="block text-sm font-medium text-gray-700">Marca</label>
                                 <input type="text" name="marca" id="marca"
-                                    class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
-                                    required>
+                                    class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500">
                             </div>
 
                             <!-- Modelo -->
                             <div class="mb-4">
                                 <label for="modelo" class="block text-sm font-medium text-gray-700">Modelo</label>
                                 <input type="text" name="modelo" id="modelo"
-                                    class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
-                                    required>
+                                    class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500">
                             </div>
 
                             <!-- Hostname -->
@@ -110,8 +108,7 @@
                             <div class="mb-4">
                                 <label for="serial" class="block text-sm font-medium text-gray-700">Serial</label>
                                 <input type="text" name="serial" id="serial"
-                                    class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
-                                    required>
+                                    class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500">
                             </div>
 
                             <!-- Procesador -->
@@ -125,6 +122,13 @@
                             <div class="mb-4">
                                 <label for="disco" class="block text-sm font-medium text-gray-700">Disco</label>
                                 <input type="text" name="disco" id="disco"
+                                    class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500">
+                            </div>
+
+                            <!-- Disco 2 -->
+                            <div class="mb-4">
+                                <label for="disco2" class="block text-sm font-medium text-gray-700">Disco 2</label>
+                                <input type="text" name="disco2" id="disco2"
                                     class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500">
                             </div>
                         </div>
@@ -305,7 +309,7 @@
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6">
                             </div>
                             <br>
-                            <a href="{{ asset('plantillas/HISTORIAL-COMPUTO-PLANTILLA.csv') }}" target="_blank"
+                            <a href="{{ asset('plantillas/HISTORIAL-COMPUTO-PLANTILLA.csv') }}" 
                                 class="text-blue-600 hover:underline dark:text-blue-500">Plantilla CSV - Historial
                                 computo</a>
                         </div>

@@ -31,7 +31,7 @@ class HistorialExport implements FromView, WithEvents, WithStyles
             ->orderBy('fecha_registro')
             ->get();
 
-        return view('historialsheet',[
+        return view('historialsheet', [
             'historiales'       => $historiales,
             'fecha_inicial'     => $fecha_inicial,
             'fecha_final'       => $fecha_final,
@@ -54,21 +54,22 @@ class HistorialExport implements FromView, WithEvents, WithStyles
                 $sheet->getColumnDimension('G')->setWidth(25);
                 $sheet->getColumnDimension('H')->setWidth(20);
                 $sheet->getColumnDimension('I')->setWidth(25);
-                $sheet->getColumnDimension('J')->setWidth(35);
-                $sheet->getColumnDimension('K')->setWidth(60);
+                $sheet->getColumnDimension('J')->setWidth(25);
+                $sheet->getColumnDimension('K')->setWidth(35);
                 $sheet->getColumnDimension('L')->setWidth(60);
-                $sheet->getColumnDimension('M')->setWidth(25);
-                $sheet->getColumnDimension('N')->setWidth(35);
+                $sheet->getColumnDimension('M')->setWidth(60);
+                $sheet->getColumnDimension('N')->setWidth(25);
                 $sheet->getColumnDimension('O')->setWidth(35);
                 $sheet->getColumnDimension('P')->setWidth(35);
                 $sheet->getColumnDimension('Q')->setWidth(35);
                 $sheet->getColumnDimension('R')->setWidth(35);
                 $sheet->getColumnDimension('S')->setWidth(35);
+                $sheet->getColumnDimension('T')->setWidth(35);
 
 
 
                 // Aplicar estilos a las celdas
-                $sheet->getStyle('A1:S1')->applyFromArray([
+                $sheet->getStyle('A1:T1')->applyFromArray([
                     'font' => [
                         'bold' => true,
                     ],
@@ -89,7 +90,7 @@ class HistorialExport implements FromView, WithEvents, WithStyles
     public function styles(Worksheet $sheet)
     {
         // Aplicar estilos a las celdas del cuerpo
-        $sheet->getStyle('A2:S1000')->applyFromArray([
+        $sheet->getStyle('A2:T1000')->applyFromArray([
             'alignment' => [
                 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_TOP,
             ],

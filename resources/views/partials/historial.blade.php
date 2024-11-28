@@ -1,4 +1,4 @@
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg" >
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400" style="width: 2500px">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -24,7 +24,10 @@
                     Procesador
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Disco
+                    Disco 1
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Disco 2
                 </th>
                 <th scope="col" class="px-6 py-3">
                     RAM
@@ -86,6 +89,9 @@
                     </td>
                     <td class="px-6 py-4">
                         {{ $historial->disco }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $historial->disco2 }}
                     </td>
                     <td class="px-6 py-4">
                         {{ $historial->ram }}
