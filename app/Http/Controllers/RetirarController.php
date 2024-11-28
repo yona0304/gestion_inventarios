@@ -6,6 +6,7 @@ use App\Models\AsignacionEquipo;
 use App\Models\Categoria;
 use App\Models\Producto;
 use App\Models\User;
+use App\Models\Dotaciones;
 use App\Models\Vehiculo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -124,7 +125,39 @@ class RetirarController extends Controller
                     ->orWhere('codigo_equipo_referencia', $request->id_producto)
                     ->update(['estado' => 'Disponible']);
 
-                return response()->json(['success' => 'Equipo devuelto correctamente']);
+                $usuario = User::where('identificacion', $request->identificacion)->first();
+
+                $userCharge = $usuario->cargo_id;
+
+                $dotaReq = Dotaciones::where('id_cargo', $userCharge)
+                ->get();
+
+                $asigProd = AsignacionEquipo::where('usuario_id', $usuario->id)
+                ->where('estado', 'Asignado')
+                ->get();
+
+                $idProductos = $asigProd->pluck('producto_id');
+
+                $productos = Producto::whereIn('id', $idProductos)
+                ->get();
+                // Obtener las IDs de productos requeridos en las dotaciones
+                $idProductosRequeridos = $dotaReq->pluck('id_activo');
+                // Obtener las IDs de productos asignados
+                $idProductosAsignados = $productos->pluck('categoria_id');
+                // Comparar si los productos asignados cumplen con los requeridos
+                $requerimientosCumplidos = $idProductosRequeridos->diff($idProductosAsignados)->isEmpty();
+
+                if ($requerimientosCumplidos) {
+                    // Todos los requerimientos están asignados
+                    User::where('id',  $usuario->id )->update([
+                        'dotacion' => '1',
+                    ]);
+                    return response()->json(['success' => 'Equipo devuelto correctamente']);
+                }
+                User::where('id',  $usuario->id )->update([
+                    'dotacion' => '0',
+                ]);
+                return response()->json(['success' => 'Equipo devuelto correctamente, el usuario no tiene la dotacion completa']);
             }
         }
         $vehiculo = Vehiculo::where('placa', $request->id_producto)->first();

@@ -26,15 +26,25 @@ class DotaRegistroController extends Controller
 
         return view('registrarDotacion', compact('categoria', 'cargo', 'dotacion'));
     }
+
     public function store(Request $request)
     {
-
         $cargo = $request->cargo;
         $categoria = $request->categorias;
         $request->validate([
             'cargo' => 'required|integer',
             'categorias' => 'required|integer',
         ]);
+
+        $dotaActiva = Dotaciones::where('id_cargo', $cargo)
+                        ->where('id_activo', $categoria)
+                        ->exists();
+
+        if ($dotaActiva) {
+
+            return response()->json(['fail' => 'Dotación ya esta registrado'], 400);
+        };
+
         Dotaciones::create([
             'id_cargo' => $cargo,
             'id_activo' => $categoria

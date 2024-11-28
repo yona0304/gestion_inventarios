@@ -82,6 +82,7 @@ class AsignarController extends Controller
             ->get();
 
             $asigProd = AsignacionEquipo::where('usuario_id', $usuario->id)
+            ->where('estado', 'Asignado')
             ->get();
 
             $idProductos = $asigProd->pluck('producto_id');

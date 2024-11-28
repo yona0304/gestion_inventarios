@@ -31,7 +31,8 @@ $(document).ready(function () {
                         }, 3000);
                     },
                     error: function (xhr) {
-                        let message = xhr.responseJSON.message || 'Ocurrió un error.';
+                        // Verifica si el error es un conflicto (dotación ya registrada)
+                        let message = xhr.responseJSON.fail || 'Ocurrió un error inesperado.';
                         Swal.fire({
                             icon: 'error',
                             title: 'Error',
@@ -43,6 +44,7 @@ $(document).ready(function () {
         });
     });
 });
+
 
 $(document).ready(function () {
     // Función para cargar datos con AJAX

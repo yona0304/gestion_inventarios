@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Inicio - INGICAT')
+@section('title', 'Registro dotaciones - INGICAT')
 
 @section('content')
 
