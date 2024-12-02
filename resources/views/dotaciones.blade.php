@@ -82,40 +82,44 @@
                 <span>{{ $Dota }}</span><br>
             @endforeach
         @endif
-        @if (isset($faltas))
-        <button id="show-users" class="bg-red-700 text-white font-semibold py-2 px-4 mt-14 rounded-lg shadow-md hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-blue-400">
-            Mostrar lista de usuarios con dotaciones incompletas
-        </button>
-        <div id="hidden" class="hidden">
-            <button id="hide-users" class="bg-red-700 text-white font-semibold py-2 px-4 mt-14 rounded-lg shadow-md hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                Ocultar lista
-            </button>
-            <br>
-            <h2 class="text-2xl font-bold text-gray-800 px-4 py-2 rounded-lg ">
-                Usuarios con dotacion incompleta
-            </h2>
-            <br>
-            <table class="min-w-full table-auto border-collapse border border-gray-200">
-                <thead>
-                    <tr class="bg-red-700">
-                        <th class="px-4 py-2 text-left text-sm font-medium text-white">Nombre</th>
-                        <th class="px-4 py-2 text-left text-sm font-medium text-white">Identificación</th>
-                        <th class="px-4 py-2 text-left text-sm font-medium text-white">Cargo</th>
-                        <th class="px-4 py-2 text-left text-sm font-medium text-white">Ubicacion</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($faltas as $falta)
-                        <tr class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
-                            <td class="px-4 py-2 text-sm text-gray-800">{{ $falta->nombres }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-800">{{ $falta->identificacion }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-800">{{ $falta->cargos->cargo }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-800">{{ $falta->ubicacion }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+        @if (Auth::check() && Auth::user()->rol === 'Super_Admin')
+            @if (isset($faltas))
+                <button id="show-users"
+                    class="bg-red-700 text-white font-semibold py-2 px-4 mt-14 rounded-lg shadow-md hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    Mostrar lista de usuarios con dotaciones incompletas
+                </button>
+                <div id="hidden" class="hidden">
+                    <button id="hide-users"
+                        class="bg-red-700 text-white font-semibold py-2 px-4 mt-14 rounded-lg shadow-md hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        Ocultar lista
+                    </button>
+                    <br>
+                    <h2 class="text-2xl font-bold text-gray-800 px-4 py-2 rounded-lg ">
+                        Usuarios con dotacion incompleta
+                    </h2>
+                    <br>
+                    <table class="min-w-full table-auto border-collapse border border-gray-200">
+                        <thead>
+                            <tr class="bg-red-700">
+                                <th class="px-4 py-2 text-left text-sm font-medium text-white">Nombre</th>
+                                <th class="px-4 py-2 text-left text-sm font-medium text-white">Identificación</th>
+                                <th class="px-4 py-2 text-left text-sm font-medium text-white">Cargo</th>
+                                <th class="px-4 py-2 text-left text-sm font-medium text-white">Ubicacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($faltas as $falta)
+                                <tr class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
+                                    <td class="px-4 py-2 text-sm text-gray-800">{{ $falta->nombres }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-800">{{ $falta->identificacion }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-800">{{ $falta->cargos->cargo }}</td>
+                                    <td class="px-4 py-2 text-sm text-gray-800">{{ $falta->ubicacion }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @endif
         @endif
     </div>
 
@@ -125,13 +129,13 @@
         const hideButton = document.getElementById('hide-users');
 
         // Mostrar la lista y ocultar el botón "Mostrar"
-        showButton.addEventListener('click', function () {
+        showButton.addEventListener('click', function() {
             hiddenDiv.classList.remove('hidden');
             showButton.classList.add('hidden');
         });
 
         // Ocultar la lista y mostrar el botón "Mostrar"
-        hideButton.addEventListener('click', function () {
+        hideButton.addEventListener('click', function() {
             hiddenDiv.classList.add('hidden');
             showButton.classList.remove('hidden');
         });
