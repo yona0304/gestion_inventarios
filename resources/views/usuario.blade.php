@@ -73,6 +73,7 @@
                                 <option value="Contabilidad">Contabilidad</option>
                                 <option value="RRHH">RRHH</option>
                                 <option value="Personal">Personal</option>
+                                <option value="Lector">Lector</option>
                             </select>
                         </div>
                     </div>

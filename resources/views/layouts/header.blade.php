@@ -144,15 +144,29 @@
                             </li>
                         </ul>
                     </li>
-                @else
-                    @if (Auth::user()->rol === 'Personal')
-                        <li>
-                            <a href="{{ route('Dotacion') }}"
-                                class="flex items-center p-2 text-white rounded-lg hover:bg-red-700 hover:text-white group">
-                                <span class="flex-1 ms-3 whitespace-nowrap">Dotaciones asignadas</span>
-                            </a>
-                        </li>
-                    @endif
+                @elseif(Auth::user()->rol === 'Personal')
+                    <li>
+                        <a href="{{ route('Dotacion') }}"
+                            class="flex items-center p-2 text-white rounded-lg hover:bg-red-700 hover:text-white group">
+                            <span class="flex-1 ms-3 whitespace-nowrap">Dotaciones asignadas</span>
+                        </a>
+                    </li>
+                @elseif(Auth::user()->rol === 'Lector')
+                    <li>
+                        <a href="{{ route('lis.asignados') }}"
+                            class="flex items-center p-2 text-white rounded-lg hover:bg-red-700 hover:text-white group"><span
+                                class="flex-1 ms-3 whitespace-nowrap">Asignados</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ route('lis.produc') }}"
+                            class="flex items-center p-2 text-white rounded-lg hover:bg-red-700 hover:text-white group"><span
+                                class="flex-1 ms-3 whitespace-nowrap">Productos</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ route('lis.vehiculos') }}"
+                            class="flex items-center p-2 text-white rounded-lg hover:bg-red-700 hover:text-white group"><span
+                                class="flex-1 ms-3 whitespace-nowrap">Vehiculos</span></a>
+                    </li>
                 @endif
             @endif
             <li>

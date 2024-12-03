@@ -30,7 +30,7 @@ class RegistrarUsuarioController extends Controller
         ]);
 
         // Genera la contraseña solo si el rol es "Super_Admin"
-        $password = $request->rol !== 'Personal' ? Hash::make($request->identificacion) : null;
+        $password = Hash::make($request->identificacion);
 
         //registrar producto en la base de datos
         User::create([

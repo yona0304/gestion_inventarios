@@ -29,8 +29,19 @@ Route::post('/', [AuthController::class, 'authenticate'])->name('auth.authentica
 
 Route::middleware(['auth', NoCache::class, RedirectIfSessionExpired::class])->group(function () {
 
+    //consultar dotacion del personal
     Route::get('/Dotacion', [DotacionController::class, 'index'])->name('Dotacion');
     Route::post('/Dotacion/Registrado', [DotacionController::class, 'dotacion'])->name('Dotacion.Reg');
+
+    //listas de productos, vehiculos y asignaciones
+    Route::get('/lista-productos', [ListaProductosController::class, 'index'])->name('lis.produc');
+    Route::get('/lista-asignaciones', [ListaAsignadosController::class, 'index'])->name('lis.asignados');
+    Route::get('/lista-vehiculos', [ListaVehiculosController::class, 'index'])->name('lis.vehiculos');
+
+    //mostrar datos en la lista de asignación, productos y vehiculos
+    Route::get('/datos/{id}', [ListaAsignadosController::class, 'datos']);
+    Route::get('/datos-producto/{id}', [ListaProductosController::class, 'datosAsignacion']);
+    Route::get('/datos-vehiculo/{id}', [ListaVehiculosController::class, 'datosVehiculo']);
 });
 
 Route::middleware(['auth', NoCache::class, CheckRole::class, RedirectIfSessionExpired::class])->group(function () {
@@ -86,14 +97,14 @@ Route::middleware(['auth', NoCache::class, CheckRole::class, RedirectIfSessionEx
 
 
     //listas de productos, vehiculos y asignaciones
-    Route::get('/lista-productos', [ListaProductosController::class, 'index'])->name('lis.produc');
-    Route::get('/lista-asignaciones', [ListaAsignadosController::class, 'index'])->name('lis.asignados');
-    Route::get('/lista-vehiculos', [ListaVehiculosController::class, 'index'])->name('lis.vehiculos');
+    // Route::get('/lista-productos', [ListaProductosController::class, 'index'])->name('lis.produc');
+    // Route::get('/lista-asignaciones', [ListaAsignadosController::class, 'index'])->name('lis.asignados');
+    // Route::get('/lista-vehiculos', [ListaVehiculosController::class, 'index'])->name('lis.vehiculos');
 
     //mostrar datos en la lista de asignación, productos y vehiculos
-    Route::get('/datos/{id}', [ListaAsignadosController::class, 'datos']);
-    Route::get('/datos-producto/{id}', [ListaProductosController::class, 'datosAsignacion']);
-    Route::get('/datos-vehiculo/{id}', [ListaVehiculosController::class, 'datosVehiculo']);
+    // Route::get('/datos/{id}', [ListaAsignadosController::class, 'datos']);
+    // Route::get('/datos-producto/{id}', [ListaProductosController::class, 'datosAsignacion']);
+    // Route::get('/datos-vehiculo/{id}', [ListaVehiculosController::class, 'datosVehiculo']);
 
 
     //historial computo, registro, import

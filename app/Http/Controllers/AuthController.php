@@ -36,6 +36,8 @@ class AuthController extends Controller
                 return redirect()->route('inicio');  // Redirige a /inicio si es Super_Admin
             } elseif ($role === 'Personal') {
                 return redirect()->route('Dotacion');  // Redirige a /Dotacion si es Personal
+            } elseif ($role === 'Lector') {
+                return redirect()->route('lis.produc');  // Redirige a /lista-productos si es Lector
             }
 
             // Redirige al usuario a la ruta/intención previa o a la página de inicio ('/inicio')
