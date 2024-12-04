@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlquilerEquipoController;
 use App\Http\Controllers\AsignarController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\basicoController;
 use App\Http\Controllers\DotacionController;
 use App\Http\Controllers\HistorialComputoController;
 use App\Http\Controllers\InicioController;
@@ -36,7 +37,10 @@ Route::middleware(['auth', NoCache::class, RedirectIfSessionExpired::class])->gr
 
     //consultar dotacion del personal
     Route::get('/Dotacion', [DotacionController::class, 'index'])->name('Dotacion');
-    Route::post('/Dotacion/Registrado', [DotacionController::class, 'dotacion'])->name('Dotacion.Reg');
+    Route::post('/Dotacion', [DotacionController::class, 'dotacion'])->name('Dotacion.Reg');
+
+    //dotacion usuario base
+    Route::get('/Dota-usuario', [basicoController::class, 'index'])->name('Dotacion.usuario');
 
     //listas de productos, vehiculos y asignaciones
     Route::get('/lista-productos', [ListaProductosController::class, 'index'])->name('lis.produc');

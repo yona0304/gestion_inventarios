@@ -2,32 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Categoria;
 use App\Models\AsignacionEquipo;
 use App\Models\Dotaciones;
 use App\Models\Cargo;
 use App\Models\Producto;
-use Illuminate\Http\Request;
 
-class DotacionController extends Controller
+class basicoController extends Controller
 {
     //
     public function index()
     {
-        $faltas = User::where('dotacion', '0')->get();
-        return view('dotaciones', compact('faltas'));
-    }
-
-    public function dotacion(Request $request)
-    {
-        //Validacion del formulario.
-        $request->validate([
-            'user' => 'required|integer',
-        ]);
-
-        //El sistema busca el documento de user utilizando un request del input "user"
-        $usuario = $request->input('user');
+        $usuario = Auth::user()->identificacion;
+        //       $usuario = auth()->user();
         $user = User::with('cargos')->where('identificacion', $usuario)->first();
 
         //Si no existe un usuario con esa identificacion no se ejecutara el codigo
@@ -77,6 +67,6 @@ class DotacionController extends Controller
         //el sistema busca los dotaciones faltante buscando el id de las "dotaNoCoinciden" en la tabla de categoria
         $dotaFaltantes = Categoria::whereIn('id', $dotacionesNoCoinciden->toArray())->get();
 
-        return view('dotaciones', compact('user', 'nombres', 'dotaAsignada', 'dotaFaltantes'));
+        return view('basico', compact('user', 'nombres', 'dotaAsignada', 'dotaFaltantes'));
     }
 }
