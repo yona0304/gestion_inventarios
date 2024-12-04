@@ -20,9 +20,8 @@ class NovedadController extends Controller
         //VEHICULOS SELECCIONADOS
         $vehiculos = Vehiculo::get('placa', 'descripcion_vehiculo');
         //CODIGOS INTERNOS SELECCIONADOS
-
         $referencias = $productos->pluck('codigo_equipo_referencia')->toArray();
-
+        //CODIGOS INTERNOS DE LOS PRODUCTOS
         $codigosInternos = $productos->pluck('codigo_interno')->toArray();
 
         return view('novedades', compact('codigosInternos', 'referencias', 'vehiculos'));
@@ -62,6 +61,35 @@ class NovedadController extends Controller
                 return response()->json(['error' => 'No se pueden mover a la misma ciudad.']);
             }
 
+            $asig = AsignacionEquipo::where('producto_id', $p->id)
+                ->where('estado', 'Asignado')
+                ->first();
+            //En caso de que exista una asignacion tome los datos.
+            if ($asig !== null) {
+                $test = $asig->usuario_id;
+            } else {
+                // ingresa el dato null para evitar errores
+                $test = null; // O alguna otra lógica
+            }
+            if ($test !== null) {
+
+
+                Novedad::create([
+                    'producto_id' => $p->id,
+                    'usuario_id' => $test,
+                    'descripcion' => $request->descripcion,
+                    'fecha_novedad' => $request->fecha,
+                    'tipo_novedad' => $request->tipo_novedad,
+                    'estado' => $estate,
+                ]);
+                $productoAct = Producto::where('id', $p->id)
+                    ->update([
+                        'ubicacion' => $ubicacion,
+                    ]);
+
+                return response()->json(['success' => 'Novedad registrada correctamente. Cambio']);
+            }
+
             Novedad::create([
                 'producto_id' => $p->id,
                 'usuario_id' => null,
@@ -78,6 +106,7 @@ class NovedadController extends Controller
 
             return response()->json(['success' => 'Novedad registrada correctamente. prueba']);
         };
+        //Final del traslado
 
         $request->validate([
             'producto' => 'required|string',
@@ -93,20 +122,18 @@ class NovedadController extends Controller
             ->first();
         //En caso de que exista una asignacion tome los datos.
         if ($asig !== null) {
-            $test = $asig->producto_id;
+            $test = $asig->usuario_id;
         } else {
             // ingresa el dato null para evitar errores
             $test = null; // O alguna otra lógica
         }
-
         //inicia la logica en caso de que exista una asignacion al producto
         if ($test !== null) {
-            $user = User::where('id', $asig)
-                ->value('id');
+
 
             Novedad::create([
                 'producto_id' => $prod->id,
-                'usuario_id' => $user,
+                'usuario_id' => $test,
                 'descripcion' => $request->descripcion,
                 'fecha_novedad' => $request->fecha,
                 'tipo_novedad' => $request->tipo_novedad,
