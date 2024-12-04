@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlquilerEquipoController;
 use App\Http\Controllers\AsignarController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\basicoController;
 use App\Http\Controllers\DotacionController;
 use App\Http\Controllers\HistorialComputoController;
 use App\Http\Controllers\InicioController;
