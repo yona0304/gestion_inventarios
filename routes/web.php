@@ -36,7 +36,7 @@ Route::middleware(['auth', NoCache::class, RedirectIfSessionExpired::class])->gr
 
     //consultar dotacion del personal
     Route::get('/Dotacion', [DotacionController::class, 'index'])->name('Dotacion');
-    Route::post('/Dotacion/Registrado', [DotacionController::class, 'dotacion'])->name('Dotacion.Reg');
+    Route::post('/Dotacion', [DotacionController::class, 'dotacion'])->name('Dotacion.Reg');
 
     //listas de productos, vehiculos y asignaciones
     Route::get('/lista-productos', [ListaProductosController::class, 'index'])->name('lis.produc');

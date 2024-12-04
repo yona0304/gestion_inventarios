@@ -45,3 +45,22 @@ document.getElementById('ver_contraseña').addEventListener('change', function (
         field.type = e.target.checked ? 'text' : 'password';
     });
 });
+
+const cambioFormulario = document.getElementById('cambio-form-link');
+const volverInicio = document.getElementById('volver-inicio');
+const formularioInicio = document.getElementById('form-inicio');
+const formularioRecuperar = document.getElementById('form-recuperar');
+const titulo = document.getElementById('modal-title');
+
+cambioFormulario.addEventListener('click', function (e) {
+    e.preventDefault();
+    formularioInicio.classList.add('hidden');
+    formularioRecuperar.classList.remove('hidden');
+    titulo.textContent = 'Recuperar contraseña';
+});
+
+volverInicio.addEventListener('click', function () {
+    formularioRecuperar.classList.add('hidden');
+    formularioInicio.classList.remove('hidden');
+    titulo.textContent = 'Iniciar sesión en nuestra plataforma';
+});

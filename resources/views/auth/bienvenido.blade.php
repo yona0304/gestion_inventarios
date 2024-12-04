@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{ asset('images/ingicat.png') }}">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <title>Bienvenido</title>
     <style>
         /* Estilo para el fondo borroso */
@@ -51,7 +52,7 @@
             <div class="relative bg-white rounded-lg shadow">
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-                    <h3 class="text-xl font-semibold text-gray-900">
+                    <h3 id="modal-title" class="text-xl font-semibold text-gray-900">
                         Iniciar sesion en nuestra plataforma
                     </h3>
                     <button type="button"
@@ -65,7 +66,7 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <div class="p-4 md:p-5">
+                <div class="p-4 md:p-5" id="form-inicio">
                     <form class="space-y-4" action="{{ route('auth.authenticate') }}" method="POST">
                         @csrf
                         <div>
@@ -92,13 +93,37 @@
                                 <label for="ver_contraseña" class="ms-2 text-sm font-medium text-gray-900">Ver
                                     contraseña</label>
                             </div>
-                            <a href="#" class="text-sm text-blue-700 hover:underline">¿Has olvidado tu
+                            <a id="cambio-form-link" class="text-sm text-blue-700 hover:underline">¿Has olvidado tu
                                 contraseña?</a>
                         </div>
                         <button type="submit"
                             class="w-full text-white bg-red-900 hover:bg-red-700 focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 text-center">Ingresar</button>
                     </form>
                 </div>
+
+                {{-- formulario de recuperar clave --}}
+                <div id="form-recuperar" class="hidden p-4 md:p-5">
+                    <form class="space-y-4" action="#" method="POST">
+                        @csrf
+                        <div>
+                            <label for="recuperar" class="block mb-2 text-sm font-medium text-gray-900">Ingrese su
+                                correo electrónico</label>
+                            <input type="email" name="recuperar" id="recuperar" autocomplete="off"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                                required>
+                        </div>
+                        <button type="submit"
+                            class="w-full text-white bg-red-900 hover:bg-red-700 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Enviar</button>
+                    </form>
+
+                    <div class="mt-4 text-center">
+                        <a id="volver-inicio" class="inline-flex items-center text-sm text-blue-700 hover:underline">
+                            <i class="fa-solid fa-arrow-left mr-2"></i>
+                            <span>Volver</span>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
