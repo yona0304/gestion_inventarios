@@ -15,6 +15,7 @@ use App\Http\Controllers\RetirarController;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\DotaRegistroController;
 use App\Http\Controllers\ListaEquiposAlquiladosController;
+use App\Http\Controllers\ListaNovedadesController;
 use App\Http\Controllers\ListaVehiculosController;
 use App\Http\Controllers\NovedadController;
 use App\Http\Middleware\NoCache;
@@ -116,6 +117,7 @@ Route::middleware(['auth', NoCache::class, CheckRole::class, RedirectIfSessionEx
     //Novedades
     Route::get('/novedades', [NovedadController::class, 'index'])->name('novedad');
     Route::post('/novedad/registro', [NovedadController::class, 'store'])->name('novedad.store');
+    Route::get('/lista-novedades', [ListaNovedadesController::class, 'index'])->name('lis.novedades');
 });
 
 // Logout
