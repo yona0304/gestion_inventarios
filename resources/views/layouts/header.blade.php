@@ -157,6 +157,12 @@
                     </li>
                 @elseif(Auth::user()->rol === 'Lector')
                     <li>
+                        <a href="{{ route('inicio') }}"
+                            class="flex items-center p-2 text-white rounded-lg hover:bg-red-700 hover:text-white group">
+                            <span class="flex-1 ms-3 whitespace-nowrap">Inicio</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('lis.asignados') }}"
                             class="flex items-center p-2 text-white rounded-lg hover:bg-red-700 hover:text-white group"><span
                                 class="flex-1 ms-3 whitespace-nowrap">Asignados</span></a>

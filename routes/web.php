@@ -30,6 +30,10 @@ Route::post('/', [AuthController::class, 'authenticate'])->name('auth.authentica
 
 Route::middleware(['auth', NoCache::class, RedirectIfSessionExpired::class])->group(function () {
 
+    //Inicio
+    Route::get('/inicio', [InicioController::class, 'index'])->name('inicio');
+    Route::get('/inicio/{id}', [InicioController::class, 'asignacion']);
+
     //consultar dotacion del personal
     Route::get('/Dotacion', [DotacionController::class, 'index'])->name('Dotacion');
     Route::post('/Dotacion/Registrado', [DotacionController::class, 'dotacion'])->name('Dotacion.Reg');
@@ -47,9 +51,9 @@ Route::middleware(['auth', NoCache::class, RedirectIfSessionExpired::class])->gr
 
 Route::middleware(['auth', NoCache::class, CheckRole::class, RedirectIfSessionExpired::class])->group(function () {
 
-    //Inicio
-    Route::get('/inicio', [InicioController::class, 'index'])->name('inicio');
-    Route::get('/inicio/{id}', [InicioController::class, 'asignacion']);
+    // //Inicio
+    // Route::get('/inicio', [InicioController::class, 'index'])->name('inicio');
+    // Route::get('/inicio/{id}', [InicioController::class, 'asignacion']);
 
     //mostrar index de la pagina y controlador de formulario de enviar el registro
     Route::get('/registrar-producto', [RegistrarProducto::class, 'index'])->name('producto');

@@ -53,8 +53,10 @@
     </style> --}}
 
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    @if (Auth::check() && Auth::user()->rol === 'Super_Admin')
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    @endif
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
     <div class="p-4 sm:ml-64">
@@ -125,7 +127,10 @@
                     }
                 }
             },
-            series: series
+            series: series,
+            credits: {
+                enabled: false // Desactiva los créditos de Highcharts
+            }
         });
     </script>
     {{-- <script>
@@ -243,7 +248,10 @@
                 colorByPoint: true,
                 data: data
 
-            }]
+            }],
+            credits: {
+                enabled: false // Desactiva los créditos de Highcharts
+            }
         });
     </script>
     <script>
@@ -302,7 +310,10 @@
 
 
                                 ]*/
-            }]
+            }],
+            credits: {
+                enabled: false // Desactiva los créditos de Highcharts
+            }
         });
     </script>
 
