@@ -4,6 +4,7 @@ use App\Http\Controllers\AlquilerEquipoController;
 use App\Http\Controllers\AsignarController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\basicoController;
+use App\Http\Controllers\CambioClaveController;
 use App\Http\Controllers\DotacionController;
 use App\Http\Controllers\HistorialComputoController;
 use App\Http\Controllers\InicioController;
@@ -49,6 +50,10 @@ Route::middleware(['auth', NoCache::class, RedirectIfSessionExpired::class])->gr
     Route::get('/datos/{id}', [ListaAsignadosController::class, 'datos']);
     Route::get('/datos-producto/{id}', [ListaProductosController::class, 'datosAsignacion']);
     Route::get('/datos-vehiculo/{id}', [ListaVehiculosController::class, 'datosVehiculo']);
+
+    //cambiar clave
+    Route::get('/cambio-clave', [CambioClaveController::class, 'index'])->name('cambio');
+    Route::post('/cambio-clave', [CambioClaveController::class, 'update'])->name('cambio.update');
 });
 
 Route::middleware(['auth', NoCache::class, CheckRole::class, RedirectIfSessionExpired::class])->group(function () {

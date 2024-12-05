@@ -180,6 +180,11 @@
                 @endif
             @endif
             <li>
+                <a href="{{ route('cambio') }}"
+                    class="flex items-center p-2 text-white rounded-lg hover:bg-red-700 hover:text-white group"><span
+                        class="flex-1 ms-3 whitespace-nowrap">Cambiar clave</span></a>
+            </li>
+            <li>
                 <form action="{{ url('logout') }}" method="POST">
                     @csrf
                     <button
@@ -190,6 +195,5 @@
                 </form>
             </li>
         </ul>
-
     </div>
 </aside>

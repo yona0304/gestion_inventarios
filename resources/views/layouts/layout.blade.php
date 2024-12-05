@@ -61,6 +61,7 @@
     <script src="{{ asset('js/lisAsignacion.js') }}"></script>
     <script src="{{ asset('js/novedades.js') }}"></script>
     <script src="{{ asset('js/dotacion.js') }}"></script>
+    <script src="{{ asset('js/cambio.js') }}"></script>
 </body>
 
 </html>
