@@ -150,7 +150,7 @@
                     </li>
                 @elseif(Auth::user()->rol === 'Personal')
                     <li>
-                        <a href="{{ route('Dotacion') }}"
+                        <a href="{{ route('Dotacion.usuario') }}"
                             class="flex items-center p-2 text-white rounded-lg hover:bg-red-700 hover:text-white group">
                             <span class="flex-1 ms-3 whitespace-nowrap">Dotaciones asignadas</span>
                         </a>

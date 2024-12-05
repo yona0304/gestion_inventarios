@@ -37,10 +37,6 @@ Route::middleware(['auth', NoCache::class, RedirectIfSessionExpired::class])->gr
     Route::get('/inicio', [InicioController::class, 'index'])->name('inicio');
     Route::get('/inicio/{id}', [InicioController::class, 'asignacion']);
 
-    //consultar dotacion del personal
-    Route::get('/Dotacion', [DotacionController::class, 'index'])->name('Dotacion');
-    Route::post('/Dotacion', [DotacionController::class, 'dotacion'])->name('Dotacion.Reg');
-
     //dotacion usuario base
     Route::get('/Dota-usuario', [basicoController::class, 'index'])->name('Dotacion.usuario');
 
@@ -98,10 +94,9 @@ Route::middleware(['auth', NoCache::class, CheckRole::class, RedirectIfSessionEx
     Route::put('/equipos-alquilados/{id}/finalizar', [ListaEquiposAlquiladosController::class, 'finalizar'])->name('alquiler.finalizar');
     Route::post('/equipos-alquilados/importacion', [ListaEquiposAlquiladosController::class, 'import'])->name('alquiler.import');
 
-    //asignar
-    // Route::get('/Dotacion', [DotacionController::class, 'index'])->name('Dotacion');
-    // //Route::post('/dotacion/registrado', [DotacionController::class, 'dotacion'])->name('dotacion');
-    // Route::post('/Dotacion/Registrado', [DotacionController::class, 'dotacion'])->name('Dotacion.Reg');
+    //consultar dotacion del personal
+    Route::get('/Dotacion', [DotacionController::class, 'index'])->name('Dotacion');
+    Route::post('/Dotacion', [DotacionController::class, 'dotacion'])->name('Dotacion.Reg');
     Route::get('/Dotacion-Registro', [DotaRegistroController::class, 'index'])->name('Dotacion-Registro');
     Route::post('/Dotacion-Registro/regitrado', [DotaRegistroController::class, 'store'])->name('dotacion.store');
     Route::delete('/Dotacion-Registro/{cargo}/{categoria}', [DotaRegistroController::class, 'destroy']);
