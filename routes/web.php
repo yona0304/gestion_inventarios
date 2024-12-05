@@ -29,6 +29,8 @@ use App\Http\Middleware\RedirectIfSessionExpired;
 Route::get('/', [AuthController::class, 'login'])->name('login')->middleware(NoCache::class);
 Route::post('/', [AuthController::class, 'authenticate'])->name('auth.authenticate')->middleware(NoCache::class);
 
+Route::post('/recuperar', [AuthController::class, 'enviarCorreo'])->name('recuperar.enviar');
+
 Route::middleware(['auth', NoCache::class, RedirectIfSessionExpired::class])->group(function () {
 
     //Inicio

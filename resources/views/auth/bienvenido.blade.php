@@ -103,7 +103,7 @@
 
                 {{-- formulario de recuperar clave --}}
                 <div id="form-recuperar" class="hidden p-4 md:p-5">
-                    <form class="space-y-4" action="#" method="POST">
+                    <form class="space-y-4" action="{{ route('recuperar.enviar') }}" method="POST">
                         @csrf
                         <div>
                             <label for="recuperar" class="block mb-2 text-sm font-medium text-gray-900">Ingrese su

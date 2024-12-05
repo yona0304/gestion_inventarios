@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactanosMailable;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -62,5 +66,28 @@ class AuthController extends Controller
 
         // Redirige al usuario a la página principal ('/')
         return redirect('/');
+    }
+
+    public function enviarCorreo(Request $request)
+    {
+        $request->validate([
+            'recuperar' => 'required|email|exists:users,email',
+        ]);
+
+        $nuevacontrase = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 9);
+
+        $user = User::where('email', $request->recuperar)->first();
+
+        if ($user) {
+            $user->password = Hash::make($nuevacontrase);
+            $user->save();
+
+            $correo = new ContactanosMailable($nuevacontrase);
+            Mail::to($request->recuperar)->send($correo);
+
+            return redirect()->route('login')->with('status', 'Se ha enviado una nueva contraseña a su correo electrónico.');
+        }
+
+        return back()->with('error', 'No se pudo procesar la solicitud.');
     }
 }
