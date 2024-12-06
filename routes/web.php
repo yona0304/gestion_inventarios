@@ -123,6 +123,8 @@ Route::middleware(['auth', NoCache::class, CheckRole::class, RedirectIfSessionEx
     Route::post('/historial-computo/registro', [HistorialComputoController::class, 'store'])->name('historial.store');
     Route::post('/historial-computo/importacion', [HistorialComputoController::class, 'import'])->name('import.historial');
     Route::post('/historial-computo/export', [HistorialComputoController::class, 'export'])->name('historial.export');
+    Route::get('/historial-computo/{codigo_interno}', [HistorialComputoController::class, 'getHistorial']);
+
 
     //Novedades
     Route::get('/novedades', [NovedadController::class, 'index'])->name('novedad');

@@ -17,6 +17,42 @@ $(document).on('click', '[data-modal-hide]', function () {
     $('#modalRegistar').addClass('hidden');
 });
 
+$(document).ready(function () {
+    $('#producto_id').on('blur', function () {
+        var codigoInterno = $(this).val(); // Obtener el código interno
+
+        if (codigoInterno) {
+            $.ajax({
+                url: '/historial-computo/' + codigoInterno,
+                method: 'GET',
+                success: function (response) {
+                    if (response) {
+                        $('#marca').val(response.marca || '');
+                        $('#modelo').val(response.modelo || '');
+                        $('#hostname').val(response.hostname || '');
+                        $('#t_equipo').val(response.t_equipo || '');
+                        $('#serial').val(response.serial || '');
+                        $('#procesador').val(response.procesador || '');
+                        $('#disco').val(response.disco || '');
+                        $('#disco2').val(response.disco2 || '');
+                        $('#ram').val(response.ram || '');
+                        $('#s_instalado').val(response.s_instalado || '');
+                        $('#licencias').val(response.licencias || '');
+                        $('#s_operativo').val(response.s_operativo || '');
+                        $('#licencia').val(response.licencia || '');
+                        $('#antivirus').val(response.antivirus || '');
+                        $('#version_licencia').val(response.version_licencia || '');
+                    }
+                },
+                error: function () {
+                    alert('Error al obtener el historial');
+                }
+            });
+        }
+    });
+});
+
+
 /*
 |--------------------------------------------------------------------------
 | Alertas de respuesta de registrar historial

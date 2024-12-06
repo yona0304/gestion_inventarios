@@ -35,6 +35,22 @@ class HistorialComputoController extends Controller
         return view('historialComputo', compact('historiales', 'codigosInternos'));
     }
 
+    public function getHistorial($codigo_interno)
+    {
+        // Buscar el producto por el código interno
+        $producto = Producto::where('codigo_interno', $codigo_interno)->first();
+
+        // Obtener el último historial de cómputo asociado al producto
+        $ultimoHistorial = HistorialComputo::where('producto_id', $producto->id)
+            ->latest() // Obtener el más reciente
+            ->first();
+
+        // Verificar si existe un historial para ese producto
+        if ($ultimoHistorial) {
+            return response()->json($ultimoHistorial);
+        }
+    }
+
     public function store(Request $request)
     {
         // Validación de los campos
