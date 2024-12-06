@@ -32,7 +32,7 @@ class DotacionController extends Controller
 
         //Si no existe un usuario con esa identificacion no se ejecutara el codigo
         if (!$user) {
-            return redirect()->back()->withErrors('Usuario no encontrado.');
+            return redirect()->back()->with('error', 'Usuario no encontrado.');
         }
 
         //El sistema busca el cargo del ususario

@@ -14,6 +14,16 @@
                     class="mt-4 w-full bg-red-700 text-white font-semibold rounded-lg p-2 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-blue-400">Enviar</button>
             </form>
         </div>
+        @if (session('error'))
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '{{ session('error') }}',
+                });
+            </script>
+        @endif
+
         @if (isset($user))
             <div class="flex flex-wrap mt-3">
                 <div class="w-full sm:w-1/2 p-2">
