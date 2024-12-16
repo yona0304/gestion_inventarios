@@ -31,21 +31,24 @@ class AlquilerEquipoController extends Controller
         // $tipoEquipo = strtoupper($request->tipo_equipo);
         $usuario = User::where('identificacion', $request->profesional)->first();
 
-        if ($usuario) {
-
-            AlquilerEquipo::create([
-                'tipo_producto' => $request->tipo_equipo,
-                'producto' => $request->descripcion_equipo,
-                'valor_contratado' => $request->valor_contratado,
-                'ubicacion' => $request->ubicacion,
-                'usuario_id' => $usuario->id,
-                'fecha_inicio_alquiler' => $request->fecha_inici_alquiler,
-            ]);
-
-            return response()->json(['success' => 'Registro de alquiler realizado.']);
+        if (!$usuario) {
+            // Si el profesional no existe, retorna una respuesta con un mensaje de alerta.
+            return response()->json(['success' => false, 'message' => 'Profesional no registrado en el sistema.'], 404);
         }
 
-        return response()->json(['success' => false, 'message' => 'No se encontró pudo realizar la operación, intentalo mas tarde'], 404);
+        // Si el profesional existe, realiza el registro de alquiler.
+        AlquilerEquipo::create([
+            'tipo_producto' => $request->tipo_equipo,
+            'producto' => $request->descripcion_equipo,
+            'valor_contratado' => $request->valor_contratado,
+            'ubicacion' => $request->ubicacion,
+            'usuario_id' => $usuario->id,
+            'fecha_inicio_alquiler' => $request->fecha_inici_alquiler,
+        ]);
+
+        return response()->json(['success' => 'Registro de alquiler realizado.']);
+
+        return response()->json(['success' => false, 'message' => 'No es posible continuar con la operación.'], 404);
     }
 
 }
