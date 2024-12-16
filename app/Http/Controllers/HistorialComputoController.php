@@ -15,7 +15,7 @@ class HistorialComputoController extends Controller
     public function index(Request $request)
     {
 
-        $productos =  Producto::where('categoria_id', '4')
+        $productos =  Producto::where('categoria_id', '3')
             ->get(['codigo_interno']);
 
         $codigosInternos = $productos->pluck('codigo_interno')->toArray();
@@ -133,7 +133,7 @@ class HistorialComputoController extends Controller
         // Producto::where('id', $idProducto->id)
         //     ->update(['estado' => $estado]);
 
-        return response()->json(['success' => 'Hisorial registrado.']);
+        return response()->json(['success' => 'Registro exitoso.']);
     }
 
     public function import(Request $request)

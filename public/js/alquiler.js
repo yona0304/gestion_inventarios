@@ -99,7 +99,7 @@ $('#finalizarForm').on('submit', function (e) {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, alquilar',
+        confirmButtonText: 'Sí, finalizar',
         cancelButtonText: 'Cancelar'
     }).then((resultado) => {
         if (resultado.isConfirmed) {

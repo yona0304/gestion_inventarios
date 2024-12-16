@@ -13,14 +13,14 @@
                 <div class="grid md:grid-cols-2 md:gap-6">
                     <div class="relative z-0 w-full mb-5 group">
                         <label for="producto"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Codigo</label>
-                        <input type="text" id="producto" name="producto"
+                            class="block mb-2 text-sm font-medium text-gray-900">Codigo</label>
+                        <input type="text" id="producto" name="producto" placeholder="UT-PC-001, UT-M-001..."
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                             required>
                     </div>
                     <div class="relative z-0 w-full mb-5 group">
                         <label for="fecha"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha</label>
+                            class="block mb-2 text-sm font-medium text-gray-900">Fecha</label>
                         <input type="date" id="fecha" name="fecha"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                             required>
@@ -41,15 +41,15 @@
                     </div>
                     <div class="relative z-0 w-full mb-5 group">
                         <label for="descripcion"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripcion</label>
-                        <textarea id="descripcion" name="descripcion"
+                            class="block mb-2 text-sm font-medium text-gray-900">Descripcion</label>
+                        <textarea id="descripcion" name="descripcion" placeholder="Escribe tu comentario aqui..."
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" required></textarea>
                     </div>
                 </div>
                 <div id="additionalFields" class="hidden space-y-4">
                     <div class="relative z-0 w-full mb-5 group">
                         <label for="ubicacion_new"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Destino</label>
+                            class="block mb-2 text-sm font-medium text-gray-900">Destino</label>
                         <select type="text" id="ubicacion_new" name="ubicacion_new"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                             required>

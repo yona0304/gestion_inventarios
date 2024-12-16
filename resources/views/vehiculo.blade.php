@@ -10,58 +10,58 @@
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
                     <label for="color" class="block mb-2 text-sm font-medium text-gray-900">Color</label>
-                    <input type="text" id="color" name="color"
+                    <input type="text" id="color" name="color" placeholder="GRIS"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2" />
                 </div>
                 <div>
                     <label for="llave" class="block mb-2 text-sm font-medium text-gray-900">Llave</label>
-                    <input type="text" id="llave" name="llave"
+                    <input type="text" id="llave" name="llave" placeholder="Manos libre"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2" />
                 </div>
                 <div>
                     <label for="terpel" class="block mb-2 text-sm font-medium text-gray-900">Terpel</label>
-                    <input type="text" id="terpel" name="terpel"
+                    <input type="text" id="terpel" name="terpel" placeholder="Si"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2" />
                 </div>
                 <div>
                     <label for="placa" class="block mb-2 text-sm font-medium text-gray-900">Placa</label>
-                    <input type="text" id="placa" name="placa"
+                    <input type="text" id="placa" name="placa" placeholder="G1060C"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2" />
                 </div>
                 <div>
                     <label for="descripcion" class="block mb-2 text-sm font-medium text-gray-900">Descripción de
                         vehiculo</label>
-                    <input type="text" id="descripcion" name="descripcion_vehiculo"
+                    <input type="text" id="descripcion" name="descripcion_vehiculo" placeholder="CAMIONETA 4X4"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2" />
                 </div>
                 <div>
                     <label for="traccion" class="block mb-2 text-sm font-medium text-gray-900">Tracción</label>
-                    <input type="text" id="traccion" name="traccion"
+                    <input type="text" id="traccion" name="traccion" placeholder="SI"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2" />
                 </div>
             </div>
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
                     <label for="modelo" class="block mb-2 text-sm font-medium text-gray-900">Modelo</label>
-                    <input type="text" id="modelo" name="modelo"
+                    <input type="text" id="modelo" name="modelo" placeholder="RAV4"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2" />
                 </div>
                 <div>
                     <label for="proveedor" class="block mb-2 text-sm font-medium text-gray-900">Proveedor /
                         Contratante</label>
-                    <input type="text" id="proveedor" name="proveedor"
+                    <input type="text" id="proveedor" name="proveedor" placeholder="INGICAT SAS"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2" />
                 </div>
                 <div>
                     <label for="tipo_proveedor" class="block mb-2 text-sm font-medium text-gray-900">Tipo
                         Proveedor</label>
-                    <input type="text" id="tipo_proveedor" name="tipo_proveedor"
+                    <input type="text" id="tipo_proveedor" name="tipo_proveedor" placeholder="UNICO"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2" />
                 </div>
                 <div>
                     <label for="valor" class="block mb-2 text-sm font-medium text-gray-900">Valor
                         Contratado</label>
-                    <input type="number" id="valor" name="valor"
+                    <input type="number" id="valor" name="valor" placeholder="250000"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2" />
                 </div>
                 <div>

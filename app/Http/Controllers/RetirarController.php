@@ -13,9 +13,16 @@ use Illuminate\Http\Request;
 
 class RetirarController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('retirarAsignacion');
+
+        $ProductosAsignados = Producto::where('estado', 'Asignado')->get(['codigo_interno']);
+        $VehiculosAsignados = Vehiculo::where('estado', 'Asignado')->get(['placa']);
+
+        $codigosAsignados = $ProductosAsignados->pluck('codigo_interno')->toArray();
+        $placasAsignados = $VehiculosAsignados->pluck('placa')->toArray();
+
+        return view('retirarAsignacion', compact('codigosAsignados', 'placasAsignados'));
     }
 
     public function show($id_producto, $identificacion)

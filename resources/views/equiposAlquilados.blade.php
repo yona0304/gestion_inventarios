@@ -63,6 +63,10 @@
                                 <input type="file" name="archivo_csv" id="archivo_csv" required
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6">
                             </div>
+                            <br>
+                            <a href="{{ asset('plantillas/EQUIPOS-ALQUILADOS-PLANTILLA.csv') }}"
+                                class="text-blue-600 hover:underline dark:text-blue-500">Plantilla CSV - Equipos
+                                alquilados</a>
                         </div>
                         <div class="w-full flex justify-between mt-4">
                             <button type="submit"

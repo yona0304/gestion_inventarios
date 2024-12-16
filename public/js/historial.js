@@ -84,8 +84,8 @@ $(document).ready(function () {
                     data: $(this).serialize(),
                     success: function (response) {
                         Swal.fire({
-                            title: '¡Historial realizado!',
-                            text: response.success,
+                            // title: '¡Historial realizado!',
+                            title: response.success,
                             icon: 'success',
                             timer: 3000, //tiempo de espera del mensaje.
                             showConfirmButton: false

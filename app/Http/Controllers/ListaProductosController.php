@@ -44,4 +44,39 @@ class ListaProductosController extends Controller
             'asignacion' => $asignacion,
         ]);
     }
+
+    // Edita un reporte existente
+    public function edit($id)
+    {
+        $producto = Producto::find($id);
+
+        if (!$producto) {
+            return response()->json(['error' => 'Producto no encontrado'], 404);
+        }
+
+        return response()->json($producto);
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'codigo_interno' => 'required|string',
+            'descripcion_equipo' => 'required|string|max:255',
+            'ubicacion' => 'required|string',
+            'codigo_equipo_referencia' => 'required|string|max:155',
+        ]);
+
+        $producto = Producto::findOrFail($id);
+
+        //actualizar datos producto
+        $producto->update([
+            'codigo_interno' => $request->codigo_interno,
+            'descripcion_equipo' => $request->descripcion_equipo,
+            'ubicacion' => $request->ubicacion,
+            'codigo_equipo_referencia' => $request->codigo_equipo_referencia,
+        ]);
+
+        return response()->json(['success' => 'Actualizacion de datos registrada exitosamente']);
+    }
 }

@@ -61,11 +61,14 @@ class Producto extends Model
                 $categoria = $producto->categoria;
                 $prefijo = $categoria->prefijo;
 
-                // Obtener el contador actual de la tabla de productos que coinciden con el prefijo
-                $contador = Producto::where('codigo_interno', 'like', "$prefijo-%")->count() + 1;
+                // Obtener el contador del objeto del producto
+                $contador = request()->input('contador');
+
+                // Formatear el contador (rellenar con ceros a la izquierda si es necesario)
+                $contadorFormateado = str_pad($contador, 3, '0', STR_PAD_LEFT);
 
                 // Crear el código interno único
-                $producto->codigo_interno = sprintf('%s-%03d', $prefijo, $contador);
+                $producto->codigo_interno = $prefijo . $contadorFormateado;
             }
         });
     }
@@ -76,8 +79,8 @@ class Producto extends Model
         return $query->where(function ($query) use ($BuProducto, $BuCategoria, $BuInterno, $BuEquipo, $BuUbicacion, $BuReferencia, $BuEstado) {
             if (!empty($BuProducto)) {
                 $query->where('codigo_interno', 'like', "%$BuProducto%")
-                ->orWhere('codigo_equipo_referencia', 'like', "%$BuProducto%")
-                ->orWhere('descripcion_equipo', 'like', "%$BuProducto%");
+                    ->orWhere('codigo_equipo_referencia', 'like', "%$BuProducto%")
+                    ->orWhere('descripcion_equipo', 'like', "%$BuProducto%");
             }
 
             if (!empty($BuCategoria)) {

@@ -36,16 +36,16 @@
             class="fixed top-0 left-0 z-50 hidden w-full h-full p-4  bg-black bg-opacity-50 backdrop-blur-sm">
             <div class="flex items-center justify-center">
                 <div
-                    class="relative w-full max-w-2xl md:h-auto bg-white rounded-lg shadow dark:bg-gray-800 overflow-y-auto max-h-[90vh]">
+                    class="relative w-full max-w-2xl md:h-auto bg-white rounded-lg shadow overflow-y-auto max-h-[90vh]">
                     <!-- Modal content -->
                     <div class="relative">
                         <!-- Modal header -->
-                        <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        <div class="flex items-start justify-between p-4 border-b rounded-t">
+                            <h3 class="text-xl font-semibold text-gray-900">
                                 Detalles de asignación
                             </h3>
                             <button type="button"
-                                class="close-vehiculo-btn text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                                class="close-vehiculo-btn text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
@@ -58,7 +58,7 @@
                         <div class="p-6 space-y-4">
 
                             <!-- Datos del profesional -->
-                            <h4 class="font-bold text-gray-700 dark:text-white">
+                            <h4 class="font-bold text-gray-700">
                                 Datos Profesional Asignado
                             </h4>
                             <div class="grid grid-cols-2 gap-4">
@@ -72,7 +72,7 @@
                             </div>
 
                             <!-- Datos asignación -->
-                            <h4 class="font-bold text-gray-700 dark:text-white">
+                            <h4 class="font-bold text-gray-700">
                                 Datos Asignación
                             </h4>
                             <div class="grid grid-cols-2 gap-4">

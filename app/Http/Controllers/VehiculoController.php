@@ -17,22 +17,29 @@ class VehiculoController extends Controller
 
         $estado = "Disponible";
         $request->validate([
-            'color' => 'nullable|string',
-            'llave' => 'nullable|string',
-            'terpel' => 'nullable|string',
-            'placa' => 'nullable|string',
-            'descripcion_vehiculo' => 'nullable|string',
-            'traccion' => 'nullable|string',
-            'modelo' => 'nullable|string',
-            'proveedor' => 'nullable|string',
-            'tipo_proveedor' => 'nullable|string',
-            'valor' => 'nullable|numeric',
-            'fecha_entrega' => 'nullable|string',
+            'color' => 'required|string',
+            'llave' => 'required|string',
+            'terpel' => 'required|string',
+            'placa' => 'required|string',
+            'descripcion_vehiculo' => 'required|string',
+            'traccion' => 'required|string',
+            'modelo' => 'required|string',
+            'proveedor' => 'required|string',
+            'tipo_proveedor' => 'required|string',
+            'valor' => 'required|numeric',
+            'fecha_entrega' => 'required|string',
             'fecha_devolucion' => 'nullable|string',
         ]);
 
+        // Verificar si ya existe un vehículo con la misma placa
+        $vehiculoExistente = Vehiculo::where('placa', $request->placa)->first();
+        if ($vehiculoExistente) {
+            // Retornar un mensaje de error si la placa ya está registrada
+            return response()->json(['error' => 'La placa ya está registrada.'], 409); // Código de error HTTP 409
+        }
 
-        //registrar producto en la base de datos
+
+        // Registrar el vehículo en la base de datos
         Vehiculo::create([
             'color' => $request->color,
             'llave' => $request->llave,

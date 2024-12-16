@@ -98,7 +98,7 @@
                         <ul id="dropdown-alquiler" class="hidden py-2 space-y-2">
                             <li>
                                 <a href="{{ route('alquiler') }}"
-                                    class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Alquiler</a>
+                                    class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-700 hover:text-white">Alquilar Equipo</a>
                             </li>
                             <li>
                                 <a href="{{ route('alquiler.index') }}"

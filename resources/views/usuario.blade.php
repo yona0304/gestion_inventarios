@@ -14,14 +14,14 @@
                     <div class="grid md:grid-cols-3 md:gap-6">
                         <div>
                             <label for="identificacion"
-                                class="block mb-2 text-base font-medium text-gray-900 ">Identificación</label>
-                            <input type="number" id="identificacion" name="identificacion"
+                                class="block mb-2 text-base font-medium text-gray-900 ">ID del Profesional</label>
+                            <input type="number" id="identificacion" name="identificacion" placeholder="Documento del profesional"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                                 required />
                         </div>
                         <div class="col-span-2">
                             <label for="nombre" class="block mb-2 text-base font-medium text-gray-900 ">Nombre</label>
-                            <input type="text" id="nombre" name="nombre"
+                            <input type="text" id="nombre" name="nombre" placeholder="YONATAN DAVID VIDES..."
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                                 required />
                         </div>
@@ -29,7 +29,7 @@
 
                     <div>
                         <label for="correo" class="block mb-2 text-base font-medium text-gray-900 ">Correo</label>
-                        <input type="email" id="correo" name="correo"
+                        <input type="email" id="correo" name="correo" placeholder="example.ecp@inigcat.com"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                             required />
                     </div>
@@ -59,7 +59,7 @@
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div>
                             <label for="ods" class="block mb-2 text-base font-medium text-gray-900 ">Ods</label>
-                            <input type="text" id="ods" name="ods"
+                            <input type="text" id="ods" name="ods" value="No necesario" placeholder="colocar 'No necesario'"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                                 required />
                         </div>

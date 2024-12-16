@@ -8,7 +8,7 @@
             @csrf
             <div class="max-w-sm mx-auto">
                 <label for="catgoria" class="block mb-2 text-sm font-medium text-gray-900">Seleccionar categoria</label>
-                <select id="catgoria" name="categoria"
+                <select id="categoria" name="categoria"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5">
                     <option value="">Seleccionar</option>
                     @foreach ($categorias as $categoria)
@@ -19,29 +19,38 @@
             </div>
             <br>
 
-            <div class="relative z-0 w-full mb-5 group">
-                <span class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Código
-                    Interno</span>
-                <p id="codigo_interno" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5"></p>
+            <div class="flex items-center space-x-2 mb-5">
+                <div>
+                    <span class="block mb-2 text-sm font-medium text-gray-900">Prefijo</span>
+                    <p id="prefijo_categoria"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-24 p-2.5"></p>
+                </div>
+                <div>
+                    <label for="contador" class="block mb-2 text-sm font-medium text-gray-900">Contador</label>
+                    <input type="number" id="contador" name="contador"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-24 p-2.5" required
+                        placeholder="1,2,3,4,5">
+                </div>
             </div>
+
             <div class="relative z-0 w-full mb-5 group">
-                <label for="descripcion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripción de
+                <label for="descripcion" class="block mb-2 text-sm font-medium text-gray-900">Descripción de
                     equipo</label>
-                <textarea id="descripcion" rows="4" name="descripcion"
+                <textarea id="descripcion" rows="4" name="descripcion" placeholder="LENOVO LEGION..."
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300" required></textarea>
             </div>
             <div class="grid md:grid-cols-2 md:gap-6">
                 <div class="relative z-0 w-full mb-5 group">
                     <label for="codigo_referencia"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Codigo /
+                        class="block mb-2 text-sm font-medium text-gray-900">Codigo /
                         Referencia</label>
-                    <input type="text" id="codigo_referencia" name="codigo_referencia"
+                    <input type="text" id="codigo_referencia" name="codigo_referencia" placeholder="CCP001"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                         required>
                 </div>
                 <div class="relative z-0 w-full mb-5 group">
                     <label for="ubicacion"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ubicación</label>
+                        class="block mb-2 text-sm font-medium text-gray-900">Ubicación</label>
                     <select id="ubicacion" name="ubicacion" required
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5">
                         <option value="">Seleccionar</option>
@@ -52,9 +61,9 @@
             </div>
 
             <div class="relative z-0 w-full mb-5 group">
-                <label for="observacion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Observaciones
+                <label for="observacion" class="block mb-2 text-sm font-medium text-gray-900">Observaciones
                     <span class="text-red-700">(opcional)</span></label>
-                <textarea id="observacion" rows="4" name="observacion"
+                <textarea id="observacion" rows="4" name="observacion" placeholder="observaciones presentadas al registrar..."
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"></textarea>
             </div>
 

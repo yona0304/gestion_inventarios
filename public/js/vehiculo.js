@@ -31,14 +31,24 @@ $(document).ready(function () {
                             location.reload();
                         }, 3000);
                     },
-                    error: function () {
-                        Swal.fire({
-                            title: 'Error',
-                            html: 'El producto ya se encuentra registrado en el sistema o hubo un error al momento del cargue, por favor consultar el producto en la lista.',
-                            icon: 'error',
-                            confirmButtonText: 'OK'
-                        });
+                    error: function (xhr) {
+                        if (xhr.status === 409) { // Código de conflicto (duplicado)
+                            Swal.fire({
+                                title: 'Error',
+                                text: 'El vehiculo ya se encuentra registrado en el sistema.',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'Error',
+                                text: 'Hubo un error al momento del registro. Por favor intenta de nuevo.',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        }
                     }
+
                 });
             }
         });

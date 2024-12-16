@@ -216,9 +216,6 @@
             tooltip: {
                 valueSuffix: '%'
             },
-            subtitle: {
-                text: 'Source:<a href="https://www.mdpi.com/2072-6643/11/3/684/htm" target="_default">MDPI</a>'
-            },
             plotOptions: {
                 series: {
                     allowPointSelect: true,
@@ -264,9 +261,6 @@
             },
             tooltip: {
                 valueSuffix: '%'
-            },
-            subtitle: {
-                text: 'Source:<a href="https://www.mdpi.com/2072-6643/11/3/684/htm" target="_default">MDPI</a>'
             },
             plotOptions: {
                 series: {

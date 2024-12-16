@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('identificacion')->unique();
             $table->foreignId('cargo_id')->constrained('cargos');
             $table->string('ubicacion');
-            $table->string('ods');
+            $table->string('ods')->default('No necesario');
             $table->string('rol');
             $table->string('estado');
             $table->string('email')->unique();

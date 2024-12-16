@@ -17,14 +17,14 @@
                         <label for="id_producto" class="block mb-2 text-base font-medium text-gray-900">Item de asignación</label>
                         <input type="text" id="id_producto" name="id_producto"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-                            placeholder="codigo interno / referencia / placa vehiculo" required />
+                            placeholder="codigo interno / placa vehiculo" required />
                     </div>
                     <div>
                         <label for="identificacion"
-                            class="block mb-2 text-base font-medium text-gray-900">Identificación</label>
+                            class="block mb-2 text-base font-medium text-gray-900">ID del Profesional</label>
                         <input type="text" id="identificacion" name="identificacion"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-                            placeholder="ej: 123456789" required />
+                            placeholder="Documento del profesional" required />
                     </div>
                 </div>
 
@@ -72,5 +72,18 @@
         </form>
 
     </div>
+    <script>
+        $(function () {
+            var id_productos = @json($codigosAsignados);
+            var id_vehiculos = @json($placasAsignados);
 
+            var conca = id_productos.concat(id_vehiculos);
+
+            //autocompletar en el campo de item de asignacion en devolución de equipo.
+
+            $('#id_producto').autocomplete({
+                source: conca
+            });
+        });
+    </script>
 @endsection

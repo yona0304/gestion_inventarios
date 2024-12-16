@@ -38,7 +38,7 @@
         <button id="mostrar"
             class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.6)]">
             <img src="{{ asset('images/ingicat.png') }}" alt="logo ingicat" class="mb-4">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Ingresar al sistema</h5>
+            <h5 class="mb-2 text-2x font-bold tracking-tight text-gray-900">Gestión de Inventarios INGICAT TI</h5>
         </button>
 
     </div>

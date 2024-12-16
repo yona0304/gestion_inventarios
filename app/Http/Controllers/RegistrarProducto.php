@@ -23,6 +23,7 @@ class RegistrarProducto extends Controller
         // Validación de los campos de entrada
         $request->validate([
             'categoria' => 'required|string', // ID de la categoría
+            'contador' => 'required|numeric', //contador que va acompañado del prefijo
             'descripcion' => 'required|string', // Descripción del equipo
             'codigo_referencia' => 'nullable|string', // Código de referencia (opcional)
             'ubicacion' => 'required|string',
@@ -58,15 +59,10 @@ class RegistrarProducto extends Controller
         if ($categoria) {
             // Contar cuántos productos hay ya con este prefijo
             $prefijo = $categoria->prefijo; // Asegúrate de que esto esté en la tabla
-            $contador = Producto::where('codigo_interno', 'like', "$prefijo-%")->count() + 1;
 
-            // Crear el código interno
-            $codigoInterno = sprintf('%s-%03d', $prefijo, $contador);
-
-            return response()->json(['codigo_interno' => $codigoInterno]);
+            return response()->json(['prefijo' => $prefijo]);
         }
 
-        return response()->json(['codigo_interno' => null]);
+        return response()->json(['prefijo' => null]);
     }
-
 }

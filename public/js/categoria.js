@@ -27,7 +27,7 @@ $(document).ready(function () {
             error: function () {
                 Swal.fire({
                     title: 'Error',
-                    html: "Se presento problemas al momento de registrar el usuario",
+                    html: "Error al registrar, consultar existencia.",
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });

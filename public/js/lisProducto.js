@@ -73,3 +73,80 @@ $(document).on('click', '.asignado-producto-btn', function () {
 $(document).on('click', '.close-producto-btn', function () {
     $('#detalleProductoModal').addClass('hidden');
 })
+
+
+
+let ProductoId = null;
+
+$(document).on('click', '.actualizar-btn', function () {
+
+    const ProductoId = $(this).data('producto');
+    const url3 = $(this).data('url3');
+    $('#actualizarProductoEdita').attr('action', url3);
+
+
+    // Construir la URL de edición
+    const url = `/lista-productos/${ProductoId}`;
+
+    // Cargar los datos del producto
+    $.get(url, function (data) {
+        $('#codigo_interno').val(data.codigo_interno);
+        $('#descripcion_equipo').val(data.descripcion_equipo);
+        $('#ubicacion').val(data.ubicacion);
+        $('#referencia').val(data.codigo_equipo_referencia);
+
+        $('#editarProductos').removeClass('hidden');
+        // Mostrar el modal
+    }).fail(function () {
+        Swal.fire('Error', 'Error al cargar los datos. Por favor, inténtalo de nuevo.', 'error');
+    });
+});
+
+$(document).on('click', '[data-modal-product]', function () {
+    $('#editarProductos').addClass('hidden');
+})
+
+$('#actualizarProductoEdita').on('submit', function (e) {
+    e.preventDefault();
+
+    const url3 = $(this).attr('action');
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "Estas seguro que deseas actualizar los datos del producto.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, actualizar',
+        cancelButtonText: 'Cancelar'
+    }).then((resultado) => {
+        if (resultado.isConfirmed) {
+            $.ajax({
+                url: url3,
+                type: 'PUT',
+                data: $(this).serialize(),
+                success: function (response) {
+                    Swal.fire({
+                        title: '¡Actualización de datos realizado!',
+                        text: response.success,
+                        icon: 'success',
+                        timer: 3000, //tiempo de espera del mensaje.
+                        showConfirmButton: false
+                    });
+                    setTimeout(function () {
+                        location.reload();
+                    }, 3000);
+                },
+                error: function (xhr) {
+                    let message = xhr.responseJSON.message || 'Ocurrió un error.';
+                    Swal.fire({
+                        title: 'Error',
+                        text: message,
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
+        }
+    });
+});

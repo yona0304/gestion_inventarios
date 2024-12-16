@@ -17,12 +17,12 @@
                             interno</label>
                         <input type="text" id="codigo_interno" name="codigo_interno"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            placeholder="codigo interno / referencia" required />
+                            placeholder="codigo interno" required />
                     </div>
 
                     <div>
                         <label for="profesional"
-                            class="block mb-2 text-base font-medium text-gray-900 dark:text-white">Profesional</label>
+                            class="block mb-2 text-base font-medium text-gray-900">ID del Profesional</label>
                         <input type="text" id="profesional" name="profesional"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="Documento del profesional" required />
