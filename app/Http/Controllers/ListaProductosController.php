@@ -98,8 +98,8 @@ class ListaProductosController extends Controller
             Producto::where('id', $productoAct->id)
                 ->update(['estado' => 'Disponible']);
 
-            return response()->json(['success' => true, 'message' => 'Activacion de categoría exitosa.']);
+            return response()->json(['success' => true, 'message' => 'Activacion de producto exitoso.']);
         }
-        return response()->json(['success' => false, 'message' => 'Categoría no encontrada.'], 404);
+        return response()->json(['success' => false, 'message' => 'Producto no encontrado.'], 404);
     }
 }

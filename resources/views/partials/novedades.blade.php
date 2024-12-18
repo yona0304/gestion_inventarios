@@ -28,7 +28,7 @@
                     {{$novedad->producto->codigo_interno . ' - ' . $novedad->producto->categoria->nombre_categoria }}
                 </th>
                 <td class="px-6 py-4">
-                    {{ $novedad->usuario->nombres ?? 'nombres' }}
+                    {{ $novedad->usuario->nombres ?? '' }}
                 </td>
                 <td class="px-6 py-4">
                     {{ $novedad->descripcion }}
