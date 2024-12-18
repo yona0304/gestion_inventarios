@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\AsignacionEquipo;
+use App\Models\Categoria;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use PhpOffice\PhpSpreadsheet\Calculation\Category;
 
 class ListaProductosController extends Controller
 {
@@ -21,13 +23,15 @@ class ListaProductosController extends Controller
                 $request->BuEstado
             )
             ->orderBy('created_at', 'desc')
+            ->whereNot('estado', 'desactivado')
             ->paginate(10);
 
         if ($request->ajax()) {
             return view('partials.productos', compact('productos'))->render();
         }
+        $desProd = Producto::where('estado', 'desactivado')->get();
 
-        return view('listaProductos', compact('productos'));
+        return view('listaProductos', compact('productos', 'desProd'));
     }
 
     public function datosAsignacion($id)
@@ -78,5 +82,24 @@ class ListaProductosController extends Controller
         ]);
 
         return response()->json(['success' => 'Actualizacion de datos registrada exitosamente']);
+    }
+    public function actual($id)
+    {
+        $productoAct = Producto::where('id', $id)->first();
+
+        if ($productoAct) {
+
+            Producto::where('id', $productoAct->id)->first();
+            $categoria = Categoria::where('id', $productoAct->categoria_id)->first();
+            if ($categoria->estado == 'desactivado') {
+                return response()->json(['success' => false, 'message' => 'La categoria a la que pertenece este producto esta desactivada.'], 404);
+            }
+
+            Producto::where('id', $productoAct->id)
+                ->update(['estado' => 'Disponible']);
+
+            return response()->json(['success' => true, 'message' => 'Activacion de categoría exitosa.']);
+        }
+        return response()->json(['success' => false, 'message' => 'Categoría no encontrada.'], 404);
     }
 }

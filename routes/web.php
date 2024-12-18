@@ -76,6 +76,7 @@ Route::middleware(['auth', NoCache::class, CheckRole::class, RedirectIfSessionEx
     Route::get('/registrar-categoria', [RegistrarCategoriaController::class, 'index'])->name('categoria');
     Route::post('/registrar-categoria/registrado', [RegistrarCategoriaController::class, 'store'])->name('categoria.store');
     Route::delete('/registrar-categoria/{id}', [RegistrarCategoriaController::class, 'destroy']);
+    Route::put('/registrar-categoria/active/{id}', [RegistrarCategoriaController::class, 'update']);
 
     //vehiculo
     Route::get('/registrar-vehiculo', [VehiculoController::class, 'index'])->name('vehiculo');
@@ -115,6 +116,7 @@ Route::middleware(['auth', NoCache::class, CheckRole::class, RedirectIfSessionEx
     //editar producto
     Route::get('/lista-productos/{id}', [ListaProductosController::class, 'edit'])->name('lista.editar');
     Route::put('/lista-productos/{id}/actualizar', [ListaProductosController::class, 'update'])->name('lista.actualizar');
+    Route::put('/lista-productos/active/{id}', [ListaProductosController::class, 'actual']);
 
 
     //mostrar datos en la lista de asignación, productos y vehiculos

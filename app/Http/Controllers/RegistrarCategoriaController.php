@@ -86,6 +86,19 @@ class RegistrarCategoriaController extends Controller
         }
 
 
-        //    return response()->json(['success' => false, 'message' => 'Categoría no encontrada.'], 404);
+
+        return response()->json(['success' => false, 'message' => 'Categoría no encontrada.'], 404);
+    }
+    public function update($id)
+    {
+        $CategoriaSeleccionada = Categoria::where('id', $id)->first();
+
+        if ($CategoriaSeleccionada) {
+            Categoria::where('id', $CategoriaSeleccionada->id)
+                ->update(['estado' => null]);
+
+            return response()->json(['success' => true, 'message' => 'Activacion de categoría exitosa.']);
+        }
+        return response()->json(['success' => false, 'message' => 'Categoría no encontrada.'], 404);
     }
 }

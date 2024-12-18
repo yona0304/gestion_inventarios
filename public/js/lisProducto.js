@@ -150,3 +150,59 @@ $('#actualizarProductoEdita').on('submit', function (e) {
         }
     });
 });
+
+function activeProducto(id){
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminarlo!',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`/lista-productos/active/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken,
+                    'Content-Type': 'application/json'
+                }})
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Alerta de éxito
+                        Swal.fire({
+                            title: '¡Reactivado!',
+                            text: data.message,
+                            icon: 'success',
+                            timer: 3000, // tiempo de espera del mensaje
+                            showConfirmButton: false
+                        });
+
+                        setTimeout(function () {
+                            location.reload();
+                        }, 3000);
+                    } else {
+                        // Si la categoría está relacionada con productos
+                        Swal.fire({
+                            title: 'Error',
+                            text: data.message,
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                }).catch((xhr) => {
+                    // Manejo de errores de red o cualquier otro tipo de error
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'No se pudo conectar con el servidor.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                });
+
+        }
+    });
+}

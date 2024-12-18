@@ -23,7 +23,7 @@
                 </td>
                 <td class="px-6 py-4">
                     <button class="bg-red-500 text-white px-3 py-1 rounded-md"
-                        onclick="deleteCategoria('{{ $category->id }}')">Eliminar</button>
+                        onclick="deleteCategoria('{{ $category->id }}')">Desactivar</button>
                 </td>
             </tr>
         @endforeach
