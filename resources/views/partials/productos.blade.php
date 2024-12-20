@@ -19,9 +19,11 @@
             <th scope="col" class="px-6 py-3">
                 Estado
             </th>
-            <th scope="col" class="px-6 py-3">
-                Acción
-            </th>
+            @if (Auth::check() && Auth::user()->rol === 'Super_Admin')
+                <th scope="col" class="px-6 py-3">
+                    Acción
+                </th>
+            @endif
         </tr>
     </thead>
     <tbody>
@@ -54,12 +56,14 @@
                             class="{{ $producto->estado === 'Disponible' ? 'disponible' : ($producto->estado === 'Retirado' ? 'retirado' : ($producto->estado === 'Devolución' ? 'devolucion' : '')) }}">{{ $producto->estado }}</span>
                     @endif
                 </td>
-                <td class="px-6 py-4">
-                    <button class="actualizar-btn bg-blue-500 text-white px-2 py-1 rounded-md"
-                        data-producto="{{ $producto->id }}"
-                        data-url3="{{ route('lista.actualizar', $producto->id) }}"><i
-                            class="fa-solid fa-pen-to-square"></i></button>
-                </td>
+                @if (Auth::check() && Auth::user()->rol === 'Super_Admin')
+                    <td class="px-6 py-4">
+                        <button class="actualizar-btn bg-blue-500 text-white px-2 py-1 rounded-md"
+                            data-producto="{{ $producto->id }}"
+                            data-url3="{{ route('lista.actualizar', $producto->id) }}"><i
+                                class="fa-solid fa-pen-to-square"></i></button>
+                    </td>
+                @endif
             </tr>
         @endforeach
     </tbody>
@@ -89,7 +93,8 @@
                     @method('PUT')
                     <div class="grid grid-cols-1">
                         <div>
-                            <label for="codigo_interno" class="block text-sm font-medium leading-6 text-gray-900">Codigo Interno</label>
+                            <label for="codigo_interno" class="block text-sm font-medium leading-6 text-gray-900">Codigo
+                                Interno</label>
                             <div class="mt-2">
                                 <input type="text" name="codigo_interno" id="codigo_interno" autocomplete="off"
                                     class="block bg-gray-50 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6">

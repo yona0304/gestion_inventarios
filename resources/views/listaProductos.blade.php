@@ -97,53 +97,55 @@
                 </div>
             </div>
         </div>
-        <button id="showTableBtn" class="bg-red-500 text-white px-3 py-1 rounded-md mt-5">
-            Mostrar productos desactivados
-        </button>
-        <div id="tableModal" class="fixed  inset-0 hidden z-50 flex items-center justify-center bg-black bg-opacity-50">
-            <div class="bg-white p-6 rounded-lg shadow-lg w-3/4">
-                <!-- Encabezado del modal -->
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-lg font-bold">Productos Desactivados</h2>
-                    <button id="hideTableBtn" class="text-gray-500 hover:text-red-500">
-                        &times;
-                    </button>
-                </div>
-                <!-- Tabla -->
-                <div class="overflow-x-auto ">
-                    <table class="min-w-full  border border-gray-300 shadow-md rounded-lg overflow-hidden">
-                        <thead class="bg-gray-200 text-gray-700">
-                            <tr>
-                                <th class="border px-6 py-3 text-left uppercase font-semibold">Nombre</th>
-                                <th class="border px-6 py-3 text-left uppercase font-semibold">Codigo interno</th>
-                                <th class="border px-6 py-3 text-left uppercase font-semibold">Descripcion</th>
-                                <th class="border px-6 py-3 text-left uppercase font-semibold">Ubicacion</th>
-                                <th class="border px-6 py-3 text-left uppercase font-semibold">Referencia</th>
-                                <th class="border px-6 py-3 text-left uppercase font-semibold">Accion</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            @foreach ($desProd as $cats)
-                                <tr class="hover:bg-gray-100">
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        {{ $cats->categoria->nombre_categoria ?? 'Desconocido' }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">{{ $cats->codigo_interno }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">{{ $cats->descripcion_equipo }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">{{ $cats->ubicacion }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">{{ $cats->codigo_equipo_referencia }}</td>
-                                    <td class="px-6 py-4">
-                                        <button
-                                            class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-md transition duration-200 ease-in-out"
-                                            onclick="activeProducto('{{ $cats->id }}')">
-                                            Reactivar</button>
-                                    </td>
+        @if (Auth::check() && Auth::user()->rol === 'Super_Admin')
+            <button id="showTableBtn" class="bg-red-500 text-white px-3 py-1 rounded-md mt-5">
+                Mostrar productos desactivados
+            </button>
+            <div id="tableModal" class="fixed  inset-0 hidden z-50 flex items-center justify-center bg-black bg-opacity-50">
+                <div class="bg-white p-6 rounded-lg shadow-lg w-3/4">
+                    <!-- Encabezado del modal -->
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-bold">Productos Desactivados</h2>
+                        <button id="hideTableBtn" class="text-gray-500 hover:text-red-500">
+                            &times;
+                        </button>
+                    </div>
+                    <!-- Tabla -->
+                    <div class="overflow-x-auto ">
+                        <table class="min-w-full  border border-gray-300 shadow-md rounded-lg overflow-hidden">
+                            <thead class="bg-gray-200 text-gray-700">
+                                <tr>
+                                    <th class="border px-6 py-3 text-left uppercase font-semibold">Nombre</th>
+                                    <th class="border px-6 py-3 text-left uppercase font-semibold">Codigo interno</th>
+                                    <th class="border px-6 py-3 text-left uppercase font-semibold">Descripcion</th>
+                                    <th class="border px-6 py-3 text-left uppercase font-semibold">Ubicacion</th>
+                                    <th class="border px-6 py-3 text-left uppercase font-semibold">Referencia</th>
+                                    <th class="border px-6 py-3 text-left uppercase font-semibold">Accion</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                @foreach ($desProd as $cats)
+                                    <tr class="hover:bg-gray-100">
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            {{ $cats->categoria->nombre_categoria ?? 'Desconocido' }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $cats->codigo_interno }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $cats->descripcion_equipo }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $cats->ubicacion }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $cats->codigo_equipo_referencia }}</td>
+                                        <td class="px-6 py-4">
+                                            <button
+                                                class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-md transition duration-200 ease-in-out"
+                                                onclick="activeProducto('{{ $cats->id }}')">
+                                                Reactivar</button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
     </div>
     <script>
         const showTableBtn = document.getElementById('showTableBtn');
