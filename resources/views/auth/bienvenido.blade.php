@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="{{ asset('images/ingicat.png') }}">
+    <link rel="icon" href="{{ asset('images/logotipo.png') }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <title>Bienvenido</title>
@@ -32,13 +32,13 @@
     </style>
 </head>
 
-<body class="h-screen flex items-center justify-center bg-red-900">
+<body class="h-screen flex items-center justify-center bg-gradient-to-b from-blue-700 to-purple-700">
     <div class="grid gap-4 mb-6 md:grid-cols-1" id="content">
 
         <button id="mostrar"
             class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.6)]">
-            <img src="{{ asset('images/ingicat.png') }}" alt="logo ingicat" class="mb-4">
-            <h5 class="mb-2 text-2x font-bold tracking-tight text-gray-900">Gestión de Inventarios INGICAT TI</h5>
+            <img src="{{ asset('images/logotipo.png') }}" alt="logo logotipo" class="mb-4">
+            <h5 class="mb-2 text-2x font-bold tracking-tight text-gray-900">Gestión de Inventarios</h5>
         </button>
 
     </div>
@@ -74,7 +74,7 @@
                                 electrónico</label>
                             <input type="email" name="email" id="email" autocomplete="off"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-                                placeholder="example@ingicat.com" required />
+                                placeholder="example@example.com" required />
                         </div>
                         <div>
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Ingresar
@@ -97,7 +97,7 @@
                                 contraseña?</a>
                         </div>
                         <button type="submit"
-                            class="w-full text-white bg-red-900 hover:bg-red-700 focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 text-center">Ingresar</button>
+                            class="w-full text-white bg-blue-900 hover:bg-blue-700 focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 text-center">Ingresar</button>
                     </form>
                 </div>
 
@@ -108,12 +108,12 @@
                         <div>
                             <label for="recuperar" class="block mb-2 text-sm font-medium text-gray-900">Ingrese su
                                 correo electrónico</label>
-                            <input type="email" name="recuperar" id="recuperar" autocomplete="off"
+                            <input type="email" name="recuperar" id="recuperar" autocomplete="off" placeholder="example@example.com"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                                 required>
                         </div>
                         <button type="submit"
-                            class="w-full text-white bg-red-900 hover:bg-red-700 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Enviar</button>
+                            class="w-full text-white bg-blue-900 hover:bg-blue-700 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Enviar</button>
                     </form>
 
                     <div class="mt-4 text-center">

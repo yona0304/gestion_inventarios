@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Dotaciones - INGICAT')
+@section('title', 'Dotaciones')
 
 @section('content')
     <div class="p-4 sm:ml-64">
@@ -11,7 +11,7 @@
                 <input type="user" id="user" name="user"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5">
                 <button type="submit"
-                    class="mt-4 w-full bg-red-700 text-white font-semibold rounded-lg p-2 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-blue-400">Enviar</button>
+                    class="mt-4 w-full bg-blue-900 text-white font-semibold rounded-lg p-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">Enviar</button>
             </form>
         </div>
         @if (session('error'))
@@ -94,12 +94,12 @@
         @if (Auth::check() && Auth::user()->rol === 'Super_Admin')
             @if (isset($faltas))
                 <button id="show-users"
-                    class="bg-red-700 text-white font-semibold py-2 px-4 mt-14 rounded-lg shadow-md hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    class="bg-blue-900 text-white font-semibold py-2 px-4 mt-14 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">
                     Mostrar lista de usuarios con dotaciones incompletas
                 </button>
                 <div id="hidden" class="hidden">
                     <button id="hide-users"
-                        class="bg-red-700 text-white font-semibold py-2 px-4 mt-14 rounded-lg shadow-md hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        class="bg-blue-900 text-white font-semibold py-2 px-4 mt-14 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">
                         Ocultar lista
                     </button>
                     <br>
@@ -109,7 +109,7 @@
                     <br>
                     <table class="min-w-full table-auto border-collapse border border-gray-200">
                         <thead>
-                            <tr class="bg-red-700">
+                            <tr class="bg-blue-900">
                                 <th class="px-4 py-2 text-left text-sm font-medium text-white">Nombre</th>
                                 <th class="px-4 py-2 text-left text-sm font-medium text-white">Identificación</th>
                                 <th class="px-4 py-2 text-left text-sm font-medium text-white">Cargo</th>

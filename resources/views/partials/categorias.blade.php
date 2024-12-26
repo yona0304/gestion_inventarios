@@ -22,7 +22,7 @@
                     {{ $category->prefijo }}
                 </td>
                 <td class="px-6 py-4">
-                    <button class="bg-red-500 text-white px-3 py-1 rounded-md"
+                    <button class="bg-blue-900 text-white px-3 py-1 rounded-md hover:bg-blue-700"
                         onclick="deleteCategoria('{{ $category->id }}')">Desactivar</button>
                 </td>
             </tr>

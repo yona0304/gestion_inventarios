@@ -101,7 +101,7 @@
                     </div>
                     <div class="w-full flex justify-between mt-4">
                         <button type="submit"
-                            class="w-1/3 bg-red-800 text-white py-2 rounded-md shadow-sm hover:bg-red-600">
+                            class="w-1/3 bg-blue-900 text-white py-2 rounded-md shadow-sm hover:bg-blue-700">
                             Finalizar alquiler
                         </button>
                     </div>

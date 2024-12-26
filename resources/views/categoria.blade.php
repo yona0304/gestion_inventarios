@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Registrar Producto - INGICAT')
+@section('title', 'Registrar Producto')
 
 @section('content')
     <div class="p-4 sm:ml-64">
@@ -27,7 +27,7 @@
 
                         <div class="mt-6 flex items-center justify-end ">
                             <button type="submit"
-                                class="rounded-md bg-red-800 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">
+                                class="rounded-md bg-blue-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">
                                 Registrar</button>
                         </div>
                     </form>
@@ -46,7 +46,7 @@
                 </div>
                 @isset($selectCategoriaDesactivado)
                     <td class="px-6 py-4">
-                        <button id="showTableBtn" class="bg-red-500 text-white px-3 py-1 rounded-md">
+                        <button id="showTableBtn" class="bg-blue-500 text-white px-3 py-1 rounded-md">
                             Mostrar categorias desactivadas
                         </button>
                     </td>
@@ -79,7 +79,7 @@
                                                 <td class="px-6 py-4 whitespace-nowrap">{{ $cats->prefijo }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <button
-                                                        class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-md transition duration-200 ease-in-out"
+                                                        class="bg-blue-900 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-md transition duration-200 ease-in-out"
                                                         onclick="activeCategoria('{{ $cats->id }}')">
                                                         Reactivar
                                                     </button>

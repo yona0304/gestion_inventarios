@@ -1,56 +1,8 @@
 @extends('layouts.layout')
 
-@section('title', 'Inicio - INGICAT')
+@section('title', 'Inicio')
 
 @section('content')
-    {{-- <style>
-        #container {
-    height: 400px;
-    }
-
-    .highcharts-figure,
-    .highcharts-data-table table {
-        min-width: 310px;
-        max-width: 800px;
-        margin: 1em auto;
-    }
-
-    .highcharts-data-table table {
-        font-family: Verdana, sans-serif;
-        border-collapse: collapse;
-        border: 1px solid #ebebeb;
-        margin: 10px auto;
-        text-align: center;
-        width: 100%;
-        max-width: 500px;
-    }
-
-    .highcharts-data-table caption {
-        padding: 1em 0;
-        font-size: 1.2em;
-        color: #555;
-    }
-
-    .highcharts-data-table th {
-        font-weight: 600;
-        padding: 0.5em;
-    }
-
-    .highcharts-data-table td,
-    .highcharts-data-table th,
-    .highcharts-data-table caption {
-        padding: 0.5em;
-    }
-
-    .highcharts-data-table thead tr,
-    .highcharts-data-table tr:nth-child(even) {
-        background: #f8f8f8;
-    }
-
-    .highcharts-data-table tr:hover {
-        background: #f1f7ff;
-    }
-    </style> --}}
 
     <script src="https://code.highcharts.com/highcharts.js"></script>
     @if (Auth::check() && Auth::user()->rol === 'Super_Admin')
@@ -133,78 +85,6 @@
             }
         });
     </script>
-    {{-- <script>
-        Highcharts.chart('container2', {
-
-        title: {
-            text: 'Movimientos de Inventario',
-            align: 'left'
-        },
-
-        subtitle: {
-            text: 'Por Tipo de Movimiento en el Inventario',
-            align: 'left'
-        },
-
-        yAxis: {
-            title: {
-                text: 'Cantidad de Ítems'
-            }
-        },
-
-        xAxis: {
-            accessibility: {
-                rangeDescription: 'Rango: Enero a Diciembre 2024'
-            },
-            categories: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-        },
-
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-                pointStart: 0
-            }
-        },
-
-        series: [{
-            name: 'Ingresos',
-            data: [12, 15, 20, 25, 30, 28, 31, 29, 26, 27, 24, 29]
-        }, {
-            name: 'Salidas',
-            data: [8, 9, 10, 13, 15, 14, 16, 15, 13, 14, 11, 12]
-        }, {
-            name: 'Traslados',
-            data: [5, 4, 6, 8, 9, 8, 10, 9, 8, 9, 7, 7]
-        }, {
-            name: 'Retornos',
-            data: [1, 2, 2, 2, 3, 2, 2, 3, 2, 2, 1, 2]
-        }],
-
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-
-        });
-    </script> --}}
     <script>
         Highcharts.chart('container3', {
             chart: {

@@ -133,7 +133,7 @@
                         <br>
                         <div>
                             <button type="submit"
-                                class="w-1/3 bg-red-800 text-white py-2 rounded-md shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                class="w-1/3 bg-blue-900 text-white py-2 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                 Actualizar
                             </button>
                         </div>

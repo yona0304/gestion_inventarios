@@ -25,7 +25,6 @@ class RegistrarUsuarioController extends Controller
             'correo' => 'required|string|unique:users,email',
             'ubicacion' => 'required|string',
             'cargo' => 'required|string',
-            'ods' => 'required|string',
             'rol' => 'required|string',
         ]);
 
@@ -38,7 +37,6 @@ class RegistrarUsuarioController extends Controller
             'identificacion' => $request->identificacion,
             'cargo_id' => $request->cargo,
             'ubicacion' => $request->ubicacion,
-            'ods' => $request->ods,
             'rol' => $request->rol,
             'estado' => $estado,
             'email' => $request->correo,

@@ -32,7 +32,6 @@ class ContactanosMailable extends Mailable
     {
         return new Envelope(
             subject: 'Recuperación de Cuenta - Nueva Contraseña',
-            // from: new Address('soporte@ingicat.com', 'Soporte Técnico'),
         );
     }
 

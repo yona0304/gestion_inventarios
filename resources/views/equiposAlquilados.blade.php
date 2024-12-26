@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Equipos Alquilados - INGICAT')
+@section('title', 'Equipos Alquilados')
 
 @section('content')
     <div class="p-4 sm:ml-64">
@@ -23,7 +23,7 @@
                         </div>
                         <div class="mt-1">
                             <button id="modalmport"
-                                class="text-white bg-red-900 hover:bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                                class="text-white bg-blue-900 hover:bg-blue-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                                 type="button">
                                 Importar CSV
                             </button>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="w-full flex justify-between mt-4">
                             <button type="submit"
-                                class="w-1/3 bg-red-800 text-white py-2 rounded-md shadow-sm hover:bg-red-600">Importar</button>
+                                class="w-1/3 bg-blue-900 text-white py-2 rounded-md shadow-sm hover:bg-blue-700">Importar</button>
                         </div>
                     </form>
                 </div>

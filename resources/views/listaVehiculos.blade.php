@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Lista de vehiculos - INGICAT')
+@section('title', 'Lista de vehiculos')
 
 @section('content')
     <div class="p-4 sm:ml-64">

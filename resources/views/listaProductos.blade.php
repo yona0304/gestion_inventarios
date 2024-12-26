@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Lista de productos - INGICAT')
+@section('title', 'Lista de productos')
 
 @section('content')
     <div class="p-4 sm:ml-64">
@@ -98,7 +98,7 @@
             </div>
         </div>
         @if (Auth::check() && Auth::user()->rol === 'Super_Admin')
-            <button id="showTableBtn" class="bg-red-500 text-white px-3 py-1 rounded-md mt-5">
+            <button id="showTableBtn" class="bg-blue-900 text-white px-3 py-1 rounded-md mt-5 hover:bg-blue-700">
                 Mostrar productos desactivados
             </button>
             <div id="tableModal" class="fixed  inset-0 hidden z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -134,7 +134,7 @@
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $cats->codigo_equipo_referencia }}</td>
                                         <td class="px-6 py-4">
                                             <button
-                                                class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-md transition duration-200 ease-in-out"
+                                                class="bg-blue-900 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-md transition duration-200 ease-in-out"
                                                 onclick="activeProducto('{{ $cats->id }}')">
                                                 Reactivar</button>
                                         </td>

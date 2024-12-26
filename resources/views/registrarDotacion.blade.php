@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Registro dotaciones - INGICAT')
+@section('title', 'Registro dotaciones')
 
 @section('content')
 
@@ -40,7 +40,7 @@
 
                     <div class="mt-6 flex items-center justify-end ">
                         <button type="submit"
-                            class="rounded-md bg-red-800 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">
+                            class="rounded-md bg-blue-800 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">
                             Registrar</button>
                     </div>
                 </form>

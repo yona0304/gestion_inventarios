@@ -7,7 +7,7 @@
     <p>Por favor, utiliza esta contraseña para iniciar sesión en tu cuenta. Puedes cambiarla una vez que hayas accedido.
     </p>
     <p>Para iniciar sesión, visita el siguiente enlace:</p>
-    <p><a href="https://inventarios.ingicat.com/">https://inventarios.ingicat.com/</a></p>
+    <p><a href="https://Dominio-de-empresa.com/">https://Dominio-de-empresa.com/</a></p>
     <p>Este es un correo enviado automáticamente, por favor no respondas.</p>
-    <p>Saludos,<br>Equipo INGICAT.</p>
+    <p>Saludos,<br>Equipo Yonatan Vides y Kevin Llanos.</p>
 </div>

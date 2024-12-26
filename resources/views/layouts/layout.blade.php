@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="{{ asset('images/ingicat.png') }}">
+    <link rel="icon" href="{{ asset('images/logotipo.png') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/alquilerImport.css') }}">
@@ -14,7 +14,7 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     {{-- @vite('resources/css/app.css') --}}
-    <title>@yield('title')</title>
+    <title>@yield('title') - Empresa</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .disponible {

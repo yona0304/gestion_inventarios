@@ -35,7 +35,7 @@
                         {{-- boton en el lado derecho, para modal de historial comuto --}}
                         <div class="mt-1">
                             <button id="mostrarModal"
-                                class="text-white bg-red-900 hover:bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                                class="text-white bg-blue-900 hover:bg-blue-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                                 type="button">
                                 Ingresar Historial
                             </button>
@@ -70,7 +70,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <!-- Producto -->
                             <div class="mb-4">
-                                <label for="producto_id" class="block text-sm font-medium text-gray-700">Producto</label>
+                                <label for="producto_id" class="block text-sm font-medium text-gray-700">Codigo interno - producto <span class="text-red-700">*</span></label>
                                 <input type="text" name="producto_id" id="producto_id"
                                     class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
                                     required>
@@ -190,7 +190,7 @@
                             <!-- Fecha de Registro -->
                             <div class="mb-4">
                                 <label for="fecha_registro" class="block text-sm font-medium text-gray-700">Fecha de
-                                    Registro</label>
+                                    Registro <span class="text-red-700">*</span></label>
                                 <input type="date" name="fecha_registro" id="fecha_registro"
                                     class="mt-1 block w-full rounded-md border-2 border-gray-300 shadow-sm" required>
                             </div>
@@ -220,7 +220,7 @@
                         <!-- Botones -->
                         <div class="w-full flex justify-between mt-4">
                             <button type="submit"
-                                class="w-1/3 bg-red-800 text-white py-2 rounded-md shadow-sm hover:bg-red-600">Registrar</button>
+                                class="w-1/3 bg-blue-800 text-white py-2 rounded-md shadow-sm hover:bg-blue-600">Registrar</button>
                             <button type="button" class="w-1/3 bg-gray-300 text-black py-2 rounded-md shadow-sm"
                                 data-modal-hide="modalRegistar">Cancelar</button>
                         </div>
@@ -273,7 +273,7 @@
         </div>
         <button type="button" data-dial-toggle="speed-dial-menu-default" aria-controls="speed-dial-menu-default"
             aria-expanded="false"
-            class="flex items-center justify-center text-white bg-red-700 rounded-full w-14 h-14 hover:bg-red-800  focus:ring-4">
+            class="flex items-center justify-center text-white bg-blue-700 rounded-full w-14 h-14 hover:bg-blue-800  focus:ring-4">
             <svg class="w-5 h-5 transition-transform group-hover:rotate-45" aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -309,13 +309,13 @@
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6">
                             </div>
                             <br>
-                            <a href="{{ asset('plantillas/HISTORIAL-COMPUTO-PLANTILLA.csv') }}" 
+                            <a href="{{ asset('plantillas/HISTORIAL-COMPUTO-PLANTILLA.csv') }}"
                                 class="text-blue-600 hover:underline dark:text-blue-500">Plantilla CSV - Historial
                                 computo</a>
                         </div>
                         <div class="w-full flex justify-between mt-4">
                             <button type="submit"
-                                class="w-1/3 bg-red-800 text-white py-2 rounded-md shadow-sm hover:bg-red-600">Importar</button>
+                                class="w-1/3 bg-blue-800 text-white py-2 rounded-md shadow-sm hover:bg-blue-600">Importar</button>
                         </div>
                     </form>
                 </div>
@@ -358,7 +358,7 @@
                         </div>
                         <div class="w-full flex justify-between mt-4">
                             <button type="submit"
-                                class="w-1/3 bg-red-800 text-white py-2 rounded-md shadow-sm hover:bg-red-600">Importar</button>
+                                class="w-1/3 bg-blue-800 text-white py-2 rounded-md shadow-sm hover:bg-blue-600">Importar</button>
                         </div>
                     </form>
                 </div>

@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Alquiler Equipo - INGICAT')
+@section('title', 'Alquiler Equipo')
 
 @section('content')
     <div class="p-4 sm:ml-64">
@@ -78,7 +78,7 @@
 
 
                 <button type="submit"
-                    class="text-white bg-red-900 hover:bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Alquilar</button>
+                    class="text-white bg-blue-900 hover:bg-blue-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Alquilar</button>
             </form>
         </div>
 

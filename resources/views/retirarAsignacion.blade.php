@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Retirar Asignación - INGICAT')
+@section('title', 'Retirar Asignación')
 
 @section('content')
     <div class="p-4 sm:ml-64">
@@ -8,7 +8,7 @@
         <form id="formDevo" action="{{ route('retirar.update') }}" method="POST">
             @csrf
             @method('PUT')
-            <div class="grid gap-4 mb-6 md:grid-cols-1">
+            <div class="grid gap-4 mb-6 mt-4 md:grid-cols-1">
                 <div>
                     <h1 class="text-center font-medium text-2xl text-gray-900">Devolución Equipo</h1>
                 </div>
@@ -68,7 +68,7 @@
 
 
             <button type="submit"
-                class="text-white bg-red-900 hover:bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Registrar</button>
+                class="text-white bg-blue-900 hover:bg-blue-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Registrar</button>
         </form>
 
     </div>

@@ -28,7 +28,7 @@
                     {{ $dotaciones->categoria->nombre_categoria }}
                 </td>
                 <td class="px-6 py-4">
-                    <button class="bg-red-500 text-white px-3 py-1 rounded-md"
+                    <button class="bg-blue-900 hover:bg-blue-700 text-white px-3 py-1 rounded-md"
                         onclick="deleteDotacion('{{ $dotaciones->cargos->id }}', '{{ $dotaciones->categoria->id }}')">Eliminar</button>
                 </td>
             </tr>

@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Registro de dotacion - INGICAT')
+@section('title', 'Registro de dotacion')
 
 @section('content')
     <div class="p-4 sm:ml-64">
@@ -63,7 +63,7 @@
                 <div class="grid md:grid-cols-2 md:gap-6">
                     <div>
                         <button type="submit"
-                            class="mt-4 w-full bg-red-700 text-white font-semibold rounded-lg p-2 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-blue-400">Enviar</button>
+                            class="mt-4 w-full bg-blue-900 text-white font-semibold rounded-lg p-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">Enviar</button>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Registrar Producto - INGICAT')
+@section('title', 'Registrar Producto')
 
 @section('content')
     <div class="p-4 sm:ml-64">
@@ -26,7 +26,7 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-24 p-2.5"></p>
                 </div>
                 <div>
-                    <label for="contador" class="block mb-2 text-sm font-medium text-gray-900">Contador</label>
+                    <label for="contador" class="block mb-2 text-sm font-medium text-gray-900">Contador <span class="text-red-700">*</span></label>
                     <input type="number" id="contador" name="contador"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-24 p-2.5" required
                         placeholder="1,2,3,4,5">
@@ -35,7 +35,7 @@
 
             <div class="relative z-0 w-full mb-5 group">
                 <label for="descripcion" class="block mb-2 text-sm font-medium text-gray-900">Descripción de
-                    equipo</label>
+                    equipo <span class="text-red-700">*</span></label>
                 <textarea id="descripcion" rows="4" name="descripcion" placeholder="LENOVO LEGION..."
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300" required></textarea>
             </div>
@@ -43,19 +43,20 @@
                 <div class="relative z-0 w-full mb-5 group">
                     <label for="codigo_referencia"
                         class="block mb-2 text-sm font-medium text-gray-900">Codigo /
-                        Referencia</label>
+                        Referencia <span class="text-red-700">*</span></label>
                     <input type="text" id="codigo_referencia" name="codigo_referencia" placeholder="CCP001"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                         required>
                 </div>
                 <div class="relative z-0 w-full mb-5 group">
                     <label for="ubicacion"
-                        class="block mb-2 text-sm font-medium text-gray-900">Ubicación</label>
+                        class="block mb-2 text-sm font-medium text-gray-900">Ubicación <span class="text-red-700">*</span></label>
                     <select id="ubicacion" name="ubicacion" required
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5">
                         <option value="">Seleccionar</option>
-                        <option value="Barrancabermeja">Barrancabermeja</option>
-                        <option value="Bogota">Bogota</option>
+                        <option value="BARRANCABERMEJA">BARRANCABERMEJA</option>
+                        <option value="BOGOTÁ">BOGOTÁ</option>
+                        <option value="VILLAVICENCIO">VILLAVICENCIO</option>
                     </select>
                 </div>
             </div>
@@ -68,7 +69,7 @@
             </div>
 
             <button type="submit" disabled
-                class="text-white bg-red-900 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Registrar</button>
+                class="text-white bg-blue-900 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Registrar</button>
         </form>
 
     </div>

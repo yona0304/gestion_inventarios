@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Cambiar Clave - INGICAT')
+@section('title', 'Cambiar Clave')
 
 @section('content')
     <div class="p-4 sm:ml-64">
@@ -19,7 +19,7 @@
                         <div class="mt-2">
                             <input name="contra_actual" type="password" id="contra_actual"
                                 placeholder="Ingrese su contraseña actual" required
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6">
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
@@ -29,7 +29,7 @@
                         <div class="mt-2">
                             <input name="nueva_contrase" type="password" id="nueva_contrase"
                                 placeholder="Ingrese su nueva contraseña" required
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6">
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
@@ -40,19 +40,19 @@
                         <div class="mt-2">
                             <input name="nueva_contrase_confirmation" type="password" id="nueva_contrase_confirmation"
                                 placeholder="Confirme su nueva contraseña" required
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6">
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="flex items-center">
                         <input id="mostrar_contrase" name="mostrar_contrase" type="checkbox"
-                            class="h-4 w-4 rounded border-gray-300 text-red-800 focus:ring-red-900">
+                            class="h-4 w-4 rounded border-gray-300">
                         <label for="mostrar_contrase" class="ml-3 min-w-0 flex-1 text-gray-500">Mostrar Clave</label>
                     </div>
 
                     <div>
                         <button type="submit" id="submit-Btn"
-                            class="flex w-full justify-center rounded-md bg-red-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Actualizar</button>
+                            class="flex w-full justify-center rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Actualizar</button>
                     </div>
                 </form>
             </div>
